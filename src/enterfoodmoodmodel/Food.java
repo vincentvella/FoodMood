@@ -31,6 +31,20 @@ public class Food {
         return foodName;
     }
     
+    void setFoodName(String foodName){
+    }
+    
+    void setTimeEntered(){
+        
+    }
+    
+    void setFoodQuantity(){
+        
+    }
+    
+    void setFoodMood(){
+        
+    }
     /**
      * Method to get the time the food object was entered
      * @return The time the food object was entered as a string value

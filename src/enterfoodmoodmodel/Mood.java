@@ -10,9 +10,8 @@ import java.util.ArrayList;
  * potentially have associated with it.
  */
 public class Mood {
-    private String foodName;
+    private String moodName;
     private String timeEntered;
-    private double foodQuantity;
     private ArrayList<String> associatedFoods;
     /**
      * This is the default constructor for the Mood class
@@ -21,12 +20,24 @@ public class Mood {
         
     }
     
+    void setMoodName(){
+        
+    }
+    
+    void setTimeEntered(){
+        
+    }
+    
+    void setAssociatedFoods(){
+        
+    }
+    
     /**
      * Method to get the name of the mood object as a string
      * @return The title of the mood
      */
     public String getMoodName(){
-        return foodName;
+        return moodName;
     }
     
     /**
@@ -38,8 +49,8 @@ public class Mood {
     }
     
     /**
-     * Method to get the names of different foods associated with this mood
-     * @return 
+     * Method to get the names of different foods you associated with this mood
+     * @return An ArrayList
      */
     public ArrayList<String> getAssociatedFoods(){
         return associatedFoods;
