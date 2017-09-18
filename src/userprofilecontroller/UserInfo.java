@@ -6,10 +6,7 @@
 package userprofilecontroller;
 
 import userprofilemodel.Profile;
-/**
- *
- * @author Zach
- */
+
 public class UserInfo {
     
     /**

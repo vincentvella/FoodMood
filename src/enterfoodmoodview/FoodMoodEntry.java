@@ -5,10 +5,6 @@
  */
 package enterfoodmoodview;
 
-/**
- *
- * @author Ben
- */
 public class FoodMoodEntry {
     
     private String food;

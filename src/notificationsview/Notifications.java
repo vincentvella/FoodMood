@@ -5,10 +5,6 @@
  */
 package notificationsview;
 
-/**
- *
- * @author zzt5046
- */
 public class Notifications {
     
     /**

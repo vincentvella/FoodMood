@@ -5,10 +5,6 @@
  */
 package userprofilemodel;
 
-/**
- *
- * @author jjo5151, zzt5046
- */
 public class User {
     
     private String username;

@@ -5,10 +5,6 @@
  */
 package foodmoodmodel;
 
-/**
- *
- * @author Joe
- */
 public class MoodStat {
     
 }

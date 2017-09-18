@@ -5,10 +5,6 @@
  */
 package userprofilemodel;
 
-/**
- * This class holds all the relevant data someone will have on their profile
- * @author Joe
- */
 public class Profile {
     private User user;
     private String emailAddress;

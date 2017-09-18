@@ -8,7 +8,6 @@ import java.util.ArrayList;
 /**
  * This class contains the different attributes and methods a Mood object will
  * potentially have associated with it.
- * @author Joe
  */
 public class Mood {
     private String foodName;

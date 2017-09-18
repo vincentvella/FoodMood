@@ -5,10 +5,6 @@
  */
 package foodmoodview;
 
-/**
- *
- * @author Ben
- */
 public class FoodMoodView {
     
     /**

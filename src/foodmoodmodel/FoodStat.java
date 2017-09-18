@@ -7,7 +7,6 @@ package foodmoodmodel;
 import enterfoodmoodmodel.*;
 /**
  * This
- * @author Joe
  */
 public class FoodStat {
     private Food food;

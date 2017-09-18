@@ -10,7 +10,6 @@ import enterfoodmoodmodel.Mood;
 /**
  * This contains all the attributes and methods that foods entered into the app 
  * will have associated with them.
- * @author Joe
  */
 public class Food {
     private String foodName;
