@@ -5,11 +5,29 @@
  */
 package foodmoodmodel;
 import enterfoodmoodmodel.*;
+import java.util.ArrayList;
 /**
- * This
+ * This class provides a basis for food related statistics
  */
 public class FoodStat {
     private Food food;
-    private Mood mood;
+    //Moods associated with the food
+    private ArrayList<Mood> moods;
+    
+    /**
+     * Default constructor for a FoodStat
+     */
+    public FoodStat(){
+        
+    }
+    
+    /**
+     * Gets the moods other people have associated with this food
+     * @return An ArrayList of Moods detailing moods other people have felt
+     * after eating this food
+     */
+    public ArrayList<Mood>getMoods(){
+        return moods;
+    }
     
 }
