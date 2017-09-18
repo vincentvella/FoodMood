@@ -10,12 +10,12 @@ import userprofilemodel.Profile;
  *
  * @author Zach
  */
-public class setUserSettings {
+public class UserSettings {
     
     /**
      * This is the default constructor for setUserSettings
      */
-    public setUserSettings(){
+    public UserSettings(){
         
     }
     

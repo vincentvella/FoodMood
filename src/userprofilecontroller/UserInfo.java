@@ -10,12 +10,12 @@ import userprofilemodel.Profile;
  *
  * @author Zach
  */
-public class setUserInfo {
+public class UserInfo {
     
     /**
      * This is the default constructor for the setUserInfo class
      */
-    public setUserInfo(){
+    public UserInfo(){
         
     }
     

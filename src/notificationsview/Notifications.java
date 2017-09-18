@@ -9,12 +9,12 @@ package notificationsview;
  *
  * @author zzt5046
  */
-public class viewNotifications {
+public class Notifications {
     
     /**
      * This is the default constructor for the viewNotifications class
      */
-    public viewNotifications(){
+    public Notifications(){
     
     }
     
