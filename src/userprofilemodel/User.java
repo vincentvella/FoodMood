@@ -45,7 +45,7 @@ public class User {
      * @return If authenticated, will return email string.
      */
     public String getEmail(String username, String password){
-        String out = "Error: not authenticated.";
+        String out = "Error: not authenticated";
         
         if(authenticate(username, password)){
            out = emailAddress; 
