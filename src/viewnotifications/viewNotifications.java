@@ -12,45 +12,38 @@ package viewnotifications;
 public class viewNotifications {
     
     /**
-     * This is the default constructor for the viewNotifications class that will create the interface/list
+     * This is the default constructor for the viewNotifications class
      */
     public viewNotifications(){
     
     }
+    
+    /**
+     * This allows the user to view the current notification list
+     */
+    public void viewNotificationList(){
+        
+    }
      
     /**
-     * This returns the type of a created Notification
-     * @param typeNum Type number that corresponds to a type name (String)
-     * @return The (string) type of Notification created
+     * This allows the user to view details from a single notification
      */
-    public String getType(int typeNum){
-        String typeName = "";
+    public void viewSingleNotification(){
         
-        if(typeNum == 1){
-            
-        }
-        else if(typeNum == 2){
-            
-        }
-        
-        return typeName;
     }
     
     /**
-     * This returns a generic message based on the type of Notification
-     * @param typeNum Type number that corresponds to a type w/ message
-     * @return The (string) message of the certain type of notification
+     * This allows the system to add a new notification to the view
      */
-    public String getMessage(int typeNum){
-        String message = "";
+    public void newNotification(){
         
-        if(typeNum == 1){
-            
-        }
-        else if(typeNum == 2){
-            
-        }
-        
-        return message;
     }
+    
+    /**
+     * Allows the user to erase a notification from the view
+     */
+    public void deleteNotification(){
+        
+    }
+    
 }

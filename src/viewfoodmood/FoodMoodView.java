@@ -12,7 +12,7 @@ package viewfoodmood;
 public class FoodMoodView {
     
     /**
-     * This is the default constructor for the FoodMoodEntry class
+     * This is the default constructor for the FoodMoodView class
      */    
     FoodMoodView(){
         

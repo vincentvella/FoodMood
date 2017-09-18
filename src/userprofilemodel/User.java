@@ -24,12 +24,18 @@ public class User {
     
     /**
      * This authenticates a user's log in information
-     * @param username The username to authenticate
-     * @param password The password to authenticate
+     * @param user The username to authenticate
+     * @param pass The password to authenticate
      * @return The boolean result from authenticate, true is authenticated
      */
-    public boolean authenticate(String username, String password){
-        return true;
+    public boolean authenticate(String user, String pass){
+        boolean auth = false;
+        
+        if(user.equals(username) && pass.equals(password)){
+            auth = true;
+        }
+        
+        return auth;
     }
     
     /**
