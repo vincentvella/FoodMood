@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package enterfoodmood;
+package enterfoodmoodmodel;
+
+import enterfoodmoodmodel.Mood;
 
 /**
  * This contains all the attributes and methods that foods entered into the app 
