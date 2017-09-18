@@ -9,5 +9,4 @@ build/
 nbbuild/
 nb-configuration.xml
 nbactions.xml
-
 nbproject/private/private.properties
