@@ -32,21 +32,22 @@ public class FoodMoodEntry {
     }
     
     /**
-     * Returns value of food
+     * @return value of food
      */
     public String getFood(){
         return food;
     }
     
+    
     /**
-     * Returns value of mood
+     * @return  value of mood
      */
     public String getMood(){
         return mood;
     }
     
     /**
-     * Returns value of food and mood
+     * @return value of food and mood
      */
     public String getFoodMood(){
         return food + " " + mood;
