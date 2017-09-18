@@ -25,7 +25,7 @@ public class Profile {
      */
     public void setUser(User username){
     
-        user. = username;
+        user = username;
         
     }
     
