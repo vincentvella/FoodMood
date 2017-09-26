@@ -5,7 +5,8 @@
  */
 package foodmoodmodel;
 
-import enterfoodmoodmodel.*;
+import entermoodmodel.Mood;
+import enterfoodmodel.Food;
 import java.util.ArrayList;
 
 /**

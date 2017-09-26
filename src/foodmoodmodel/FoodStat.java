@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 package foodmoodmodel;
-import enterfoodmoodmodel.*;
+import entermoodmodel.Mood;
+import enterfoodmodel.Food;
 import java.util.ArrayList;
 /**
  * This class provides a basis for food related statistics
