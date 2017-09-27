@@ -1,7 +1,7 @@
-package entermoodcontroller;
+package crudmoodctrl;
 
-import entermoodmodel.Mood;
-import enterfoodmodel.Food;
+import crudmoodmodel.Mood;
+import crudfoodmodel.Food;
 
 public class MoodCtrl {
     /**

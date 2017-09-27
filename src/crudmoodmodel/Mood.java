@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package entermoodmodel;
+package crudmoodmodel;
 import java.util.ArrayList;
 /**
  * This class contains the different attributes and methods a Mood object will

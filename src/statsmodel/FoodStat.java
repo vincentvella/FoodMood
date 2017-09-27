@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package foodmoodmodel;
-import entermoodmodel.Mood;
-import enterfoodmodel.Food;
+package statsmodel;
+import crudmoodmodel.Mood;
+import crudfoodmodel.Food;
 import java.util.ArrayList;
 /**
  * This class provides a basis for food related statistics

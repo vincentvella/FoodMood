@@ -1,8 +1,8 @@
 
-package enterfoodcontroller;
+package crudfoodctrl;
 
-import entermoodmodel.Mood;
-import enterfoodmodel.Food;
+import crudmoodmodel.Mood;
+import crudfoodmodel.Food;
 
 public class FoodCtrl {
     /**
