@@ -1,6 +1,7 @@
-package foodmoodcontroller;
+package statsctrl;
 
-import foodmoodmodel.*;
+import statsmodel.MoodStat;
+import statsmodel.FoodStat;
 
 public class StatController {
     private FoodStat foodStat;

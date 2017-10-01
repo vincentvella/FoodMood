@@ -1,26 +1,26 @@
 
-package enterfoodcontroller;
+package crudfoodctrl;
 
-import enterfoodmoodmodel.Food;
-import enterfoodmoodmodel.Mood;
+import crudmoodmodel.Mood;
+import crudfoodmodel.Food;
 
-public class FoodControl {
+public class FoodCtrl {
     /**
-     * This method will update the food name in the model
+     * This method will update the food name
      * @param foodName 
      */
     public void updateFoodName (String foodName) {
 
     }
     /**
-     * This method will update the time entered in the model
+     * This method will update the time entered
      * @param timeEntered 
      */
     public void updateTimeEntered (String timeEntered) {
 
     }
     /**
-     * This method will update the time entered in the model
+     * This method will update the quantity entered
      * @param foodQuantity 
      */
     public void updateFoodQuantity (String foodQuantity) {

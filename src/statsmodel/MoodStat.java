@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package foodmoodmodel;
+package statsmodel;
 
-import enterfoodmoodmodel.*;
+import crudmoodmodel.Mood;
+import crudfoodmodel.Food;
 import java.util.ArrayList;
 
 /**
