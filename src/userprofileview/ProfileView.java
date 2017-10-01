@@ -11,4 +11,7 @@ package userprofileview;
  */
 public class ProfileView {
     
+    public ProfileView(){
+        System.out.println("New profile view instantiated.");
+    }
 }

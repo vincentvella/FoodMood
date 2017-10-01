@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package notificationsview;
+import notificationsctrl.NotificationsController;
 
 public class Notifications {
     
@@ -11,14 +12,14 @@ public class Notifications {
      * This is the default constructor for the viewNotifications class
      */
     public Notifications(){
-    
+        System.out.println("New notif. window instantiated.");
     }
     
     /**
      * This allows the user to view the current notification list
      */
     public void viewNotificationList(){
-        
+        //new visual object
     }
      
     /**
@@ -31,8 +32,12 @@ public class Notifications {
     /**
      * This allows the system to add a new notification to the view
      */
-    public void newNotification(){
+    public void createNotification(){
         
+        //take interface input
+        
+        NotificationsController ctrl = new NotificationsController();
+        ctrl.newNotification(2, "First notification");
     }
     
     /**

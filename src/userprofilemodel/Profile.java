@@ -12,7 +12,7 @@ public class Profile {
      * This is the default constructor for a profile
      */
     public Profile(){
-        
+        System.out.println("New profile instantiated.");
     }
     
     /**

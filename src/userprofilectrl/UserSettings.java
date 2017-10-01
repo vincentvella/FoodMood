@@ -13,7 +13,7 @@ public class UserSettings {
      * This is the default constructor for setUserSettings
      */
     public UserSettings(){
-        
+        System.out.println("New usersettings instantiated.");
     }
     
     /**

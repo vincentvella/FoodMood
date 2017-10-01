@@ -13,7 +13,7 @@ public class UserInfo {
      * This is the default constructor for the setUserInfo class
      */
     public UserInfo(){
-        
+        System.out.println("New userinfo instantiated.");
     }
     
     /**
