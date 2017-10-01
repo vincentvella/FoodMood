@@ -44,4 +44,11 @@ public class Profile {
         emailAddress = null;
         
     }
+    
+    public void setReceiveNotifications(int x){
+        
+        if(x==0){
+            //dont receive
+        }
+    }
 }

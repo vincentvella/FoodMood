@@ -19,9 +19,9 @@ public class NotificationsController{
         //types
         //1 - warning , 2 - info
         
-        NotificationsModel note1 = new NotificationsModel();
-        note1.setNotificationType(type);
-        note1.setNotificationMessage(message);
+        NotificationsModel note = new NotificationsModel();
+        note.setNotificationType(type);
+        note.setNotificationMessage(message);
             
             System.out.println("Created test notification.");
             

@@ -13,7 +13,7 @@ public class UserSettings {
      * This is the default constructor for setUserSettings
      */
     public UserSettings(){
-        System.out.println("New usersettings instantiated.");
+        System.out.println("New usersettings ctrl instantiated.");
     }
     
     /**
@@ -21,7 +21,8 @@ public class UserSettings {
      * @param username The user who's setting are affected
      * @param x Integer representing yes(1) or no(0)
      */
-    public void setReceiveNotifications(Profile username, int x){
+    public void setNotifications(Profile username, int x){
         
+        username.setReceiveNotifications(x);
     }
 }

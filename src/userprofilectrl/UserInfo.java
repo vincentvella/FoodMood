@@ -22,6 +22,7 @@ public class UserInfo {
      * @param email Email value to replace with
      */
     public void setEmail(Profile username, String email){
-        
+            
+        username.setEmail(email);
     }
 }

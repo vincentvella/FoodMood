@@ -9,17 +9,10 @@ import notificationsctrl.NotificationsController;
 public class Notifications {
     
     /**
-     * This is the default constructor for the viewNotifications class
+     * This allows the user to view the current notification list
      */
     public Notifications(){
         System.out.println("New notif. window instantiated.");
-    }
-    
-    /**
-     * This allows the user to view the current notification list
-     */
-    public void viewNotificationList(){
-        //new visual object
     }
      
     /**
@@ -43,7 +36,7 @@ public class Notifications {
     /**
      * Allows the user to erase a notification from the view
      */
-    public void deleteNotification(){
+    public void deleteNotificationView(){
         
     }
     
