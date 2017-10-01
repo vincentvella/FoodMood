@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package chartcorrelationctrl;
+import chartcorrelationmodel.Chart;
 import chartcorrelationview.ChartView;
 /**
  *
@@ -22,7 +23,8 @@ public class ChartController {
      * Initializes a ChartView object
      */
     public void displayView () {
-        ChartView chart = new ChartView();
+        Chart chart = new Chart();
+        ChartView chartUI = new ChartView(chart);
     }
     
     

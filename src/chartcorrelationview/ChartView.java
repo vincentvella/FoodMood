@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package chartcorrelationview;
-
+import chartcorrelationmodel.Chart;
 /**
  *
  * @author Joe
@@ -12,9 +12,9 @@ package chartcorrelationview;
 public class ChartView {
     
     /**
-     * Default constructor for ChartView
+     * Constructor for ChartView
      */
-    public ChartView(){
+    public ChartView(Chart chart){
         
     }
     
