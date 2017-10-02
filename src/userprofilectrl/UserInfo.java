@@ -6,6 +6,8 @@
 package userprofilectrl;
 
 import userprofilemodel.Profile;
+import userprofilemodel.User;
+import userprofileview.ProfileView;
 
 public class UserInfo {
     
@@ -13,7 +15,13 @@ public class UserInfo {
      * This is the default constructor for the setUserInfo class
      */
     public UserInfo(){
+        System.out.println("New userinfo instantiated.");
+        User bob = new User();
         
+        Profile username = null;
+        setEmail(username, "emailaddress");
+        
+        ProfileView view = new ProfileView();
     }
     
     /**
@@ -22,6 +30,6 @@ public class UserInfo {
      * @param email Email value to replace with
      */
     public void setEmail(Profile username, String email){
-        
+
     }
 }

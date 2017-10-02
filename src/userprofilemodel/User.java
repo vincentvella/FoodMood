@@ -15,7 +15,7 @@ public class User {
      * This is the default constructor for the User class
      */
     public User(){
-        
+        System.out.println("New user instantiated.");
     }
     
     void setUsername(String username){

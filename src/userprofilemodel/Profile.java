@@ -12,7 +12,7 @@ public class Profile {
      * This is the default constructor for a profile
      */
     public Profile(){
-        
+        System.out.println("New profile instantiated.");
     }
     
     /**
@@ -43,5 +43,12 @@ public class Profile {
         
         emailAddress = null;
         
+    }
+    
+    public void setReceiveNotifications(int x){
+        
+        if(x==0){
+            //dont receive
+        }
     }
 }
