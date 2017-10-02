@@ -4,11 +4,19 @@
  * and open the template in the editor.
  */
 package historyview;
-
+import crudfoodmodel.Food;
 /**
  *
  * @author Joe
  */
 public class HistoryView {
     
+    public HistoryView(){
+        //get saved data of created food
+        System.out.println("New HistoryView instantiated");
+    }
+    
+    public void viewHistory(){
+        //access data/file
+    }
 }
