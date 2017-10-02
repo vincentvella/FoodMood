@@ -2,18 +2,28 @@ package crudmoodctrl;
 
 import crudmoodmodel.Mood;
 import crudfoodmodel.Food;
+import crudmoodview.MoodView;
 
 public class MoodCtrl {
+    
+     /**
+     * Constructor for creating MoodCtrl objects
+     */
+    public MoodCtrl(){
+        MoodView view = new MoodView();
+        Mood mood = view.getMood();
+    }
+    
     /**
      * This method will update the mood name in the model
-     * @param moodName 
+     * @param moodName The name of the mood
      */
     public void updateMoodName (String moodName) {
 
     }
     /**
      * This method will update the time entered in the model
-     * @param timeEntered 
+     * @param timeEntered The time the mood was entered
      */
     public void updateTimeEntered (String timeEntered) {
 
@@ -21,7 +31,7 @@ public class MoodCtrl {
 
     /**
      * This method will update the food associated with a mood
-     * @param food 
+     * @param food Food associated with mood
      */
     public void updateFoodMood (Food food) {
         
