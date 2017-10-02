@@ -1,6 +1,6 @@
-package foodmoodv1;
+package testharness;
 
-public class FoodMoodV1 {
+public class TestHarness {
 
 	/**
 	 * @param args the command line arguments
