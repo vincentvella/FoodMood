@@ -19,7 +19,8 @@ public class FoodStat {
      * Default constructor for a FoodStat
      */
     public FoodStat(){
-        
+        System.out.println("Creates a food statistic for group of moods");
+        getMoods();
     }
     
     /**
@@ -28,6 +29,7 @@ public class FoodStat {
      * after eating this food
      */
     public ArrayList<Mood>getMoods(){
+        System.out.println("Returns a group of moods associated with foods");
         return moods;
     }
     
