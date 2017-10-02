@@ -4,11 +4,18 @@
  * and open the template in the editor.
  */
 package recommendview;
-
+import crudfoodmodel.Food;
 /**
  *
- * @author Joe
+ * @author Ben
  */
 public class RecommendView {
     
+    public RecommendView(){
+        System.out.println("New ReccomendView instantiated");
+    }
+    
+    public void viewRecommend(){
+        
+    }
 }
