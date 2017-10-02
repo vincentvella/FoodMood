@@ -8,6 +8,7 @@ package userprofilemodel;
 public class Profile {
     private User user;
     private String emailAddress;
+    private int notifications;
     /**
      * This is the default constructor for a profile
      */
@@ -23,6 +24,11 @@ public class Profile {
     
         user = username;
         
+    }
+    
+    public User getUser(User username){
+    
+       return this.user;   
     }
     
     /**
@@ -47,8 +53,11 @@ public class Profile {
     
     public void setReceiveNotifications(int x){
         
-        if(x==0){
-            //dont receive
-        }
+        notifications = x;
+    }
+    
+    public int getReceiveNotifications(int x){
+        
+        return notifications;
     }
 }
