@@ -13,7 +13,13 @@ public class Profile {
      * This is the default constructor for a profile
      */
     public Profile(){
-        System.out.println("New profile instantiated.");
+        System.out.println("`-New profile instantiated.");
+        setUser(null);
+        getUser(null);
+        setEmail(null);
+        getEmail(null);
+        setReceiveNotifications(0);
+        getReceiveNotifications(1);
     }
     
     /**
@@ -21,13 +27,13 @@ public class Profile {
      * @param username 
      */
     public void setUser(User username){
-    
+        System.out.println("  `--Set Username");
         user = username;
         
     }
     
     public User getUser(User username){
-    
+        System.out.println("  `--Get Username");
        return this.user;   
     }
     
@@ -36,7 +42,7 @@ public class Profile {
      * @return The user's email
      */
     public String getEmail(String password){
-        
+        System.out.println("  `--Get Email");
         return emailAddress;
         
     }
@@ -46,18 +52,18 @@ public class Profile {
      * @param email The email to update with
      */
     public void setEmail(String email){
-        
+        System.out.println("  `--Set Email");
         emailAddress = null;
         
     }
     
     public void setReceiveNotifications(int x){
-        
+        System.out.println("  `--Set Receive Notificaions");
         notifications = x;
     }
     
     public int getReceiveNotifications(int x){
-        
+        System.out.println("  `--Get Receive Notificaions");
         return notifications;
     }
 }
