@@ -5,6 +5,7 @@
  */
 package notificationsctrl;
 import notificationsmodel.NotificationsModel;
+import notificationsview.Notifications;
 /**
  *
  * @author Joe
@@ -13,15 +14,17 @@ public class NotificationsController{
     
     public NotificationsController(){
         System.out.println("New notif. ctrl instantiated.");
+        NotificationsModel note = new NotificationsModel();
+        Notifications view = new Notifications();
     }
     
     public void newNotification(int type, String message){
         //types
         //1 - warning , 2 - info
         
-        NotificationsModel note = new NotificationsModel();
-        note.setNotificationType(type);
-        note.setNotificationMessage(message);
+        NotificationsModel note2 = new NotificationsModel();
+        note2.setNotificationType(type);
+        note2.setNotificationMessage(message);
             
             System.out.println("Created test notification.");
             

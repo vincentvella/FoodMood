@@ -16,6 +16,7 @@ public class HistoryController {
     
     public HistoryController(){
         HistoryView historyList = new HistoryView();
+        HistoryModel historyModel = new HistoryModel();
         System.out.println("New HistoryController instantiated.");
     }
     

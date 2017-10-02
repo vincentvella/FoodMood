@@ -14,6 +14,8 @@ public class UserSettings {
      */
     public UserSettings(){
         System.out.println("New usersettings ctrl instantiated.");
+        Profile username = null;
+        setNotifications(username, 1);
     }
     
     /**
