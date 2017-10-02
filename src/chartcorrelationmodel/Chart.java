@@ -3,25 +3,32 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package viewcorrelationview;
-import viewcorrelationmodel.CorrelationModel;
+package chartcorrelationmodel;
+
 /**
  *
  * @author Joe
  */
-public class CorrelationView {
+public class Chart {
     
     /**
-     * Constructor for CorrelationView objects
+     * Default constructor for Charts
      */
-    public CorrelationView(CorrelationModel corModel){
+    public Chart(){
         
     }
     
     /**
-     * Makes the view for correlation information
+     * Gets data for chart
      */
-    public void displayView(){
+    public void getData(){
+        
+    }
+    
+    /**
+     * Populates chart
+     */
+    public void populateChart(){
         
     }
     

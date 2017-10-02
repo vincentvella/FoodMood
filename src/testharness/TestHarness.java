@@ -1,5 +1,5 @@
-package foodmoodv1;
 
+public class FoodMoodV1 {
 import chartcorrelationctrl.ChartController;
 import crudfoodctrl.FoodCtrl;
 import crudmoodctrl.MoodCtrl;

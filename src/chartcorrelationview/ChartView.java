@@ -4,11 +4,24 @@
  * and open the template in the editor.
  */
 package chartcorrelationview;
-
+import chartcorrelationmodel.Chart;
 /**
  *
  * @author Joe
  */
 public class ChartView {
     
+    /**
+     * Constructor for ChartView
+     */
+    public ChartView(Chart chart){
+        
+    }
+    
+    /**
+     * Displays chart UI
+     */
+    public void makeChart(){
+        
+    }
 }

@@ -5,12 +5,12 @@
  */
 package statsview;
 
-public class FoodMoodView {
+public class StatsView {
     
     /**
      * This is the default constructor for the FoodMoodView class
      */    
-    FoodMoodView(){
+    public StatsView(){
         
     }
     
