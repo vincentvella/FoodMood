@@ -45,9 +45,8 @@ public class TestHarness {
             FoodStat foodStat = new FoodStat();
             MoodStat moodStat = null;
             StatController statCtrl = new StatController(foodStat, moodStat);
-            System.out.println("Instantiating User Profile Controllers");
-            UserInfo userInfoCtrl = new UserInfo();
-            UserSettings userSettings = new UserSettings();
+            System.out.println("Instantiating User Profile Controller");
+            UserProfileCtrl userprofctrl = new UserProfileCtrl();
             System.out.println("Instantiating Correlation Controller");
             CorrelationController correlationctrl = new CorrelationController();
         }
