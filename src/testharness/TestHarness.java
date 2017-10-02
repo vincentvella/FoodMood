@@ -10,7 +10,7 @@ import recommendctrl.RecommendController;
 import relationsctrl.RelationsController;
 import userprofilectrl.*;
 import viewcorrelationctrl.CorrelationController;
-import statsModel.*;
+import statsmodel.*;
 
 public class TestHarness {
 
@@ -42,7 +42,7 @@ public class TestHarness {
             System.out.println("Instantiating Relations Controller");
             RelationsController relationsCtrl = new RelationsController();
             System.out.println("Instantiating Stats Controller");
-            FoodStat foodStat = null;
+            FoodStat foodStat = new FoodStat();
             MoodStat moodStat = null;
             StatController statCtrl = new StatController(foodStat, moodStat);
             System.out.println("Instantiating User Profile Controllers");
