@@ -20,6 +20,6 @@ public class RecommendModel {
     String moodTimeEntered;
     
     public RecommendModel(){
-        System.out.println("RecommendModel instantiated.");
+        System.out.println("`-RecommendModel instantiated.");
     }
 }

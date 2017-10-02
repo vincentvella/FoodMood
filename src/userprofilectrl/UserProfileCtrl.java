@@ -18,18 +18,18 @@ public class UserProfileCtrl {
         
         Profile profile1 = new Profile();
         User user1 = new User();
-        System.out.println("UserProfileCtrl instantiated");
+        System.out.println("`-User Profile Control Instantiated");
+        setEmail(null, null);
+        setNotifications(null, 0);
     }
     
     public void setEmail(User user1, String email){
-        
+        System.out.println("`--Set User Email");
         Profile test = null;
-        test.setEmail(email);
     }
     
     public void setNotifications(User user1, int num){
         
         Profile test = null;
-        test.setReceiveNotifications(num);
     }
 }

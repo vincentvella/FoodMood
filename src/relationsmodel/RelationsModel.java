@@ -18,6 +18,6 @@ public class RelationsModel {
     String moodTimeEntered;
     
     public RelationsModel(){
-        System.out.println("RelationModel instantiated.");
+        System.out.println("`-RelationModel instantiated.");
     }
 }
