@@ -25,6 +25,5 @@ public class UserSettings {
      */
     public void setNotifications(Profile username, int x){
         
-        username.setReceiveNotifications(x);
     }
 }
