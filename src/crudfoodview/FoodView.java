@@ -4,15 +4,25 @@
  * and open the template in the editor.
  */
 package crudfoodview;
+import crudfoodmodel.Food;
 
-public class FoodEntryUI {
+public class FoodView {
     
-    private String food;
+    private Food food;
+    private String foodName;
     
     /**
      * This is the default constructor for the FoodMoodEntry class
      */
-    public FoodEntryUI(){
+    public FoodView(){
+        
+    }
+    
+    /**
+     * Constructor with known food
+     * @param food Known food object
+     */
+    public FoodView(Food food){
         
     }
     
@@ -21,13 +31,13 @@ public class FoodEntryUI {
      * @param food The food consumed
      */
     public void enterFood(String food){
-        this.food = food;
+        this.foodName = food;
     }
     
     /**
      * @return value of food
      */
-    public String getFood(){
+    public Food getFood(){
         return food;
     }
     
