@@ -18,7 +18,11 @@ public class NotificationsModel {
      * Default constructor for model
      */
     public NotificationsModel(){
-
+        System.out.println("`-Notification Model Created");
+        setNotificationType(0);
+        setNotificationMessage(null);
+        getNotificationType();
+        getNotificationMessage();
     }
     
     /**
@@ -26,7 +30,7 @@ public class NotificationsModel {
      * @param typeNum selected type 
      */
     public void setNotificationType(int typeNum){
-        
+        System.out.println("  `--Notification Type Set");
         type = typeNum;
     }
     
@@ -35,7 +39,7 @@ public class NotificationsModel {
      * @param typeNum selected message 
      */
     public void setNotificationMessage(String noteMessage){
-        
+        System.out.println("  `--Notification Message Set");
         message = noteMessage;
     }
     
@@ -43,7 +47,7 @@ public class NotificationsModel {
      * gets the notification type
      */
     public int getNotificationType(){
-        
+        System.out.println("  `--Getting Notification Type");
         int typeNum = type;
         return typeNum;
     }
@@ -52,7 +56,7 @@ public class NotificationsModel {
      * gets the notification type
      */
     public String getNotificationMessage(){
-        
+        System.out.println("  `--Getting Notificaiton Message");
         String noteMessage = message;
         return noteMessage;
     }
