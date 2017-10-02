@@ -20,7 +20,7 @@ public class StatsView {
      * Allows user to view statistics concerning food and mood
      */
     public void viewStats(){
-        System.out.println("Stat View Opened");
+        System.out.println("`-Stat View Opened");
     }
     
     /**
@@ -28,7 +28,7 @@ public class StatsView {
      * @param food The food the user wishes to research
      */
     public void viewStatsFood(String food){
-        System.out.println("Viewing Stats for Specific Food");
+        System.out.println("  `--Viewing Stats for Specific Food");
     }
     
     /**
@@ -36,7 +36,7 @@ public class StatsView {
      * @param mood The mood the user wishes to research
      */
     public void viewStatsMood(String mood){
-        System.out.println("Viewing Stats for Specific Mood");
+        System.out.println("  `--Viewing Stats for Specific Mood");
     }
     
     /**
