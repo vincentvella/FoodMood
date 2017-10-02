@@ -19,6 +19,14 @@ public class MoodView {
     }
     
     /**
+     * Constructor with known mood as parameter
+     * @param mood Mood to be used
+     */
+    public MoodView(Mood mood){
+        
+    }
+    
+    /**
      * View allowing user to enter food consumed
      * @param mood The mood provoked from consumption
      */

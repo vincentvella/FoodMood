@@ -10,8 +10,7 @@ public class MoodCtrl {
      * Constructor for creating MoodCtrl objects
      */
     public MoodCtrl(){
-        MoodView view = new MoodView();
-        Mood mood = view.getMood();
+        displayView();
     }
     
     /**
@@ -35,6 +34,13 @@ public class MoodCtrl {
      */
     public void updateFoodMood (Food food) {
         
+    }
+    
+    public void displayView(){
+        System.out.println("`-Instantiating Mood object");
+        Mood mood = new Mood();
+        System.out.printf("`-F Instantiated\n`-Building MoodView\n");
+        MoodView MoodUI = new MoodView(mood);
     }
     
 }

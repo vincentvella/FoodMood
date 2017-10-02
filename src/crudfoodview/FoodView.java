@@ -19,6 +19,14 @@ public class FoodView {
     }
     
     /**
+     * Constructor with known food
+     * @param food Known food object
+     */
+    public FoodView(Food food){
+        
+    }
+    
+    /**
      * View allowing user to enter food consumed
      * @param food The food consumed
      */
