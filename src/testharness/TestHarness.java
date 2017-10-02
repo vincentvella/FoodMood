@@ -1,5 +1,6 @@
+package testharness;
 
-public class FoodMoodV1 {
+import statsctrl.StatController;
 import chartcorrelationctrl.ChartController;
 import crudfoodctrl.FoodCtrl;
 import crudmoodctrl.MoodCtrl;
@@ -7,11 +8,11 @@ import historyctrl.HistoryController;
 import notificationsctrl.NotificationsController;
 import recommendctrl.RecommendController;
 import relationsctrl.RelationsController;
-import statsctrl.StatController;
 import userprofilectrl.*;
 import viewcorrelationctrl.CorrelationController;
+import statsModel.*;
 
-public class FoodMoodV1 {
+public class TestHarness {
 
 	/**
 	 * @param args the command line arguments
@@ -41,7 +42,9 @@ public class FoodMoodV1 {
             System.out.println("Instantiating Relations Controller");
             RelationsController relationsCtrl = new RelationsController();
             System.out.println("Instantiating Stats Controller");
-            StatController statCtrl = new StatController();
+            FoodStat foodStat = null;
+            MoodStat moodStat = null;
+            StatController statCtrl = new StatController(foodStat, moodStat);
             System.out.println("Instantiating User Profile Controllers");
             UserInfo userInfoCtrl = new UserInfo();
             UserSettings userSettings = new UserSettings();
