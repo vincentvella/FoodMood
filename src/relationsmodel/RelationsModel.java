@@ -4,11 +4,20 @@
  * and open the template in the editor.
  */
 package relationsmodel;
-
+import crudfoodmodel.Food;
+import crudmoodmodel.Mood;
 /**
  *
  * @author Joe
  */
 public class RelationsModel {
     
+    Food foodEntry;
+    Mood moodEntry;
+    String foodTimeEntered;
+    String moodTimeEntered;
+    
+    public RelationsModel(){
+        System.out.println("RelationModel instantiated.");
+    }
 }
