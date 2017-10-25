@@ -8,64 +8,73 @@ package crudfoodmodel;
 import crudmoodmodel.Mood;
 
 /**
- * This contains all the attributes and methods that foods entered into the app 
+ * This contains all the attributes and methods that foods entered into the app
  * will have associated with them.
  */
 public class Food {
-    private String foodName;
-    private String timeEntered;
-    private double foodQuantity;
-    private Mood foodMood;
+
+    public String foodName;
+    public String timeEntered;
+    public Mood foodMood;
+
     /**
      * This is the default constructor for the Food class
+     * @param _foodName
+     * @param _timeEntered
+     * @param _foodMood
      */
-    public Food(){
-        
+    public Food(String _foodName, String _timeEntered, Mood _foodMood) {
+        foodName = _foodName;
+        timeEntered = _timeEntered;
+        foodMood = _foodMood;
     }
-    
+
     /**
-     * Method to get the name of the food object as a string
-     * @return Name of the type of food
+     * Sets the food name
+     * @param _foodName 
      */
-    public String getFoodName(){
+    void setFoodName(String _foodName) {
+        foodName = _foodName;
+    }
+
+    /**
+     * Sets the time entered into the system
+     * @param _timeEntered 
+     */
+    void setTimeEntered(String _timeEntered) {
+        timeEntered = _timeEntered;
+    }
+
+    /**
+     * Sets the Mood associated with the food entry
+     * @param _foodMood 
+     */
+    void setFoodMood(Mood _foodMood) {
+        foodMood = _foodMood;
+    }
+
+    /**
+     * Gets the Food Name
+     * @return 
+     */
+    public String getFoodName() {
         return foodName;
     }
-    
-    void setFoodName(String foodName){
-    }
-    
-    void setTimeEntered(){
-        
-    }
-    
-    void setFoodQuantity(){
-        
-    }
-    
-    void setFoodMood(){
-        
-    }
+
     /**
-     * Method to get the time the food object was entered
-     * @return The time the food object was entered as a string value
+     * Gets the Time Entered
+     * @return 
      */
-    public String getTimeEntered(){
+    public String getTimeEntered() {
         return timeEntered;
     }
-    
+
     /**
-     * Method to get the name of the food object as a string
-     * @return Name of the type of food
+     * Gets the Mood associated with the food entry
+     * @return 
      */
-    public double getFoodQuantity(){
-        return foodQuantity;
-    }
-    
-    /**
-     * Gets the mood the user entered associated with this food object
-     * @return The mood that was entered in association with this food object
-     */
-    public Mood getFoodMood(){
+    public Mood getFoodMood() {
         return foodMood;
     }
+
 }
