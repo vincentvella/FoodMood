@@ -10,14 +10,16 @@ import java.util.ArrayList;
  * potentially have associated with it.
  */
 public class Mood {
-    private String moodName;
-    private String timeEntered;
-    private ArrayList<String> associatedFoods;
+    public String moodName;
+    public String timeEntered;
+    public ArrayList<String> associatedFoods;
     /**
      * This is the default constructor for the Mood class
      */
-    public Mood(){
-        
+    public Mood(String _moodName, String _timeEntered, ArrayList<String> _associatedFoods){
+        moodName = _moodName;
+        timeEntered = _timeEntered;
+        associatedFoods = _associatedFoods;
     }
     
     void setMoodName(){
