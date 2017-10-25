@@ -2,18 +2,17 @@ package userprofilemodel;
 
 public class User {
 
-	private String username = "";
-	private String password = "";
+	public String username = "";
+	public String password = "";
+        public Boolean authenticated = false;
 
 	/**
 	 * This is the default constructor for the User class
 	 */
-	public User() {
-		System.out.println("`-New user instantiated.");
-		setUsername(null);
-		getUsername();
-		setPassword(null);
-		authenticate("", "");
+	public User(String _username, String _password, Boolean _authenticated) {
+            username = _username;
+            password = _password;
+            authenticated = _authenticated;
 	}
 
 	void setUsername(String username) {
