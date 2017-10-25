@@ -11,27 +11,21 @@ import java.util.ArrayList;
  */
 public class Mood {
     public String moodName;
-    public String timeEntered;
-    public ArrayList<String> associatedFoods;
+    
     /**
-     * This is the default constructor for the Mood class
+     * Mood Constructor
+     * @param _moodName
      */
-    public Mood(String _moodName, String _timeEntered, ArrayList<String> _associatedFoods){
+    public Mood(String _moodName){
         moodName = _moodName;
-        timeEntered = _timeEntered;
-        associatedFoods = _associatedFoods;
     }
     
-    void setMoodName(){
-        
-    }
-    
-    void setTimeEntered(){
-        
-    }
-    
-    void setAssociatedFoods(){
-        
+    /**
+     * Set's Mood name
+     * @param _name 
+     */
+    public void setMoodName(String _name){
+        moodName = _name;
     }
     
     /**
@@ -40,21 +34,5 @@ public class Mood {
      */
     public String getMoodName(){
         return moodName;
-    }
-    
-    /**
-     * Method to get the time the mood object was entered
-     * @return The time the mood object was entered as a string value
-     */
-    public String getTimeEntered(){
-        return timeEntered;
-    }
-    
-    /**
-     * Method to get the names of different foods you associated with this mood
-     * @return An ArrayList
-     */
-    public ArrayList<String> getAssociatedFoods(){
-        return associatedFoods;
     }
 }

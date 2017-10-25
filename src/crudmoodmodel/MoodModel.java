@@ -34,8 +34,7 @@ public class MoodModel {
     public void postMood(Mood mood) {
         try {
             try (BufferedWriter bw = new BufferedWriter(new FileWriter(MOOD_FILE, true))) {
-                String foods = mapFoodsToAPI(mood.associatedFoods);
-                bw.write(mood.timeEntered + "," + mood.moodName + "," + foods);
+                bw.write(mood.moodName+",");
                 bw.flush();
                 bw.newLine();
                 bw.close();
@@ -49,9 +48,31 @@ public class MoodModel {
     // TODO Create read methods if necessary   
     //}
     
-    //public void getMoodsForUser(Mood mood) {
-    // TODO Create method to get all data for a specific user
-    //}
+    /**
+     * Gets mood list for use in submissions
+     * @param mood
+     * @return 
+     */
+    public ArrayList<String> getMoodsForUser(Mood mood) {
+     ArrayList<String> moodList = new ArrayList<>();
+     try {
+         String record;
+         String moodName;
+         String[] result;
+         File db = new File(MOOD_FILE);
+         BufferedReader br = new BufferedReader(new FileReader(db));
+         while ((record = br.readLine()) != null) {
+             result = record.split(",");
+             moodName = result[0];
+             moodList.add(moodName);
+         }
+         br.close();
+         return moodList;
+     } catch (IOException e) {
+         e.printStackTrace();
+     }
+     return null;
+    }
 
     /**
      * Updates Mood for a specific record
@@ -67,9 +88,8 @@ public class MoodModel {
             BufferedReader br = new BufferedReader(new FileReader(db));
             BufferedWriter bw = new BufferedWriter(new FileWriter(tempDB));
             while ((record = br.readLine()) != null) {
-                if (record.contains(mood.timeEntered) && record.contains(mood.moodName)) {
-                    String foods = mapFoodsToAPI(mood.associatedFoods);
-                    bw.write(mood.timeEntered + "," + mood.moodName + "," + foods);
+                if (record.contains(mood.moodName)) {
+                    bw.write(newMood.moodName);
                 } else {
                     bw.write(record);
                 }
@@ -98,7 +118,7 @@ public class MoodModel {
             BufferedReader br = new BufferedReader(new FileReader(db));
             BufferedWriter bw = new BufferedWriter(new FileWriter(tempDB));
             while ((record = br.readLine()) != null) {
-                if (record.contains(mood.timeEntered) && record.contains(mood.moodName)) {
+                if (record.contains(mood.moodName)) {
                     continue;
                 }
                 bw.write(record);
@@ -112,13 +132,5 @@ public class MoodModel {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    private String mapFoodsToAPI(ArrayList<String> associatedFoods) {
-        String result = "";
-        for (int i = 0; i < associatedFoods.size(); i++) {
-            result = result + associatedFoods.get(i);
-        }
-        return result;
     }
 }
