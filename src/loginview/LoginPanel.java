@@ -202,6 +202,11 @@ public class LoginPanel extends javax.swing.JFrame {
         confirmButton.setFont(new java.awt.Font("Arial Narrow", 0, 20)); // NOI18N
         confirmButton.setForeground(new java.awt.Color(255, 255, 255));
         confirmButton.setLabel("Confirm");
+        confirmButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                confirmButtonActionPerformed(evt);
+            }
+        });
 
         cancelButton.setActionCommand("Cancel");
         cancelButton.setBackground(new java.awt.Color(95, 98, 100));
@@ -295,7 +300,7 @@ public class LoginPanel extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelButtonActionPerformed
 
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
-        //authenticate
+        getEntries();
         registerPanel.setVisible(false);
         loginPanel.setVisible(false);
         this.setVisible(false);
@@ -305,6 +310,26 @@ public class LoginPanel extends javax.swing.JFrame {
             }
         });
     }//GEN-LAST:event_submitButtonActionPerformed
+
+    private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButtonActionPerformed
+        if (passwordMatch()) {
+            System.out.println("Passwords match");
+            loginPanel.setVisible(true);
+            registerPanel.setVisible(false);
+        } else if (!passwordMatch()) {
+            System.out.println("Passwords do not match");
+        }
+    }//GEN-LAST:event_confirmButtonActionPerformed
+    
+    Boolean passwordMatch(){
+        if(registerPasswordField.getText().equals(confirmPasswordField.getText())){
+            return true;
+        } else return false;
+    }
+    String getEntries(){
+        System.out.println(usernameTextField.getText() + " " + passwordTextField.getText());
+        return usernameTextField.getText() + " " + passwordTextField.getText();
+    }
 
     /**
      * @param args the command line arguments
