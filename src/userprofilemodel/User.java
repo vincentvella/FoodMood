@@ -20,7 +20,7 @@ public class User {
 		this.username = username;
 	}
 
-	String getUsername() {
+	public String getUsername() {
 		System.out.println("  `--Getting Username");
 		return username;
 	}
