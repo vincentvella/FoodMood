@@ -60,15 +60,6 @@ public class ProfileView extends javax.swing.JFrame {
 
         jLabel4.setText("Email:");
 
-<<<<<<< HEAD
-//        jLabel5.setText(currentProfile.user.getUsername());
-//
-//        jLabel6.setText(currentProfile.getFirstName());
-//
-//        jLabel7.setText(currentProfile.getLastName());
-//
-//        jLabel8.setText(currentProfile.getEmail());
-=======
         //jLabel5.setText(currentProfile.user.getUsername());
         jLabel5.setText("zzt5046");
         //jLabel6.setText(currentProfile.getFirstName());
@@ -77,7 +68,6 @@ public class ProfileView extends javax.swing.JFrame {
         jLabel7.setText("Thomas");
         //jLabel8.setText(currentProfile.getEmail());
         jLabel8.setText("zzt5046@psu.edu");
->>>>>>> master
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel9.setText("User Profile Info");
