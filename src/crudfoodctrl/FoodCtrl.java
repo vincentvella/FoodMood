@@ -45,9 +45,9 @@ public class FoodCtrl {
     
     public void displayView () {
         System.out.println("`-Instantiating Food object");
-        Food food = new Food();
+        //Food food = new Food();
         System.out.printf("`-F Instantiated\n`-Building FoodView\n");
-        FoodView FoodUI = new FoodView(food);
+        //FoodView FoodUI = new FoodView(food);
     }
     
 }
