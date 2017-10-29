@@ -5,7 +5,7 @@
  */
 package userprofileview;
 import javax.swing.JFrame;
-import userprofilemodel.Profile;
+import userprofilemodel.*;
 import userprofilectrl.UserProfileCtrl;
 /**
  *

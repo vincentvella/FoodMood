@@ -11,13 +11,35 @@ public class UserProfileCtrl {
 		UserProfileModel model = new UserProfileModel();
 	}
 
-	public void setEmail(User user1, String email) {
+        public void setUsername(Profile prof, String name) {
 		System.out.println("`--Set User Email");
-		Profile test = null;
+		prof.user.setUsername(name);
+	}
+        
+        public void setPassword(Profile prof, String pass) {
+		System.out.println("`--Set User Email");
+		if(prof.user.authenticate((prof.user.username), pass)){
+                    prof.user.setPassword(pass);
+                }
+	}
+        
+        public void setFirstName(Profile prof, String name) {
+		System.out.println("`--Set User Email");
+		prof.setFirstName(name);
+	}
+        
+        public void setLastName(Profile prof, String name) {
+		System.out.println("`--Set User Email");
+		prof.setLastName(name);
+	}
+        
+	public void setEmail(Profile prof, String email) {
+		System.out.println("`--Set User Email");
+		prof.setEmail(email);
 	}
 
-	public void setNotifications(User user1, int num) {
-
-		Profile test = null;
+	public void setNotifications(Profile prof, int num) {
+                System.out.println("`--Set notification param");
+		prof.setReceiveNotifications(num);
 	}
 }

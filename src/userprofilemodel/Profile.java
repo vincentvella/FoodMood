@@ -40,13 +40,33 @@ public class Profile {
         System.out.println("  `--Get Username");
         return this.user;
     }
+    
+    public void setFirstName(String name) {
+        System.out.println("  `--Set first name");
+        firstName = name;
+    }
+    
+    public String getFirstName() {
+        System.out.println("  `--Get first name");
+        return this.firstName;
+    }
+    
+    public void setLastName(String name) {
+        System.out.println("  `--Set last name");
+        lastName = name;
+    }
+    
+    public String getLastName() {
+        System.out.println("  `--Get last name");
+        return lastName;
+    }
 
     /**
      * This gets a user's stored email address
      *
      * @return The user's email
      */
-    public String getEmail(String password) {
+    public String getEmail() {
         System.out.println("  `--Get Email");
         return email;
 

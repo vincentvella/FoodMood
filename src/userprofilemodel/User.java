@@ -15,17 +15,17 @@ public class User {
             authenticated = _authenticated;
 	}
 
-	void setUsername(String username) {
+	public void setUsername(String username) {
 		System.out.println("  `--Setting Username");
 		this.username = username;
 	}
 
-	String getUsername() {
+	public String getUsername() {
 		System.out.println("  `--Getting Username");
 		return username;
 	}
 
-	void setPassword(String password) {
+	public void setPassword(String password) {
 		System.out.println("  `--Setting Password");
 		this.password = password;
 	}

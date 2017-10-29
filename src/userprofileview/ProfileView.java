@@ -4,8 +4,8 @@
  * and open the template in the editor.
  */
 package userprofileview;
-import userprofilemodel.Profile;
-import userprofilemodel.User;
+import userprofilemodel.*;
+import userprofilectrl.UserProfileCtrl;
 /**
  *
  * @author Joe
