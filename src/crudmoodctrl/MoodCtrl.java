@@ -38,9 +38,9 @@ public class MoodCtrl {
     
     public void displayView(){
         System.out.println("`-Instantiating Mood object");
-        Mood mood = new Mood();
+        //Mood mood = new Mood();
         System.out.printf("`-F Instantiated\n`-Building MoodView\n");
-        MoodView MoodUI = new MoodView(mood);
+        //MoodView MoodUI = new MoodView(mood);
     }
     
 }
