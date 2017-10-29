@@ -6,6 +6,8 @@
 package loginview;
 
 import java.awt.CardLayout;
+import java.awt.Color;
+import userprofileview.ProfileView;
 
 /**
  *
@@ -18,6 +20,7 @@ public class LoginPanel extends javax.swing.JFrame {
      */
     public LoginPanel() {
         initComponents();
+        this.getContentPane().setBackground(Color.DARK_GRAY);
     }
 
     /**
@@ -257,7 +260,6 @@ public class LoginPanel extends javax.swing.JFrame {
         registerPasswordField.setBackground(new java.awt.Color(69, 73, 74));
         confirmPasswordLabel.setForeground(new java.awt.Color(204, 204, 204));
         confirmPasswordField.setBackground(new java.awt.Color(69, 73, 74));
-        cancelButton.getAccessibleContext().setAccessibleName("Cancel");
 
         loginMainRight.add(registerPanel, "registerPanel");
 
@@ -266,7 +268,7 @@ public class LoginPanel extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(0, 510, Short.MAX_VALUE)
+                .addGap(0, 512, Short.MAX_VALUE)
                 .addComponent(loginMainRight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
@@ -293,7 +295,15 @@ public class LoginPanel extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelButtonActionPerformed
 
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
-        // TODO add your handling code here:
+        //authenticate
+        registerPanel.setVisible(false);
+        loginPanel.setVisible(false);
+        this.setVisible(false);
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new ProfileView(null).setVisible(true);
+            }
+        });
     }//GEN-LAST:event_submitButtonActionPerformed
 
     /**

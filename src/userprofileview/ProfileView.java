@@ -60,13 +60,13 @@ public class ProfileView extends javax.swing.JFrame {
 
         jLabel4.setText("Email:");
 
-        jLabel5.setText(currentProfile.user.getUsername());
-
-        jLabel6.setText(currentProfile.getFirstName());
-
-        jLabel7.setText(currentProfile.getLastName());
-
-        jLabel8.setText(currentProfile.getEmail());
+//        jLabel5.setText(currentProfile.user.getUsername());
+//
+//        jLabel6.setText(currentProfile.getFirstName());
+//
+//        jLabel7.setText(currentProfile.getLastName());
+//
+//        jLabel8.setText(currentProfile.getEmail());
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel9.setText("User Profile Info");
