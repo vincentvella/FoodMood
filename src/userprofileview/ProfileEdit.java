@@ -88,7 +88,7 @@ public class ProfileEdit extends javax.swing.JFrame {
         });
 
         jButton2.setText("Cancel");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dispose();
             }
