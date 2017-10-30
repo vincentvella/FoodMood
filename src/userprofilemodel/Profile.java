@@ -8,6 +8,14 @@ public class Profile {
     public String email;
     public int notifications;
 
+    public Profile(User user){
+        this.user = user;
+        firstName = null;
+        lastName = null;
+        email = null;
+        notifications = -1;
+    }
+    
     /**
      * This is the default constructor for a profile
      *

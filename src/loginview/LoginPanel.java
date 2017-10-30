@@ -300,24 +300,39 @@ public class LoginPanel extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelButtonActionPerformed
 
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
-        getEntries();
-        registerPanel.setVisible(false);
-        loginPanel.setVisible(false);
-        this.setVisible(false);
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MainMenu().setVisible(true);
-            }
-        });
+        String[] creds = getEntries();
+        userprofilemodel.User user = userprofilemodel.UserProfileModel.getUserForAuthentication(creds[0], creds[1]);
+        if(user != null){
+            
+            registerPanel.setVisible(false);
+            loginPanel.setVisible(false);
+            this.setVisible(false);
+            java.awt.EventQueue.invokeLater(new Runnable() {
+                public void run() {
+                    new MainMenu().setVisible(true);
+                }
+            });
+        }
+        else{
+            System.out.println("Invalid login");
+        }
     }//GEN-LAST:event_submitButtonActionPerformed
 
     private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButtonActionPerformed
-        if (passwordMatch()) {
+        String[] creds = getEntries();
+        userprofilemodel.User user = userprofilemodel.UserProfileModel.getUserForAuthentication(creds[0], creds[1]);
+        
+        if (passwordMatch() && !!userprofilemodel.UserProfileModel.getUserList().contains(creds[0])) {
+            userprofilemodel.Profile prof = new userprofilemodel.Profile(user);
             System.out.println("Passwords match");
             loginPanel.setVisible(true);
             registerPanel.setVisible(false);
+            
         } else if (!passwordMatch()) {
             System.out.println("Passwords do not match");
+        }
+        else{
+            System.out.println("Invalid input/username exists");
         }
     }//GEN-LAST:event_confirmButtonActionPerformed
     

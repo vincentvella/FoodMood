@@ -89,7 +89,7 @@ public class UserProfileModel {
      * @param newUser
      * @param newPassword 
      */
-    public void putUser(String user, String newUser, String newPassword) {
+    public static void putUser(String user, String newUser, String newPassword) {
         try {
             String record;
             File tempDB = new File("Users_temp.csv");
@@ -118,7 +118,7 @@ public class UserProfileModel {
      * Returns the user list
      * @param user 
      */
-    public ArrayList<String> getUserList() {
+    public static ArrayList<String> getUserList() {
         ArrayList<String> userList = new ArrayList<>();
         try {
             String record;
@@ -140,7 +140,7 @@ public class UserProfileModel {
     }
     //returns authenticated user
 
-    public User getUserForAuthentication(String _user, String _pass) {
+    public static User getUserForAuthentication(String _user, String _pass) {
         try {
             String record;
             String username;
@@ -166,7 +166,7 @@ public class UserProfileModel {
         return null;
     }
 
-    public Profile getUserProfile(User user) {
+    public static Profile getUserProfile(User user) {
         try {
             String record;
             String firstName;

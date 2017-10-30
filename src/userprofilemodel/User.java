@@ -6,6 +6,7 @@ public class User {
 	public String password = "";
         public Boolean authenticated = false;
 
+        
 	/**
 	 * This is the default constructor for the User class
 	 */
