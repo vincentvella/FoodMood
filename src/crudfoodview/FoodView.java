@@ -6,6 +6,8 @@
 package crudfoodview;
 import crudfoodmodel.Food;
 import crudmoodmodel.Mood;
+import crudfoodmodel.FoodModel;
+import crudmoodmodel.MoodModel;
 import java.text.SimpleDateFormat;
 
 public class FoodView extends javax.swing.JFrame{
@@ -21,6 +23,9 @@ public class FoodView extends javax.swing.JFrame{
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
+    
+    FoodModel foodDB = new FoodModel();
+    MoodModel moodDB = new MoodModel();
     
     /**
      * This is the default constructor for the FoodMoodEntry class
@@ -57,6 +62,9 @@ public class FoodView extends javax.swing.JFrame{
                 String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH").format(new java.util.Date());
                 Mood mood = new Mood(jTextField2.getText());
                 Food food = new Food(jTextField1.getText(), timeStamp, mood.getMoodName());
+                foodDB.postFood(food);
+                moodDB.postMood(mood);
+                dispose();
             }
         });
 
