@@ -318,12 +318,14 @@ public class LoginPanel extends javax.swing.JFrame {
     }//GEN-LAST:event_submitButtonActionPerformed
 
     private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButtonActionPerformed
-        String[] creds = getEntries();
-        userprofilemodel.User user = userprofilemodel.UserProfileModel.getUserForAuthentication(creds[0], creds[1]);
-        
-        if (passwordMatch() && !userprofilemodel.UserProfileModel.getUserList().contains(creds[0])) {
+        String username = registerUsernameField.getText();
+        String password = registerPasswordField.getText();
+        userprofilemodel.User user = userprofilemodel.UserProfileModel.getUserForAuthentication(username, password);
+        System.out.println("User created");
+        if (passwordMatch() && !userprofilemodel.UserProfileModel.getUserList().contains(username)) {
             userprofilemodel.Profile prof = new userprofilemodel.Profile(user);
-            userprofilemodel.UserProfileModel.postUser(creds[0], creds[1]);
+            System.out.println("Profile created");
+            userprofilemodel.UserProfileModel.postUser(username, password);
             System.out.println("Passwords match");
             loginPanel.setVisible(true);
             registerPanel.setVisible(false);
