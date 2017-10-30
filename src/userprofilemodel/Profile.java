@@ -44,7 +44,7 @@ public class Profile {
         user.username = username;
     }
 
-    public User getUsername(User user) {
+    public User getUsername() {
         System.out.println("  `--Get Username");
         return this.user;
     }
