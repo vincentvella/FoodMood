@@ -11,6 +11,11 @@ OO Pattern: Factory
   This will prove useful later in the development of the application. A test class demonstrating its capabilities has been provided.
   
 JOE:
+Object Oriented Pattern: The CHECKS Pattern Language of Information Integrity
+- Added conditionals and other checks to the input UIs to make sure user input was valid and not harmful.
+
+UI Pattern: Input prompt
+ -Adjusted UI to improve user experience and understanding of what is needed from them. This will be further added on to in the coming sprints as we identify areas where we can improve upon it even more
 
 ZACH:
 UI Pattern: Settings
