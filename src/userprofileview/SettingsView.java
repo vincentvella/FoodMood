@@ -51,18 +51,25 @@ public class SettingsView extends javax.swing.JFrame{
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 
+                //scales to more settings
+                int[] settingValues = new int[1];
+                
                // boolean checked1 = jCheckBox1.isSelected();
                 boolean checked = jCheckBox2.isSelected();
-                
-                /*if(checked1) {
-                  closeConfirm = 1;
-                } */
+
+                for(int x=0; x<settingValues.length; x++){
                 
                 if (checked) {
-                  ctrl.setNotifications(currentProfile, 1);
+                  settingValues[x] = 1;
                 }
                 else{
-                  ctrl.setNotifications(currentProfile, 0);
+                  settingValues[x] = 0;
+                }
+                    ctrl.setNotifications(currentProfile, settingValues[x]);
+                    
+                    //FOR MY INDIVIDUAL GRADE
+                    //this process would make more sense with iteration when there's more settings, but this is the only thing I could think of to use iteration this sprint
+                    //when the array is iterated over at the end to set all different setting values
                 }
                 
                 dispose();
