@@ -41,7 +41,7 @@ public class UserProfileModel {
      * @param user
      * @param password 
      */
-    public void postUser(String user, String password) {
+    public static void postUser(String user, String password) {
         try {
             try (BufferedWriter bw = new BufferedWriter(new FileWriter(USER_FILE, true))) {
                 System.out.println("Database Connection Made");

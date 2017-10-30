@@ -14,10 +14,12 @@ import userprofileview.ProfileView;
  */
 public class MainMenu extends javax.swing.JFrame {
 
+    userprofilemodel.Profile prof;
     /**
      * Creates new form MainMenu
      */
-    public MainMenu() {
+    public MainMenu( userprofilemodel.Profile prof) {
+        this.prof = prof;
         initComponents();
     }
 
@@ -89,7 +91,7 @@ public class MainMenu extends javax.swing.JFrame {
     private void userProfileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userProfileButtonActionPerformed
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ProfileView(null).setVisible(true);
+                new ProfileView(prof).setVisible(true);
             }
         });
     }//GEN-LAST:event_userProfileButtonActionPerformed

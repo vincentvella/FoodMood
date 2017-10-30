@@ -303,13 +303,12 @@ public class LoginPanel extends javax.swing.JFrame {
         String[] creds = getEntries();
         userprofilemodel.User user = userprofilemodel.UserProfileModel.getUserForAuthentication(creds[0], creds[1]);
         if(user != null){
-            
             registerPanel.setVisible(false);
             loginPanel.setVisible(false);
             this.setVisible(false);
             java.awt.EventQueue.invokeLater(new Runnable() {
                 public void run() {
-                    new MainMenu().setVisible(true);
+                    new MainMenu(userprofilemodel.UserProfileModel.getUserProfile(user)).setVisible(true);
                 }
             });
         }
@@ -322,8 +321,9 @@ public class LoginPanel extends javax.swing.JFrame {
         String[] creds = getEntries();
         userprofilemodel.User user = userprofilemodel.UserProfileModel.getUserForAuthentication(creds[0], creds[1]);
         
-        if (passwordMatch() && !!userprofilemodel.UserProfileModel.getUserList().contains(creds[0])) {
+        if (passwordMatch() && !userprofilemodel.UserProfileModel.getUserList().contains(creds[0])) {
             userprofilemodel.Profile prof = new userprofilemodel.Profile(user);
+            userprofilemodel.UserProfileModel.postUser(creds[0], creds[1]);
             System.out.println("Passwords match");
             loginPanel.setVisible(true);
             registerPanel.setVisible(false);

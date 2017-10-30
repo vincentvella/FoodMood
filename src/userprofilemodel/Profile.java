@@ -10,9 +10,9 @@ public class Profile {
 
     public Profile(User user){
         this.user = user;
-        firstName = null;
-        lastName = null;
-        email = null;
+        firstName = "";
+        lastName = "";
+        email = "";
         notifications = -1;
     }
     
