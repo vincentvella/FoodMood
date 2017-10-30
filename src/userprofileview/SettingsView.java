@@ -65,7 +65,7 @@ public class SettingsView extends javax.swing.JFrame{
                 else{
                   settingValues[x] = 0;
                 }
-                    ctrl.setNotifications(currentProfile, settingValues[x]);
+                    //ctrl.setNotifications(currentProfile, settingValues[x]);
                     
                     //FOR MY INDIVIDUAL GRADE
                     //this process would make more sense with iteration when there's more settings, but this is the only thing I could think of to use iteration this sprint
