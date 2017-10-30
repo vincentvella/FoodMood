@@ -5,8 +5,8 @@
  */
 package loginview;
 
-import java.awt.CardLayout;
 import java.awt.Color;
+import mainmenuview.MainMenu;
 import userprofileview.ProfileView;
 
 /**
@@ -306,7 +306,7 @@ public class LoginPanel extends javax.swing.JFrame {
         this.setVisible(false);
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ProfileView(null).setVisible(true);
+                new MainMenu().setVisible(true);
             }
         });
     }//GEN-LAST:event_submitButtonActionPerformed
