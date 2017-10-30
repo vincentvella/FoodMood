@@ -13,5 +13,10 @@ OO Pattern: Factory
 JOE:
 
 ZACH:
+UI Pattern: Settings
+ - Created a user settings window class (SettingsView) showing a basic layout of different user settings. Only 2 are shown, but this can be expanded later.
+
+OO Pattern: Iteration
+ - Added a loop with if-statements in SettingsView to gather settings value from an array. Isn't that relevant now, but can be adjusted to fit later goals and other uses
 
 VINCE:
