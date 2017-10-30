@@ -54,7 +54,7 @@ public class FoodModel {
             BufferedReader br = new BufferedReader(new FileReader(db));
             while ((record = br.readLine()) != null) {
                 food = record.split(",");
-                result.add(new Food(food[1], food[0], new Mood(food[2])));
+                result.add(new Food(food[1], food[0], new String(food[2])));
             }
             br.close();
         } catch (IOException e) {

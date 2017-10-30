@@ -1,14 +1,30 @@
 package userprofilectrl;
 
 import userprofilemodel.*;
+import loginview.*;
 
 public class UserProfileCtrl {
 
+        /**
+        * @param args the command line arguments
+        */
+       public static void main(String args[]) {
+           
+       }
+    
 	public UserProfileCtrl() {
-		System.out.println("`-User Profile Control Instantiated");
+		LoginPanel loginPanel = new LoginPanel();
+                System.out.println("`-User Profile Control Instantiated");
 //		setEmail(null, null);
 //		setNotifications(null, 0);
 		UserProfileModel model = new UserProfileModel();
+                String[] creds = loginPanel.getEntries();
+                String username = creds[0];
+                String password = creds[1];
+                User user = model.getUserForAuthentication(username, password);
+                Profile prof = model.getUserProfile(user);
+                
+                
 	}
 
         public void setUsername(Profile prof, String name) {
@@ -42,4 +58,6 @@ public class UserProfileCtrl {
                 System.out.println("`--Set notification param");
 		prof.setReceiveNotifications(num);
 	}
+        
+        
 }

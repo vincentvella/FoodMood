@@ -4,12 +4,10 @@
  * and open the template in the editor.
  */
 package crudmoodview;
-import crudmoodmodel.Mood;
 
 public class MoodView {
    
-    private Mood mood;
-    private String moodName;
+    private String mood;
     
     /**
      * This is the default constructor for the FoodMoodEntry class
@@ -22,7 +20,7 @@ public class MoodView {
      * Constructor with known mood as parameter
      * @param mood Mood to be used
      */
-    public MoodView(Mood mood){
+    public MoodView(String mood){
         
     }
     
@@ -30,14 +28,14 @@ public class MoodView {
      * View allowing user to enter food consumed
      * @param mood The mood provoked from consumption
      */
-    public void enterMood(Mood mood){
+    public void enterMood(String mood){
         this.mood = mood;
     }
     
     /**
      * @return  value of mood
      */
-    public Mood getMood(){
+    public String getMood(){
         return mood;
     }
     

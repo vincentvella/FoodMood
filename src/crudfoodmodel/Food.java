@@ -15,7 +15,7 @@ public class Food {
 
     public String foodName;
     public String timeEntered;
-    public Mood foodMood;
+    public String foodMood;
 
     /**
      * This is the default constructor for the Food class
@@ -23,7 +23,7 @@ public class Food {
      * @param _timeEntered
      * @param _foodMood
      */
-    public Food(String _foodName, String _timeEntered, Mood _foodMood) {
+    public Food(String _foodName, String _timeEntered, String _foodMood) {
         foodName = _foodName;
         timeEntered = _timeEntered;
         foodMood = _foodMood;
@@ -49,7 +49,7 @@ public class Food {
      * Sets the Mood associated with the food entry
      * @param _foodMood 
      */
-    void setFoodMood(Mood _foodMood) {
+    void setFoodMood(String _foodMood) {
         foodMood = _foodMood;
     }
 
@@ -73,7 +73,7 @@ public class Food {
      * Gets the Mood associated with the food entry
      * @return 
      */
-    public Mood getFoodMood() {
+    public String getFoodMood() {
         return foodMood;
     }
 
