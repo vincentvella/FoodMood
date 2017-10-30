@@ -326,9 +326,12 @@ public class LoginPanel extends javax.swing.JFrame {
             return true;
         } else return false;
     }
-    String getEntries(){
+    String[] getEntries(){
+        String[] creds = new String[2];
+        creds[0] = usernameTextField.getText();
+        creds[1] = passwordTextField.getText();
         System.out.println(usernameTextField.getText() + " " + passwordTextField.getText());
-        return usernameTextField.getText() + " " + passwordTextField.getText();
+        return creds;
     }
 
     /**
