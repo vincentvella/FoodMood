@@ -56,8 +56,7 @@ public class FoodView extends javax.swing.JFrame{
                 
                 String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH").format(new java.util.Date());
                 Mood mood = new Mood(jTextField2.getText());
-                Food food = new Food(jTextField1.getText(), timeStamp, mood);
-                dispose();
+                Food food = new Food(jTextField1.getText(), timeStamp, mood.getMoodName());
             }
         });
 
