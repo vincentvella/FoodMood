@@ -25,3 +25,8 @@ OO Pattern: Iteration
  - Added a loop with if-statements in SettingsView to gather settings value from an array. Isn't that relevant now, but can be adjusted to fit later goals and other uses
 
 VINCE:
+OO Design Pattern - Structural: Composite
+I implemented this pattern in the models of the different CRUD classes. You can see it especially in the Food and Mood classes where I integrated primitive and composite objects.
+
+UI Pattern - Fill in the blanks
+This sprint I began to implement some fill in the blanks functionality into the CRUDs. As the project moves along I will look for more opportunities to utilize this.
