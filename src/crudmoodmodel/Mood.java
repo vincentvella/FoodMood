@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package crudmoodmodel;
 import java.util.ArrayList;
 /**
@@ -10,22 +5,22 @@ import java.util.ArrayList;
  * potentially have associated with it.
  */
 public class Mood {
-    public String moodName;
+    private String moodName;
     
     /**
      * Mood Constructor
-     * @param _moodName
+     * @param m
      */
-    public Mood(String _moodName){
-        moodName = _moodName;
+    public Mood(String m){
+        moodName = m;
     }
     
     /**
      * Set's Mood name
-     * @param _name 
+     * @param n 
      */
-    public void setMoodName(String _name){
-        moodName = _name;
+    public void setMoodName(String n){
+        moodName = n;
     }
     
     /**

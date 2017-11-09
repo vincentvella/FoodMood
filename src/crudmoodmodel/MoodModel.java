@@ -27,7 +27,7 @@ public class MoodModel {
     }
 
     /**
-     * Create Food in Records
+     * Create Mood in Records
      *(C)
      * @param mood
      */
@@ -49,7 +49,7 @@ public class MoodModel {
     //}
     
     /**
-     * Gets mood list for use in submissions
+     * Gets mood list for user in submissions
      * @param mood
      * @return 
      */

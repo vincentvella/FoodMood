@@ -30,7 +30,7 @@ public class FoodModel {
     /**
      * Create Food in Records
      *(C)
-     * @param mood
+     * @param food
      */
     public void postFood(Food food) {
         try {
@@ -45,7 +45,7 @@ public class FoodModel {
         }
     }
     
-    public ArrayList<Food> getMoodsForUser(Mood mood) {
+    public ArrayList<Food> getFoodsForUser(Food food) {
         ArrayList<Food> result = new ArrayList<>();
         try {
             String record;
@@ -64,15 +64,15 @@ public class FoodModel {
     }
 
     /**
-     * Updates Mood for a specific record
+     * Updates Food for a specific record
      *(U)
-     * @param mood
-     * @param newMood
+     * @param food
+     * @param newFood
      */
     public void putFood(Food food, Food newFood) {
         try {
             String record;
-            File tempDB = new File("Mood_temp.csv");
+            File tempDB = new File("Food_temp.csv");
             File db = new File(FOOD_FILE);
             BufferedReader br = new BufferedReader(new FileReader(db));
             BufferedWriter bw = new BufferedWriter(new FileWriter(tempDB));
@@ -95,14 +95,14 @@ public class FoodModel {
     }
 
     /**
-     * Delete Mood from records
+     * Delete Food from records
      *(D)
-     * @param mood
+     * @param food
      */
     public void deleteFood(Food food) {
         try {
             String record;
-            File tempDB = new File("Mood_temp.csv");
+            File tempDB = new File("Food_temp.csv");
             File db = new File(FOOD_FILE);
             BufferedReader br = new BufferedReader(new FileReader(db));
             BufferedWriter bw = new BufferedWriter(new FileWriter(tempDB));
