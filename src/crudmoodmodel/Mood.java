@@ -9,18 +9,18 @@ public class Mood {
     
     /**
      * Mood Constructor
-     * @param _moodName
+     * @param m
      */
-    public Mood(String _moodName){
-        moodName = _moodName;
+    public Mood(String m){
+        moodName = m;
     }
     
     /**
      * Set's Mood name
-     * @param _name 
+     * @param n 
      */
-    public void setMoodName(String _name){
-        moodName = _name;
+    public void setMoodName(String n){
+        moodName = n;
     }
     
     /**
