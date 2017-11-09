@@ -34,7 +34,7 @@ public class MoodModel {
     public void postMood(Mood mood) {
         try {
             try (BufferedWriter bw = new BufferedWriter(new FileWriter(MOOD_FILE, true))) {
-                bw.write(mood.moodName+",");
+                bw.write(mood.getMoodName()+",");
                 bw.flush();
                 bw.newLine();
                 bw.close();
@@ -88,8 +88,8 @@ public class MoodModel {
             BufferedReader br = new BufferedReader(new FileReader(db));
             BufferedWriter bw = new BufferedWriter(new FileWriter(tempDB));
             while ((record = br.readLine()) != null) {
-                if (record.contains(mood.moodName)) {
-                    bw.write(newMood.moodName);
+                if (record.contains(mood.getMoodName())) {
+                    bw.write(newMood.getMoodName());
                 } else {
                     bw.write(record);
                 }
@@ -118,7 +118,7 @@ public class MoodModel {
             BufferedReader br = new BufferedReader(new FileReader(db));
             BufferedWriter bw = new BufferedWriter(new FileWriter(tempDB));
             while ((record = br.readLine()) != null) {
-                if (record.contains(mood.moodName)) {
+                if (record.contains(mood.getMoodName())) {
                     continue;
                 }
                 bw.write(record);
