@@ -5,7 +5,7 @@ import java.util.ArrayList;
  * potentially have associated with it.
  */
 public class Mood {
-    public String moodName;
+    private String moodName;
     
     /**
      * Mood Constructor

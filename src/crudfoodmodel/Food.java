@@ -8,9 +8,9 @@ import crudmoodmodel.Mood;
  */
 public class Food {
 
-    public String foodName;
-    public String timeEntered;
-    public String foodMood;
+    private String foodName;
+    private String timeEntered;
+    private String foodMood;
 
     /**
      * This is the default constructor for the Food class
@@ -28,7 +28,7 @@ public class Food {
      * Sets the food name
      * @param f 
      */
-    void setFoodName(String f) {
+    public void setFoodName(String f) {
         foodName = f;
     }
 
@@ -36,7 +36,7 @@ public class Food {
      * Sets the time entered into the system
      * @param t 
      */
-    void setTimeEntered(String t) {
+    public void setTimeEntered(String t) {
         timeEntered = t;
     }
 
@@ -44,7 +44,7 @@ public class Food {
      * Sets the Mood associated with the food entry
      * @param fm
      */
-    void setFoodMood(String fm) {
+    public void setFoodMood(String fm) {
         foodMood = fm;
     }
 
