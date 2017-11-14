@@ -35,7 +35,7 @@ public class FoodModel {
     public void postFood(Food food) {
         try {
             try (BufferedWriter bw = new BufferedWriter(new FileWriter(FOOD_FILE, true))) {
-                bw.write(food.timeEntered + "," + food.foodName + "," + food.foodMood);
+                bw.write(food.getTimeEntered() + "," + food.getFoodName() + "," + food.getFoodMood());
                 bw.flush();
                 bw.newLine();
                 bw.close();
@@ -49,12 +49,12 @@ public class FoodModel {
         ArrayList<Food> result = new ArrayList<>();
         try {
             String record;
-            String[] food;
+            String[] foodData;
             File db = new File(FOOD_FILE);
             BufferedReader br = new BufferedReader(new FileReader(db));
             while ((record = br.readLine()) != null) {
-                food = record.split(",");
-                result.add(new Food(food[1], food[0], new String(food[2])));
+                foodData = record.split(",");
+                result.add(new Food(foodData[1], foodData[0], new String(foodData[2])));
             }
             br.close();
         } catch (IOException e) {
@@ -77,8 +77,8 @@ public class FoodModel {
             BufferedReader br = new BufferedReader(new FileReader(db));
             BufferedWriter bw = new BufferedWriter(new FileWriter(tempDB));
             while ((record = br.readLine()) != null) {
-                if (record.contains(food.timeEntered) && record.contains(food.foodName)) {
-                    bw.write(newFood.timeEntered + "," + newFood.foodName + "," + newFood.foodMood);
+                if (record.contains(food.getTimeEntered()) && record.contains(food.getFoodName())) {
+                    bw.write(newFood.getTimeEntered() + "," + newFood.getFoodName() + "," + newFood.getFoodName());
                 } else {
                     bw.write(record);
                 }
@@ -107,7 +107,7 @@ public class FoodModel {
             BufferedReader br = new BufferedReader(new FileReader(db));
             BufferedWriter bw = new BufferedWriter(new FileWriter(tempDB));
             while ((record = br.readLine()) != null) {
-                if (record.contains(food.timeEntered) && record.contains(food.foodName)) {
+                if (record.contains(food.getTimeEntered()) && record.contains(food.getFoodName())) {
                     continue;
                 }
                 bw.write(record);
