@@ -5,17 +5,27 @@
  */
 package crudfoodview;
 
+import crudfoodmodel.Food;
+import crudfoodmodel.FoodModel;
+import crudmoodmodel.Mood;
+import crudmoodmodel.MoodModel;
+import java.text.SimpleDateFormat;
+
 /**
  *
  * @author Ben
  */
 public class NewEntryView extends javax.swing.JFrame {
 
+    private Food food;
+    FoodModel foodDB = new FoodModel();
+    MoodModel moodDB = new MoodModel();
+
     /**
      * Creates new form NewEntryView
      */
     public NewEntryView() {
-        initComponents();       
+        initComponents();
     }
 
     /**
@@ -109,7 +119,16 @@ public class NewEntryView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
-        // TODO add your handling code here:
+        String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH").format(new java.util.Date());
+        
+        //point to combobox index for mood value
+        //Mood mood = new Mood(jTextField2.getText());
+        
+        //replace blank string with mood above once fixed
+        Food food = new Food(foodEntryTextField.getText(), timeStamp, "");
+        foodDB.postFood(food);
+        //moodDB.postMood(mood);
+        dispose();
     }//GEN-LAST:event_submitButtonActionPerformed
 
     private void moodComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moodComboBoxActionPerformed
@@ -118,7 +137,8 @@ public class NewEntryView extends javax.swing.JFrame {
     }//GEN-LAST:event_moodComboBoxActionPerformed
 
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
-        this.setVisible(false);
+        //this.setVisible(false);
+        dispose();
     }//GEN-LAST:event_cancelButtonActionPerformed
 
     /**
