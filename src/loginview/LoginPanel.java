@@ -26,8 +26,8 @@ public class LoginPanel extends javax.swing.JFrame {
         loginMainRight = new javax.swing.JPanel();
         loginPanel = new javax.swing.JPanel();
         usernameLabel = new javax.swing.JLabel();
-        passwordLabel = new javax.swing.JLabel();
         usernameTextField = new javax.swing.JTextField();
+        passwordLabel = new javax.swing.JLabel();
         passwordTextField = new javax.swing.JPasswordField();
         submitButton = new java.awt.Button();
         registerButton = new java.awt.Button();
@@ -35,9 +35,9 @@ public class LoginPanel extends javax.swing.JFrame {
         registerUsernameLabel = new javax.swing.JLabel();
         registerUsernameField = new javax.swing.JTextField();
         registerPasswordLabel = new javax.swing.JLabel();
-        registerPasswordField = new javax.swing.JTextField();
+        registerPasswordField = new javax.swing.JPasswordField();
         confirmPasswordLabel = new javax.swing.JLabel();
-        confirmPasswordField = new javax.swing.JTextField();
+        confirmPasswordField = new javax.swing.JPasswordField();
         confirmButton = new java.awt.Button();
         cancelButton = new java.awt.Button();
 
@@ -59,11 +59,6 @@ public class LoginPanel extends javax.swing.JFrame {
         usernameLabel.setText("Username");
         usernameLabel.setToolTipText("");
 
-        passwordLabel.setBackground(new java.awt.Color(204, 204, 204));
-        passwordLabel.setFont(new java.awt.Font("Arial Narrow", 1, 24)); // NOI18N
-        passwordLabel.setText("Password");
-        passwordLabel.setToolTipText("");
-
         usernameTextField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         usernameTextField.setForeground(new java.awt.Color(204, 204, 204));
         usernameTextField.setToolTipText("");
@@ -72,6 +67,11 @@ public class LoginPanel extends javax.swing.JFrame {
         usernameTextField.setDisabledTextColor(new java.awt.Color(69, 73, 74));
         usernameTextField.setSelectedTextColor(new java.awt.Color(69, 73, 74));
         usernameTextField.setSelectionColor(new java.awt.Color(153, 153, 153));
+
+        passwordLabel.setBackground(new java.awt.Color(204, 204, 204));
+        passwordLabel.setFont(new java.awt.Font("Arial Narrow", 1, 24)); // NOI18N
+        passwordLabel.setText("Password");
+        passwordLabel.setToolTipText("");
 
         passwordTextField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         passwordTextField.setForeground(new java.awt.Color(204, 204, 204));
@@ -133,10 +133,10 @@ public class LoginPanel extends javax.swing.JFrame {
 
         usernameLabel.getAccessibleContext().setAccessibleName("");
         usernameLabel.setForeground(new java.awt.Color(204, 204, 204));
-        passwordLabel.getAccessibleContext().setAccessibleName("");
-        passwordLabel.setForeground(new java.awt.Color(204, 204, 204));
         usernameTextField.getAccessibleContext().setAccessibleName("");
         usernameTextField.setBackground(new java.awt.Color(69, 73, 74));
+        passwordLabel.getAccessibleContext().setAccessibleName("");
+        passwordLabel.setForeground(new java.awt.Color(204, 204, 204));
         passwordTextField.getAccessibleContext().setAccessibleName("");
         passwordTextField.setBackground(new java.awt.Color(69, 73, 74));
 
@@ -166,12 +166,7 @@ public class LoginPanel extends javax.swing.JFrame {
 
         registerPasswordField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         registerPasswordField.setForeground(new java.awt.Color(204, 204, 204));
-        registerPasswordField.setToolTipText("");
         registerPasswordField.setBorder(null);
-        registerPasswordField.setCaretColor(new java.awt.Color(69, 73, 74));
-        registerPasswordField.setDisabledTextColor(new java.awt.Color(69, 73, 74));
-        registerPasswordField.setSelectedTextColor(new java.awt.Color(69, 73, 74));
-        registerPasswordField.setSelectionColor(new java.awt.Color(153, 153, 153));
 
         confirmPasswordLabel.setBackground(new java.awt.Color(204, 204, 204));
         confirmPasswordLabel.setFont(new java.awt.Font("Arial Narrow", 1, 24)); // NOI18N
@@ -180,12 +175,7 @@ public class LoginPanel extends javax.swing.JFrame {
 
         confirmPasswordField.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         confirmPasswordField.setForeground(new java.awt.Color(204, 204, 204));
-        confirmPasswordField.setToolTipText("");
         confirmPasswordField.setBorder(null);
-        confirmPasswordField.setCaretColor(new java.awt.Color(69, 73, 74));
-        confirmPasswordField.setDisabledTextColor(new java.awt.Color(69, 73, 74));
-        confirmPasswordField.setSelectedTextColor(new java.awt.Color(69, 73, 74));
-        confirmPasswordField.setSelectionColor(new java.awt.Color(153, 153, 153));
 
         confirmButton.setActionCommand("Confirm");
         confirmButton.setBackground(new java.awt.Color(127, 86, 194));
@@ -222,9 +212,9 @@ public class LoginPanel extends javax.swing.JFrame {
                         .addComponent(confirmButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(registerUsernameField, javax.swing.GroupLayout.DEFAULT_SIZE, 458, Short.MAX_VALUE)
                         .addComponent(cancelButton, javax.swing.GroupLayout.DEFAULT_SIZE, 458, Short.MAX_VALUE)
-                        .addComponent(registerPasswordField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 458, Short.MAX_VALUE)
                         .addComponent(confirmPasswordLabel, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(confirmPasswordField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 458, Short.MAX_VALUE))
+                        .addComponent(confirmPasswordField, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(registerPasswordField, javax.swing.GroupLayout.Alignment.LEADING))
                     .addComponent(registerUsernameLabel))
                 .addGap(26, 26, 26))
         );
@@ -238,12 +228,12 @@ public class LoginPanel extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(registerPasswordLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(registerPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(registerPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
                 .addComponent(confirmPasswordLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(confirmPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46)
+                .addComponent(confirmPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
                 .addComponent(confirmButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -346,7 +336,7 @@ public class LoginPanel extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Button cancelButton;
     private java.awt.Button confirmButton;
-    private javax.swing.JTextField confirmPasswordField;
+    private javax.swing.JPasswordField confirmPasswordField;
     private javax.swing.JLabel confirmPasswordLabel;
     private javax.swing.JPanel loginMainRight;
     private javax.swing.JPanel loginPanel;
@@ -354,7 +344,7 @@ public class LoginPanel extends javax.swing.JFrame {
     private javax.swing.JPasswordField passwordTextField;
     private java.awt.Button registerButton;
     private javax.swing.JPanel registerPanel;
-    private javax.swing.JTextField registerPasswordField;
+    private javax.swing.JPasswordField registerPasswordField;
     private javax.swing.JLabel registerPasswordLabel;
     private javax.swing.JTextField registerUsernameField;
     private javax.swing.JLabel registerUsernameLabel;

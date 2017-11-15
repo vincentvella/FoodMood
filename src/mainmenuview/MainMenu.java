@@ -1,6 +1,8 @@
 package mainmenuview;
 
 import crudfoodview.FoodView;
+import crudfoodview.NewEntryView;
+import javax.swing.UIManager;
 import userprofileview.ProfileView;
 
 public class MainMenu extends javax.swing.JFrame {
@@ -88,9 +90,14 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_userProfileButtonActionPerformed
 
     private void foodMoodEntryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_foodMoodEntryButtonActionPerformed
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new FoodView().setVisible(true);
+//            }
+//        });
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FoodView().setVisible(true);
+                new NewEntryView().setVisible(true);
             }
         });
     }//GEN-LAST:event_foodMoodEntryButtonActionPerformed
@@ -105,12 +112,7 @@ public class MainMenu extends javax.swing.JFrame {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
+            UIManager.setLookAndFeel("com.bulenkov.darcula.DarculaLaf");
         } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(MainMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
