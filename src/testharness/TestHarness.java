@@ -1,14 +1,14 @@
 package testharness;
 
+import Mobile.userprofilectrl.UserProfileCtrl;
 import statsctrl.StatController;
 import chartcorrelationctrl.ChartController;
-import crudfoodctrl.FoodCtrl;
-import crudmoodctrl.MoodCtrl;
-import historyctrl.HistoryController;
-import notificationsctrl.NotificationsController;
-import recommendctrl.RecommendController;
+import Mobile.crudfoodctrl.FoodCtrl;
+import Mobile.crudmoodctrl.MoodCtrl;
+import Mobile.historyctrl.HistoryController;
+import Mobile.notificationsctrl.NotificationsController;
+import Mobile.recommendctrl.RecommendController;
 import relationsctrl.RelationsController;
-import userprofilectrl.*;
 import viewcorrelationctrl.CorrelationController;
 import statsmodel.*;
 

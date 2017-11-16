@@ -1,7 +1,7 @@
 package statsmodel;
 
-import crudmoodmodel.Mood;
-import crudfoodmodel.Food;
+import Mobile.crudmoodmodel.Mood;
+import Mobile.crudfoodmodel.Food;
 import java.util.ArrayList;
 
 /**

@@ -1,6 +1,6 @@
 package relationsmodel;
-import crudfoodmodel.Food;
-import crudmoodmodel.Mood;
+import Mobile.crudfoodmodel.Food;
+import Mobile.crudmoodmodel.Mood;
 
 public class RelationsModel {
     

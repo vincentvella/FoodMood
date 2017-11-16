@@ -1,5 +1,5 @@
 package relationsview;
-import crudfoodmodel.Food;
+import Mobile.crudfoodmodel.Food;
 
 public class RelationsView {
     

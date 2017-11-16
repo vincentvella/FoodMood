@@ -1,6 +1,6 @@
 
-import loginview.LoginPanel;
-import userprofilectrl.UserProfileCtrl;
+import Mobile.loginview.LoginPanel;
+import Mobile.userprofilectrl.UserProfileCtrl;
 
 public class ClassRunner {
 
