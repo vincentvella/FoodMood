@@ -93,10 +93,21 @@
     <Component class="javax.swing.JComboBox" name="moodComboBox">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="3">
+          <StringArray count="14">
             <StringItem index="0" value="-Select one-"/>
-            <StringItem index="1" value="Enter Now"/>
-            <StringItem index="2" value="Enter Later"/>
+            <StringItem index="1" value="Enter Later"/>
+            <StringItem index="2" value="Happy"/>
+            <StringItem index="3" value="Sad"/>
+            <StringItem index="4" value="Silly"/>
+            <StringItem index="5" value="Angry"/>
+            <StringItem index="6" value="Sick"/>
+            <StringItem index="7" value="Disappointed"/>
+            <StringItem index="8" value="Frustrated"/>
+            <StringItem index="9" value="Proud"/>
+            <StringItem index="10" value="Excited"/>
+            <StringItem index="11" value="Scared"/>
+            <StringItem index="12" value="Suprised"/>
+            <StringItem index="13" value="Nervous"/>
           </StringArray>
         </Property>
       </Properties>

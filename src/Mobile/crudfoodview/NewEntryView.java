@@ -10,6 +10,7 @@ import Mobile.crudfoodmodel.FoodModel;
 import Mobile.crudmoodmodel.Mood;
 import Mobile.crudmoodmodel.MoodModel;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 
 /**
  *
@@ -52,7 +53,7 @@ public class NewEntryView extends javax.swing.JFrame {
         moodEntryLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         moodEntryLabel.setText("Mood:");
 
-        moodComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Select one-", "Enter Now", "Enter Later" }));
+        moodComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Select one-", "Enter Later", "Happy", "Sad", "Silly", "Angry", "Sick", "Disappointed", "Frustrated", "Proud", "Excited", "Scared", "Suprised", "Nervous" }));
         moodComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 moodComboBoxActionPerformed(evt);
@@ -119,15 +120,20 @@ public class NewEntryView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
+        if (moodComboBox.getSelectedIndex() == 1) {
+            //notification timer goes here
+            System.out.println("test");
+            Mood mood = new Mood("");
+            moodDB.postMood(mood);
+        } else {
+            Mood mood = new Mood((String) moodComboBox.getSelectedItem());
+            moodDB.postMood(mood);
+        }
+        
         String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH").format(new java.util.Date());
-        
-        //point to moodComboBox index for mood value
-        //Mood mood = new Mood(jTextField2.getText());
-        
-        //replace blank string with mood above once fixed
         Food food = new Food(foodEntryTextField.getText(), timeStamp, "");
         foodDB.postFood(food);
-        //moodDB.postMood(mood);
+        
         dispose();
     }//GEN-LAST:event_submitButtonActionPerformed
 
@@ -144,29 +150,6 @@ public class NewEntryView extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(NewEntryView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(NewEntryView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(NewEntryView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(NewEntryView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
