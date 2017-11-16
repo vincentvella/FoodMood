@@ -1,6 +1,8 @@
 package userprofileview;
 import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
 import userprofilemodel.*;
+import userprofileview.ProfileView;
 import userprofilectrl.UserProfileCtrl;
 
 public class ProfileEdit extends javax.swing.JFrame {
@@ -76,6 +78,8 @@ public class ProfileEdit extends javax.swing.JFrame {
                 ctrl.setEmail(currentProfile, jTextField4.getText());
                 
                 dispose();
+                
+                new ProfileView(currentProfile).repaint();
             }
         });
 

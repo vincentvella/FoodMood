@@ -44,7 +44,7 @@ public class NewEntryView extends javax.swing.JFrame {
         cancelButton = new javax.swing.JButton();
         submitButton = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         foodEntryLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         foodEntryLabel.setText("Food:");
@@ -121,7 +121,7 @@ public class NewEntryView extends javax.swing.JFrame {
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
         String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH").format(new java.util.Date());
         
-        //point to combobox index for mood value
+        //point to moodComboBox index for mood value
         //Mood mood = new Mood(jTextField2.getText());
         
         //replace blank string with mood above once fixed
@@ -137,7 +137,6 @@ public class NewEntryView extends javax.swing.JFrame {
     }//GEN-LAST:event_moodComboBoxActionPerformed
 
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
-        //this.setVisible(false);
         dispose();
     }//GEN-LAST:event_cancelButtonActionPerformed
 

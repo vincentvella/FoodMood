@@ -8,10 +8,11 @@ import userprofileview.ProfileView;
 public class MainMenu extends javax.swing.JFrame {
 
     userprofilemodel.Profile prof;
+
     /**
      * Creates new form MainMenu
      */
-    public MainMenu( userprofilemodel.Profile prof) {
+    public MainMenu(userprofilemodel.Profile prof) {
         this.prof = prof;
         initComponents();
     }
@@ -82,11 +83,7 @@ public class MainMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void userProfileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userProfileButtonActionPerformed
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ProfileView(prof).setVisible(true);
-            }
-        });
+        new ProfileView(prof).setVisible(true);
     }//GEN-LAST:event_userProfileButtonActionPerformed
 
     private void foodMoodEntryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_foodMoodEntryButtonActionPerformed
@@ -95,11 +92,8 @@ public class MainMenu extends javax.swing.JFrame {
 //                new FoodView().setVisible(true);
 //            }
 //        });
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new NewEntryView().setVisible(true);
-            }
-        });
+
+        new NewEntryView().setVisible(true);
     }//GEN-LAST:event_foodMoodEntryButtonActionPerformed
 
     /**
