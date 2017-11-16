@@ -131,11 +131,10 @@ public class MainMenu extends javax.swing.JFrame {
 
     private void foodMoodEntryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_foodMoodEntryButtonActionPerformed
         new NewEntryView().setVisible(true);
-        notificationDisable();
     }//GEN-LAST:event_foodMoodEntryButtonActionPerformed
 
     private void notificationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_notificationButtonActionPerformed
-        notificationEnable();
+
     }//GEN-LAST:event_notificationButtonActionPerformed
 
     /**
