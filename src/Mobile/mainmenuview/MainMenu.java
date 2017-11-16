@@ -131,10 +131,11 @@ public class MainMenu extends javax.swing.JFrame {
 
     private void foodMoodEntryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_foodMoodEntryButtonActionPerformed
         new NewEntryView().setVisible(true);
+        notificationDisable();
     }//GEN-LAST:event_foodMoodEntryButtonActionPerformed
 
     private void notificationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_notificationButtonActionPerformed
-        // TODO add your handling code here:
+        notificationEnable();
     }//GEN-LAST:event_notificationButtonActionPerformed
 
     /**
@@ -142,6 +143,14 @@ public class MainMenu extends javax.swing.JFrame {
      */
     public static void main(String args[]) {
 
+    }
+    
+    public void notificationEnable(){
+        notificationButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Mobile/mainmenuview/images/notification_green.png")));
+    }
+    
+    public void notificationDisable(){
+        notificationButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Mobile/mainmenuview/images/notification.png")));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
