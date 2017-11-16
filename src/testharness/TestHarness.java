@@ -1,16 +1,17 @@
 package testharness;
 
+import Analytic.statsmodel.FoodStat;
+import Analytic.statsmodel.MoodStat;
 import Mobile.userprofilectrl.UserProfileCtrl;
-import statsctrl.StatController;
-import chartcorrelationctrl.ChartController;
+import Analytic.statsctrl.StatController;
+import Analytic.chartcorrelationctrl.ChartController;
 import Mobile.crudfoodctrl.FoodCtrl;
 import Mobile.crudmoodctrl.MoodCtrl;
 import Mobile.historyctrl.HistoryController;
 import Mobile.notificationsctrl.NotificationsController;
 import Mobile.recommendctrl.RecommendController;
-import relationsctrl.RelationsController;
-import viewcorrelationctrl.CorrelationController;
-import statsmodel.*;
+import Analytic.relationsctrl.RelationsController;
+import Analytic.viewcorrelationctrl.CorrelationController;
 
 public class TestHarness {
 

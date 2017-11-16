@@ -1,4 +1,4 @@
-package statsview;
+package Analytic.statsview;
 
 public class StatsView {
     

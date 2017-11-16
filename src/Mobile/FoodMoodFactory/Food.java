@@ -1,4 +1,4 @@
-package FoodMoodFactory;
+package Mobile.FoodMoodFactory;
 
 public class Food implements Entry {
 

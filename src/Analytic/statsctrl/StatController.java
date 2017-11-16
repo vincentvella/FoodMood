@@ -1,8 +1,8 @@
-package statsctrl;
+package Analytic.statsctrl;
 
-import statsmodel.MoodStat;
-import statsmodel.FoodStat;
-import statsview.StatsView;
+import Analytic.statsmodel.MoodStat;
+import Analytic.statsmodel.FoodStat;
+import Analytic.statsview.StatsView;
 
 public class StatController {
     private FoodStat foodStat;
