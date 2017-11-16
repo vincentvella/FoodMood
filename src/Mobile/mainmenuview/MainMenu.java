@@ -5,6 +5,7 @@ import Mobile.crudfoodview.NewEntryView;
 import javax.swing.UIManager;
 import Mobile.userprofileview.ProfileView;
 import Mobile.userprofilemodel.Profile;
+import java.awt.Color;
 
 public class MainMenu extends javax.swing.JFrame {
 
@@ -16,6 +17,7 @@ public class MainMenu extends javax.swing.JFrame {
     public MainMenu(Profile prof) {
         this.prof = prof;
         initComponents();
+        this.getContentPane().setBackground(new java.awt.Color(60, 63, 65));
     }
 
     /**
@@ -27,58 +29,98 @@ public class MainMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        userProfileButton = new javax.swing.JButton();
-        foodMoodEntryButton = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
+        MainMenuBackground = new javax.swing.JPanel();
+        notificationButton = new javax.swing.JButton();
+        userProfileButton = new java.awt.Button();
+        foodMoodEntryButton = new java.awt.Button();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setForeground(java.awt.Color.lightGray);
         setMaximumSize(new java.awt.Dimension(1024, 768));
+        setPreferredSize(new java.awt.Dimension(1024, 768));
         setResizable(false);
 
-        userProfileButton.setText("User Profile");
+        MainMenuBackground.setPreferredSize(new java.awt.Dimension(890, 769));
+
+        javax.swing.GroupLayout MainMenuBackgroundLayout = new javax.swing.GroupLayout(MainMenuBackground);
+        MainMenuBackground.setLayout(MainMenuBackgroundLayout);
+        MainMenuBackgroundLayout.setHorizontalGroup(
+            MainMenuBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 890, Short.MAX_VALUE)
+        );
+        MainMenuBackgroundLayout.setVerticalGroup(
+            MainMenuBackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 769, Short.MAX_VALUE)
+        );
+
+        notificationButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Mobile/mainmenuview/images/notification.png"))); // NOI18N
+        notificationButton.setBorder(null);
+        notificationButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                notificationButtonActionPerformed(evt);
+            }
+        });
+
+        userProfileButton.setBackground(new java.awt.Color(95, 98, 100));
+        userProfileButton.setFont(new java.awt.Font("Arial Narrow", 0, 18)); // NOI18N
+        userProfileButton.setForeground(new java.awt.Color(255, 255, 255));
+        userProfileButton.setLabel("User Profile");
         userProfileButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 userProfileButtonActionPerformed(evt);
             }
         });
 
-        foodMoodEntryButton.setText("Food/Mood Entry");
+        foodMoodEntryButton.setBackground(new java.awt.Color(95, 98, 100));
+        foodMoodEntryButton.setFont(new java.awt.Font("Arial Narrow", 0, 18)); // NOI18N
+        foodMoodEntryButton.setForeground(new java.awt.Color(255, 255, 255));
+        foodMoodEntryButton.setLabel("FoodMood Entry");
         foodMoodEntryButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 foodMoodEntryButtonActionPerformed(evt);
             }
         });
 
-        jMenu1.setText("File");
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
-
-        setJMenuBar(jMenuBar1);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(userProfileButton, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(foodMoodEntryButton))
-                .addContainerGap(895, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(userProfileButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(foodMoodEntryButton, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(notificationButton)
+                        .addGap(48, 48, 48)))
+                .addComponent(MainMenuBackground, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(userProfileButton)
-                .addGap(18, 18, 18)
-                .addComponent(foodMoodEntryButton)
-                .addContainerGap(657, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(notificationButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(userProfileButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(foodMoodEntryButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(MainMenuBackground, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        MainMenuBackground.setBackground(new java.awt.Color(66, 69, 71));
+        notificationButton.setBorderPainted(false);
+        notificationButton.setContentAreaFilled(false);
+        notificationButton.setFocusPainted(false);
+        notificationButton.setOpaque(false);
+        userProfileButton.getAccessibleContext().setAccessibleName("UserProfile");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -88,44 +130,25 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_userProfileButtonActionPerformed
 
     private void foodMoodEntryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_foodMoodEntryButtonActionPerformed
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                new FoodView().setVisible(true);
-//            }
-//        });
-
         new NewEntryView().setVisible(true);
     }//GEN-LAST:event_foodMoodEntryButtonActionPerformed
+
+    private void notificationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_notificationButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_notificationButtonActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            UIManager.setLookAndFeel("com.bulenkov.darcula.DarculaLaf");
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MainMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MainMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MainMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MainMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton foodMoodEntryButton;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JButton userProfileButton;
+    private javax.swing.JPanel MainMenuBackground;
+    private java.awt.Button foodMoodEntryButton;
+    private javax.swing.JButton notificationButton;
+    private java.awt.Button userProfileButton;
     // End of variables declaration//GEN-END:variables
 
 }
