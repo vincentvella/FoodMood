@@ -124,11 +124,6 @@ public class NewEntryView extends javax.swing.JFrame {
 
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
         String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm").format(new java.util.Date());
-<<<<<<< HEAD
-        Food food = new Food(foodEntryTextField.getText(), timeStamp, "");
-        foodDB.postFood(food);
-=======
->>>>>>> master
 
         if (moodComboBox.getSelectedIndex() == 1) {
             //notification timer goes here

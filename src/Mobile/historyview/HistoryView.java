@@ -8,11 +8,15 @@ package Mobile.historyview;
 import javax.swing.JTable;
 import Mobile.crudfoodmodel.Food;
 import Mobile.crudfoodmodel.FoodModel;
+import Mobile.crudfoodview.NewEntryView;
 import java.util.ArrayList;
 import javax.swing.JScrollPane;
 import Mobile.userprofilemodel.Profile;
 import Mobile.userprofilemodel.User;
 import Mobile.userprofileview.ProfileView;
+import java.awt.event.ActionEvent;
+import javax.swing.JComboBox;
+
 /**
  *
  * @author Zach
@@ -22,13 +26,12 @@ public class HistoryView extends javax.swing.JFrame {
     /**
      * Creates new form HistoryViewPane
      */
-    
     Profile currentProfile;
     private javax.swing.JButton backButton;
     private javax.swing.JPanel panel;
     private javax.swing.JScrollPane scroll;
     private JTable table;
-    
+
     //main method for dummy testing
     /*public static void main(String[] args){
     
@@ -36,14 +39,13 @@ public class HistoryView extends javax.swing.JFrame {
         Profile test = new Profile(testU);
         new HistoryView(test);
     }
-    */
-    
+     */
     public HistoryView(Profile prof) {
-        
+
         //set basic needed info
         currentProfile = prof;
         //setTitle("User History: " + prof.user.getUsername());
-        
+
         //build window
         initComponents();
         setVisible(true);
@@ -59,15 +61,15 @@ public class HistoryView extends javax.swing.JFrame {
     private void initComponents() {
 
         panel = new javax.swing.JPanel();
-        
+
         //set table and pane properties
         String[] columns = {"Food Name", "Associated Mood", "Time Entered"};
         Object[][] data = getTableData(currentProfile);
         table = new JTable(data, columns);
-        
+
         scroll = new javax.swing.JScrollPane(table);
         scroll.setViewportView(table);
-        
+
         backButton = new javax.swing.JButton();
         backButton.setText("Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
@@ -75,16 +77,16 @@ public class HistoryView extends javax.swing.JFrame {
                 dispose();
             }
         });
-        
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(panel);
         panel.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 597, Short.MAX_VALUE)
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 597, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 292, Short.MAX_VALUE)
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 292, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -92,56 +94,78 @@ public class HistoryView extends javax.swing.JFrame {
         javax.swing.GroupLayout panelLayout = new javax.swing.GroupLayout(panel);
         panel.setLayout(panelLayout);
         panelLayout.setHorizontalGroup(
-            panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(scroll)
-                    .addGroup(panelLayout.createSequentialGroup()
-                        .addGap(0, 611, Short.MAX_VALUE)
-                        .addComponent(backButton)))
-                .addContainerGap())
+                panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(scroll)
+                                        .addGroup(panelLayout.createSequentialGroup()
+                                                .addGap(0, 611, Short.MAX_VALUE)
+                                                .addComponent(backButton)))
+                                .addContainerGap())
         );
         panelLayout.setVerticalGroup(
-            panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(scroll, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(backButton)
-                .addContainerGap())
+                panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(scroll, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(backButton)
+                                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
+
     //get all food entries a user posseses and add to table data
-    Object[][] getTableData(Profile prof){
-        
+    Object[][] getTableData(Profile prof) {
+
         FoodModel foodModel = new FoodModel();
-        
+
         ArrayList<Food> foods = foodModel.getFoodsForUser(prof.getUsername().getUsername());
         Object[][] data;
         data = new Object[foods.size()][3];
-        
+
         //populate data array with food information
         for (int i = 0; i < foods.size(); i++) {
             data[i][0] = foods.get(i).getFoodName();
-            data[i][1] = foods.get(i).getFoodMood();
+            if (foods.get(i).getFoodMood().equals("")) {
+                //data[i][1] = foods.get(i).getFoodMood();
+                data[i][1] = initMoodComboBox();
+            } else {
+                data[i][1] = foods.get(i).getFoodMood();
+            }
+
             data[i][2] = foods.get(i).getTimeEntered();
-	}
-        
+        }
+
         return data;
+    }
+
+    private Object initMoodComboBox() {
+        JComboBox<Object> moodComboBox = new javax.swing.JComboBox<>();
+        moodComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]{"-Select one-", "Happy", "Sad", "Silly", "Angry", "Sick", "Disappointed", "Frustrated", "Proud", "Excited", "Scared", "Suprised", "Nervous"}));
+        moodComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                moodComboBoxActionPerformed(evt);
+            }
+        });
+        
+        return moodComboBox;
+    }
+
+    private void moodComboBoxActionPerformed(ActionEvent evt) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
