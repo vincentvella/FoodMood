@@ -45,7 +45,8 @@ public class FoodModel {
         }
     }
     
-    public ArrayList<Food> getFoodsForUser(Food food) {
+    public ArrayList<Food> getFoodsForUser(String username) {
+        
         ArrayList<Food> result = new ArrayList<>();
         try {
             String record;
@@ -54,7 +55,10 @@ public class FoodModel {
             BufferedReader br = new BufferedReader(new FileReader(db));
             while ((record = br.readLine()) != null) {
                 foodData = record.split(",");
-                result.add(new Food(foodData[1], foodData[0], new String(foodData[2])));
+                
+                if(foodData[0].equals(username)){
+                result.add(new Food(foodData[1], foodData[2], foodData[3]));
+                }
             }
             br.close();
         } catch (IOException e) {
@@ -69,7 +73,7 @@ public class FoodModel {
      * @param food
      * @param newFood
      */
-    public void putFood(Food food, Food newFood) {
+    public void putFood(Food food, Food newFood ) {
         try {
             String record;
             File tempDB = new File("Food_temp.csv");
