@@ -18,8 +18,6 @@ public class RecommendModel {
         connectToDatabase();
     }
 
-    private final static String FOOD_FILE = "src/Mobile/crudfoodmodel/FoodModel.csv";
-
     private void connectToDatabase() {
         try {
             BufferedReader br = new BufferedReader(new FileReader(FOOD_FILE));
