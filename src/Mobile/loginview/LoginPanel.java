@@ -381,9 +381,11 @@ public class LoginPanel extends javax.swing.JFrame {
         Mobile.userprofilemodel.User user = Mobile.userprofilemodel.UserProfileModel.getUserForAuthentication(username, password);
         System.out.println("User created");
         if (passwordMatch() && !Mobile.userprofilemodel.UserProfileModel.getUserList().contains(username)) {
-            Mobile.userprofilemodel.Profile prof = new Mobile.userprofilemodel.Profile(user, firstName, lastName, email, 0);
-            System.out.println("Profile created");
             Mobile.userprofilemodel.UserProfileModel.postUser(username, password);
+            user = Mobile.userprofilemodel.UserProfileModel.getUserForAuthentication(username, password);
+            Mobile.userprofilemodel.Profile prof = new Mobile.userprofilemodel.Profile(user, firstName, lastName, email, 1);
+            System.out.println("Profile created");
+            Mobile.userprofilemodel.UserProfileModel.postUserProfile(prof);
             System.out.println("Passwords match");
             loginPanel.setVisible(true);
             registerPanel.setVisible(false);
