@@ -120,7 +120,7 @@ public class NewEntryView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
-        String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH").format(new java.util.Date());
+        String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm").format(new java.util.Date());
         Food food = new Food(foodEntryTextField.getText(), timeStamp, "");
         foodDB.postFood(food);
 
@@ -132,7 +132,8 @@ public class NewEntryView extends javax.swing.JFrame {
             Mood mood = new Mood((String) moodComboBox.getSelectedItem());
             moodDB.postMood(mood);
         }
-
+        
+        System.out.println("Submitted: "+ timeStamp);
         dispose();
     }//GEN-LAST:event_submitButtonActionPerformed
 
@@ -143,6 +144,7 @@ public class NewEntryView extends javax.swing.JFrame {
 
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
         dispose();
+
     }//GEN-LAST:event_cancelButtonActionPerformed
 
     /**
