@@ -74,7 +74,7 @@ public class FoodModel {
      * @param food
      * @param newFood
      */
-    public void putFood(Food food, Food newFood ) {
+    public void putFood(Profile profile, Food food, Food newFood ) {
         try {
             String record;
             File tempDB = new File("Food_temp.csv");
@@ -83,7 +83,7 @@ public class FoodModel {
             BufferedWriter bw = new BufferedWriter(new FileWriter(tempDB));
             while ((record = br.readLine()) != null) {
                 if (record.contains(food.getTimeEntered()) && record.contains(food.getFoodName())) {
-                    bw.write(newFood.getTimeEntered() + "," + newFood.getFoodName() + "," + newFood.getFoodName());
+                    bw.write(profile.user.username + "," + food.getFoodName() + "," + food.getTimeEntered() + "," + food.getFoodMood());
                 } else {
                     bw.write(record);
                 }
