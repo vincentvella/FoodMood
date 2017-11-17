@@ -11,7 +11,7 @@ import java.awt.Color;
 
 public class MainMenu extends javax.swing.JFrame {
 
-    Profile prof;
+    public static Profile prof;
 
     /**
      * Creates new form MainMenu
