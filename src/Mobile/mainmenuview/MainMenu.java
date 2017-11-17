@@ -1,13 +1,13 @@
 package Mobile.mainmenuview;
 
-import Mobile.crudfoodview.FoodView;
 import Mobile.crudfoodview.NewEntryView;
+import Mobile.crudmoodmodel.Mood;
 import Mobile.historyview.HistoryView;
 import Mobile.loginview.LoginPanel;
-import javax.swing.UIManager;
 import Mobile.userprofileview.ProfileView;
 import Mobile.userprofilemodel.Profile;
 import java.awt.Color;
+import Mobile.recommendmodel.RecommendModel;
 
 public class MainMenu extends javax.swing.JFrame {
 
@@ -19,7 +19,8 @@ public class MainMenu extends javax.swing.JFrame {
     public MainMenu(Profile prof) {
         this.prof = prof;
         initComponents();
-        this.getContentPane().setBackground(new java.awt.Color(60, 63, 65));
+        RecommendModel.getMoodAssociation(new Mood("Happy"));
+        this.getContentPane().setBackground(new Color(60, 63, 65));
     }
 
     /**
