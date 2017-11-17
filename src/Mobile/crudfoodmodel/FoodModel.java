@@ -55,10 +55,13 @@ public class FoodModel {
             File db = new File(FOOD_FILE);
             BufferedReader br = new BufferedReader(new FileReader(db));
             while ((record = br.readLine()) != null) {
+                String mood = "";
                 foodData = record.split(",");
-                
                 if(foodData[0].equals(username)){
-                result.add(new Food(foodData[1], foodData[2], foodData[3]));
+                    if(!foodData[3].equals("*/&%")){
+                        mood=foodData[3];
+                    }
+                result.add(new Food(foodData[1], foodData[2], mood));
                 }
             }
             br.close();
