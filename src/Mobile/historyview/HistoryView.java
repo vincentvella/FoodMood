@@ -34,9 +34,9 @@ public class HistoryView extends javax.swing.JFrame {
     
         User testU = new User("username", "test", true);
         Profile test = new Profile(testU);
-        new HistoryViewPane(test);
-    }*/
-    
+        new HistoryView(test);
+    }
+    */
     
     public HistoryView(Profile prof) {
         
