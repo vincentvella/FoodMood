@@ -1,6 +1,7 @@
 package Mobile.crudfoodmodel;
 
 import Mobile.crudmoodmodel.Mood;
+import Mobile.userprofilemodel.Profile;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -32,10 +33,10 @@ public class FoodModel {
      *(C)
      * @param food
      */
-    public void postFood(Food food) {
+    public void postFood(Profile profile, Food food) {
         try {
             try (BufferedWriter bw = new BufferedWriter(new FileWriter(FOOD_FILE, true))) {
-                bw.write(food.getTimeEntered() + "," + food.getFoodName() + "," + food.getFoodMood());
+                bw.write(profile.user.username + "," + food.getFoodName() + "," + food.getTimeEntered() + "," + food.getFoodMood());
                 bw.flush();
                 bw.newLine();
                 bw.close();
