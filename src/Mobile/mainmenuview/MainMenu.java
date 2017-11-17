@@ -8,6 +8,9 @@ import Mobile.userprofileview.ProfileView;
 import Mobile.userprofilemodel.Profile;
 import java.awt.Color;
 import Mobile.recommendmodel.RecommendModel;
+import Mobile.recommendview.RecommendView;
+import Mobile.recommendview.TestPanel;
+import Mobile.userprofilemodel.User;
 
 public class MainMenu extends javax.swing.JFrame {
 
@@ -19,7 +22,7 @@ public class MainMenu extends javax.swing.JFrame {
     public MainMenu(Profile prof) {
         this.prof = prof;
         initComponents();
-        RecommendModel.getMoodAssociation(new Mood("Happy"));
+        RecommendModel.getMoodAssociation(new Mood("Happy"), (new Profile(new User("vvella", "pass"), "", "", "", 1)));
         this.getContentPane().setBackground(new Color(60, 63, 65));
         new Mobile.notificationsctrl.NotificationsController();
     }
@@ -39,6 +42,7 @@ public class MainMenu extends javax.swing.JFrame {
         foodMoodEntryButton = new java.awt.Button();
         viewHistoryButton = new java.awt.Button();
         logoutButton = new java.awt.Button();
+        recoButton = new java.awt.Button();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setForeground(java.awt.Color.lightGray);
@@ -71,6 +75,7 @@ public class MainMenu extends javax.swing.JFrame {
         userProfileButton.setFont(new java.awt.Font("Arial Narrow", 0, 18)); // NOI18N
         userProfileButton.setForeground(new java.awt.Color(255, 255, 255));
         userProfileButton.setLabel("User Profile");
+        userProfileButton.setPreferredSize(new java.awt.Dimension(90, 30));
         userProfileButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 userProfileButtonActionPerformed(evt);
@@ -81,6 +86,7 @@ public class MainMenu extends javax.swing.JFrame {
         foodMoodEntryButton.setFont(new java.awt.Font("Arial Narrow", 0, 18)); // NOI18N
         foodMoodEntryButton.setForeground(new java.awt.Color(255, 255, 255));
         foodMoodEntryButton.setLabel("FoodMood Entry");
+        foodMoodEntryButton.setPreferredSize(new java.awt.Dimension(123, 30));
         foodMoodEntryButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 foodMoodEntryButtonActionPerformed(evt);
@@ -91,6 +97,7 @@ public class MainMenu extends javax.swing.JFrame {
         viewHistoryButton.setFont(new java.awt.Font("Arial Narrow", 0, 18)); // NOI18N
         viewHistoryButton.setForeground(new java.awt.Color(255, 255, 255));
         viewHistoryButton.setLabel("View Entries");
+        viewHistoryButton.setPreferredSize(new java.awt.Dimension(95, 30));
         viewHistoryButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 viewHistoryButtonActionPerformed(evt);
@@ -104,6 +111,17 @@ public class MainMenu extends javax.swing.JFrame {
         logoutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 logoutButtonActionPerformed(evt);
+            }
+        });
+
+        recoButton.setBackground(new java.awt.Color(95, 98, 100));
+        recoButton.setFont(new java.awt.Font("Arial Narrow", 0, 14)); // NOI18N
+        recoButton.setForeground(new java.awt.Color(255, 255, 255));
+        recoButton.setLabel("Recommendations");
+        recoButton.setPreferredSize(new java.awt.Dimension(108, 30));
+        recoButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                recoButtonActionPerformed(evt);
             }
         });
 
@@ -126,7 +144,8 @@ public class MainMenu extends javax.swing.JFrame {
                                     .addComponent(foodMoodEntryButton, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE))
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addComponent(viewHistoryButton, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
-                            .addComponent(logoutButton, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE))))
+                            .addComponent(logoutButton, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
+                            .addComponent(recoButton, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(MainMenuBackground, javax.swing.GroupLayout.PREFERRED_SIZE, 882, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14))
@@ -145,7 +164,9 @@ public class MainMenu extends javax.swing.JFrame {
                         .addComponent(foodMoodEntryButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(viewHistoryButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 542, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(recoButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 499, Short.MAX_VALUE)
                         .addComponent(logoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -181,6 +202,10 @@ public class MainMenu extends javax.swing.JFrame {
         new LoginPanel().setVisible(true);
     }//GEN-LAST:event_logoutButtonActionPerformed
 
+    private void recoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recoButtonActionPerformed
+        new RecommendView().setVisible(true);
+    }//GEN-LAST:event_recoButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -201,6 +226,7 @@ public class MainMenu extends javax.swing.JFrame {
     private java.awt.Button foodMoodEntryButton;
     private java.awt.Button logoutButton;
     private javax.swing.JButton notificationButton;
+    private java.awt.Button recoButton;
     private java.awt.Button userProfileButton;
     private java.awt.Button viewHistoryButton;
     // End of variables declaration//GEN-END:variables
