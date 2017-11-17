@@ -10,6 +10,7 @@ import java.awt.Color;
 import Mobile.recommendmodel.RecommendModel;
 import Mobile.recommendview.RecommendView;
 import Mobile.recommendview.TestPanel;
+import Mobile.userprofilemodel.User;
 
 public class MainMenu extends javax.swing.JFrame {
 
@@ -21,7 +22,7 @@ public class MainMenu extends javax.swing.JFrame {
     public MainMenu(Profile prof) {
         this.prof = prof;
         initComponents();
-        RecommendModel.getMoodAssociation(new Mood("Happy"));
+        RecommendModel.getMoodAssociation(new Mood("Happy"), (new Profile(new User("vvella", "pass"), "", "", "", 1)));
         this.getContentPane().setBackground(new Color(60, 63, 65));
     }
 

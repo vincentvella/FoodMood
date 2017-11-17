@@ -145,7 +145,7 @@ public class RecommendView extends javax.swing.JFrame {
     private void submitButtonRecActionPerformed(java.awt.event.ActionEvent evt) {                                                
         String currentMood;
         currentMood = (String) moodComboBoxRec.getSelectedItem();
-        recommendations = RecommendModel.getMoodAssociation(new Mood(currentMood));
+        recommendations = RecommendModel.getMoodAssociation(new Mood(currentMood), prof);
         
         //set needed properties
         JList<String> displayList = new JList<>(recommendations.toArray(new String[0]));

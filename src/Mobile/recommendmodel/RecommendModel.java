@@ -11,6 +11,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import Mobile.crudmoodmodel.Mood;
+import Mobile.userprofilemodel.Profile;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -33,7 +34,7 @@ public class RecommendModel {
         }
     }
     
-    private static Map<String, Integer> getOccurances(Mood mood) {
+    private static Map<String, Integer> getOccurances(Mood mood, Profile prof) {
         Map<String, Integer> occurances = new HashMap<>();
         try {
             String record;
@@ -42,11 +43,13 @@ public class RecommendModel {
             try (BufferedReader br = new BufferedReader(new FileReader(db))) {
                 while ((record = br.readLine()) != null) {
                     foodData = record.split(",");
-                    if(!occurances.containsKey(foodData[1])){
-                        occurances.put(foodData[1], 1);
-                    } else if (occurances.containsKey(foodData[1])) {
-                        int f = occurances.get(foodData[1]);
-                        occurances.put(foodData[1], f+1);
+                    if (foodData[3].equals(mood.getMoodName()) && foodData[0].equals(prof.user.username)) {
+                        if (!occurances.containsKey(foodData[1])) {
+                            occurances.put(foodData[1], 1);
+                        } else if (occurances.containsKey(foodData[1])) {
+                            int f = occurances.get(foodData[1]);
+                            occurances.put(foodData[1], f + 1);
+                        }
                     }
                 }
             }
@@ -55,18 +58,22 @@ public class RecommendModel {
         }
         return occurances;
     }
-    
-    public static ArrayList<String> getMoodAssociation(Mood mood) {
-        Map<String, Integer> associations = getOccurances(mood);
-        int maxValue = Collections.max(associations.values());
+
+    public static ArrayList<String> getMoodAssociation(Mood mood, Profile prof) {
+        Map<String, Integer> associations = getOccurances(mood, prof);
         ArrayList<String> result = new ArrayList<>();
-        associations.entrySet().forEach((entry) -> {
-            int value = entry.getValue();
-            if (maxValue == value) {
-                result.add(entry.getKey());
-            }
-        });
-        System.out.println(result);
+        if (!associations.isEmpty()) {
+            int maxValue = Collections.max(associations.values());
+            associations.entrySet().forEach((entry) -> {
+                int value = entry.getValue();
+                if (maxValue == value) {
+                    result.add(entry.getKey());
+                }
+            });
+        }
+        if(result.isEmpty()){
+            result.add("There were no results for this mood.");
+        }
         return result;
     }
 }

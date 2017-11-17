@@ -144,7 +144,7 @@ public class TestPanel extends javax.swing.JFrame {
     private void submitButtonRecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonRecActionPerformed
         String currentMood;
         currentMood = (String) moodComboBoxRec.getSelectedItem();
-        recommendations = RecommendModel.getMoodAssociation(new Mood(currentMood));
+        recommendations = RecommendModel.getMoodAssociation(new Mood(currentMood), prof);
         
         //set needed properties
         JList<String> displayList = new JList<>(recommendations.toArray(new String[0]));
