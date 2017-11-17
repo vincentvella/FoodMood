@@ -20,7 +20,6 @@ import java.util.Arrays;
  */
 public class NewEntryView extends javax.swing.JFrame {
 
-    private Food food;
     private Profile prof;
     FoodModel foodDB = new FoodModel();
     MoodModel moodDB = new MoodModel();
@@ -125,14 +124,16 @@ public class NewEntryView extends javax.swing.JFrame {
 
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
         String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm").format(new java.util.Date());
-        Food food = new Food(foodEntryTextField.getText(), timeStamp, "");
-        foodDB.postFood(prof, food);
 
         if (moodComboBox.getSelectedIndex() == 1) {
             //notification timer goes here
-            Mood mood = new Mood("");
+            //Mood mood = new Mood("*/&%");
+            Food food = new Food(foodEntryTextField.getText(), timeStamp, "*/&%");
+            foodDB.postFood(prof, food);
         } else {
-            Mood mood = new Mood((String) moodComboBox.getSelectedItem());
+            //Mood mood = new Mood((String) moodComboBox.getSelectedItem());
+            Food food = new Food(foodEntryTextField.getText(), timeStamp, (String) moodComboBox.getSelectedItem());
+            foodDB.postFood(prof, food);
         }
 
         dispose();

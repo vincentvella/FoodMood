@@ -72,7 +72,6 @@ public class HistoryView extends javax.swing.JFrame {
         backButton.setText("Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ProfileView profile = new ProfileView(currentProfile);
                 dispose();
             }
         });
