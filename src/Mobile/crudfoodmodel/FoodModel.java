@@ -73,7 +73,7 @@ public class FoodModel {
      * @param food
      * @param newFood
      */
-    public void putFood(Food food, Food newFood) {
+    public void putFood(Food food, Food newFood ) {
         try {
             String record;
             File tempDB = new File("Food_temp.csv");
