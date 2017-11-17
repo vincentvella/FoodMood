@@ -201,7 +201,7 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_logoutButtonActionPerformed
 
     private void recoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recoButtonActionPerformed
-        new TestPanel().setVisible(true);
+        new RecommendView().setVisible(true);
     }//GEN-LAST:event_recoButtonActionPerformed
 
     /**

@@ -5,8 +5,11 @@
  */
 package Mobile.recommendview;
 
+import Mobile.crudfoodmodel.Food;
 import Mobile.crudmoodmodel.Mood;
+import static Mobile.mainmenuview.MainMenu.prof;
 import Mobile.recommendmodel.RecommendModel;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.JLabel;
 import javax.swing.JList;
@@ -18,42 +21,29 @@ import javax.swing.JList;
 public class RecommendView extends javax.swing.JFrame {
 
     /**
-     * Creates new form recommendPanel
+     * Creates new form TestPanel
      */
-    
-    Mood currentMood;
     static ArrayList<String> recommendations;
-    
+
     //main method for testing
     /*
     public static void main(String[] args){
         
         Mood mood = new Mood("Happy");
-        new RecommendView(mood);
+        new TestPanel(mood);
     }
-    */
-    
-    public RecommendView(Mood mood) {
-        
-        currentMood = mood;
-        recommendations = RecommendModel.getMoodAssociation(currentMood);
-        
+     */
+    public RecommendView() {
+
         //build window
         initComponents();
-        this.setTitle(currentMood.getMoodName() + " Recommendations");
-        
-        //set needed properties
-        JList<String> displayList = new JList<>(recommendations.toArray(new String[0]));
-        scroll.setViewportView(displayList);
-        titleText.setText("Recommendations");
-        titleText.setHorizontalAlignment(JLabel.CENTER);
-        
+
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dispose();
             }
         });
-        
+
         setVisible(true);
     }
 
@@ -70,43 +60,67 @@ public class RecommendView extends javax.swing.JFrame {
         titleText = new javax.swing.JLabel();
         scroll = new javax.swing.JScrollPane();
         backButton = new javax.swing.JToggleButton();
+        moodComboBoxRec = new javax.swing.JComboBox<>();
+        submitButtonRec = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         titleText.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        titleText.setText("Recommendations");
+        titleText.setText("Select Mood:");
 
         scroll.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
         backButton.setText("Back");
 
+        moodComboBoxRec.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Select one-", "Happy", "Sad", "Silly", "Angry", "Sick", "Disappointed", "Frustrated", "Proud", "Excited", "Scared", "Suprised", "Nervous" }));
+        moodComboBoxRec.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                moodComboBoxRecActionPerformed(evt);
+            }
+        });
+
+        submitButtonRec.setText("Submit");
+        submitButtonRec.setEnabled(false);
+        submitButtonRec.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitButtonRecActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelLayout = new javax.swing.GroupLayout(panel);
         panel.setLayout(panelLayout);
         panelLayout.setHorizontalGroup(
             panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(backButton)
+                .addContainerGap())
             .addGroup(panelLayout.createSequentialGroup()
+                .addGap(29, 29, 29)
                 .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelLayout.createSequentialGroup()
-                        .addGap(215, 215, 215)
-                        .addComponent(backButton))
-                    .addGroup(panelLayout.createSequentialGroup()
-                        .addGap(145, 145, 145)
-                        .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelLayout.createSequentialGroup()
-                        .addGap(168, 168, 168)
-                        .addComponent(titleText)))
-                .addContainerGap(145, Short.MAX_VALUE))
+                        .addComponent(titleText)
+                        .addGap(18, 18, 18)
+                        .addComponent(moodComboBoxRec, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(submitButtonRec))
+                    .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 442, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
         panelLayout.setVerticalGroup(
             panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(titleText)
-                .addGap(18, 18, 18)
-                .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
+                .addContainerGap(92, Short.MAX_VALUE)
+                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(titleText)
+                    .addComponent(moodComboBoxRec, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(submitButtonRec))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(scroll, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(backButton)
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -123,10 +137,31 @@ public class RecommendView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>                        
 
+    private void moodComboBoxRecActionPerformed(java.awt.event.ActionEvent evt) {                                                
+        final boolean submitEnabled = moodComboBoxRec.getSelectedIndex() == 0;
+        submitButtonRec.setEnabled(!submitEnabled);
+    }                                               
+
+    private void submitButtonRecActionPerformed(java.awt.event.ActionEvent evt) {                                                
+        String currentMood;
+        currentMood = (String) moodComboBoxRec.getSelectedItem();
+        recommendations = RecommendModel.getMoodAssociation(new Mood(currentMood));
+        
+        //set needed properties
+        JList<String> displayList = new JList<>(recommendations.toArray(new String[0]));
+        scroll.setViewportView(displayList);
+        titleText.setText("Recommendations");
+        titleText.setHorizontalAlignment(JLabel.CENTER);
+        
+        repaint(0);
+    }                                               
+
     // Variables declaration - do not modify                     
     private javax.swing.JToggleButton backButton;
+    private javax.swing.JComboBox<String> moodComboBoxRec;
     private javax.swing.JPanel panel;
     private javax.swing.JScrollPane scroll;
+    private javax.swing.JButton submitButtonRec;
     private javax.swing.JLabel titleText;
     // End of variables declaration                   
 }
