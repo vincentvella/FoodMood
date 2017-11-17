@@ -373,12 +373,15 @@ public class LoginPanel extends javax.swing.JFrame {
     }//GEN-LAST:event_submitButtonActionPerformed
 
     private void confirmButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmButtonActionPerformed
+        String email = registerEmailField.getText();
+        String firstName = registerFirstNameField.getText();
+        String lastName = registerLastNameField.getText();
         String username = registerUsernameField.getText();
         String password = registerPasswordField.getText();
         Mobile.userprofilemodel.User user = Mobile.userprofilemodel.UserProfileModel.getUserForAuthentication(username, password);
         System.out.println("User created");
         if (passwordMatch() && !Mobile.userprofilemodel.UserProfileModel.getUserList().contains(username)) {
-            Mobile.userprofilemodel.Profile prof = new Mobile.userprofilemodel.Profile(user);
+            Mobile.userprofilemodel.Profile prof = new Mobile.userprofilemodel.Profile(user, firstName, lastName, email, 0);
             System.out.println("Profile created");
             Mobile.userprofilemodel.UserProfileModel.postUser(username, password);
             System.out.println("Passwords match");
