@@ -127,10 +127,8 @@ public class NewEntryView extends javax.swing.JFrame {
         if (moodComboBox.getSelectedIndex() == 1) {
             //notification timer goes here
             Mood mood = new Mood("");
-            moodDB.postMood(mood);
         } else {
             Mood mood = new Mood((String) moodComboBox.getSelectedItem());
-            moodDB.postMood(mood);
         }
 
         dispose();
