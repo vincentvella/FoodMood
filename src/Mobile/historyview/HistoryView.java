@@ -1,19 +1,18 @@
-<<<<<<< HEAD:src/historyview/HistoryView.java
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package historyview;
+package Mobile.historyview;
 
 import javax.swing.JTable;
-import crudfoodmodel.Food;
-import crudfoodmodel.FoodModel;
+import Mobile.crudfoodmodel.Food;
+import Mobile.crudfoodmodel.FoodModel;
 import java.util.ArrayList;
 import javax.swing.JScrollPane;
-import userprofilemodel.Profile;
-import userprofilemodel.User;
-import userprofileview.ProfileView;
+import Mobile.userprofilemodel.Profile;
+import Mobile.userprofilemodel.User;
+import Mobile.userprofileview.ProfileView;
 /**
  *
  * @author Zach
@@ -43,7 +42,7 @@ public class HistoryView extends javax.swing.JFrame {
         
         //set basic needed info
         currentProfile = prof;
-        setTitle("User History: " + prof.user.getUsername());
+        //setTitle("User History: " + prof.user.getUsername());
         
         //build window
         initComponents();
@@ -147,21 +146,3 @@ public class HistoryView extends javax.swing.JFrame {
         return data;
     }
 }
-=======
-package Mobile.historyview;
-import Mobile.crudfoodmodel.Food;
-
-public class HistoryView {
-    
-    public HistoryView(){
-        //get saved data of created food
-        System.out.println("`-History View instantiated");
-        viewHistory();
-    }
-    
-    public void viewHistory(){
-        //access data/file
-        System.out.println("`--History View Opened");
-    }
-}
->>>>>>> master:src/Mobile/historyview/HistoryView.java
