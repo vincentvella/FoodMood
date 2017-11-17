@@ -6,12 +6,16 @@ import Mobile.crudfoodmodel.Food;
 import Mobile.crudfoodview.FoodView;
 
 public class FoodCtrl {
-    
+    String foodname, timeEntered, username;
+    Mood mood;
+    Mobile.userprofilemodel.Profile prof = MainMenu.prof;
+    //username = Mobile.userprofilemodel.UserProfileModel.getUserProfile();
     /**
      * Constructor for creating FoodCtrl objects
      */
     public FoodCtrl(){
         displayView();
+        
     }
     
     /**
@@ -28,13 +32,7 @@ public class FoodCtrl {
     public void updateTimeEntered (String timeEntered) {
 
     }
-    /**
-     * This method will update the quantity entered
-     * @param foodQuantity The quantity of food entered
-     */
-    public void updateFoodQuantity (String foodQuantity) {
-
-    }
+    
     /**
      * This method will update the mood associated with a food
      * @param mood Mood connected to food entered
@@ -44,10 +42,7 @@ public class FoodCtrl {
     }
     
     public void displayView () {
-        System.out.println("`-Instantiating Food object");
-        //Food food = new Food();
-        System.out.printf("`-F Instantiated\n`-Building FoodView\n");
-        //FoodView FoodUI = new FoodView(food);
+        Mobile.crudfoodview.FoodView view = new Mobile.crudfoodview.FoodView();
     }
     
 }

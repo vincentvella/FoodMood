@@ -4,15 +4,8 @@ import Mobile.userprofilemodel.Profile;
 
 public class UserProfileCtrl {
     
-	public UserProfileCtrl() {
-            //LoginPanel loginPanel = new LoginPanel();
-            System.out.println("`-User Profile Control Instantiated");
-//            setEmail(null, null);
-//            setNotifications(null, 0);
-
-             /* Create and display the form */
-                
-                
+	public UserProfileCtrl(Profile prof) {
+            new Mobile.mainmenuview.MainMenu(prof).setVisible(true);
 	}
 
         public void setUsername(Profile prof, String name) {

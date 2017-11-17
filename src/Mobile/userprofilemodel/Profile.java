@@ -46,7 +46,7 @@ public class Profile {
 
     public User getUsername() {
         System.out.println("  `--Get Username");
-        return this.user;
+        return user;
     }
     
     public void setFirstName(String name) {

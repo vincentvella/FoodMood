@@ -17,10 +17,9 @@ import java.util.Arrays;
  * @author Ben
  */
 public class NewEntryView extends javax.swing.JFrame {
-
+    private static String[] csvData = new String[3]; 
+    
     private Food food;
-    FoodModel foodDB = new FoodModel();
-    MoodModel moodDB = new MoodModel();
 
     /**
      * Creates new form NewEntryView
@@ -122,20 +121,25 @@ public class NewEntryView extends javax.swing.JFrame {
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
         String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH").format(new java.util.Date());
         Food food = new Food(foodEntryTextField.getText(), timeStamp, "");
-        foodDB.postFood(food);
 
         if (moodComboBox.getSelectedIndex() == 1) {
             //notification timer goes here
             Mood mood = new Mood("");
-            moodDB.postMood(mood);
+            csvData[0] = foodEntryTextField.getText(); 
+            csvData[1] = mood.getMoodName(); 
+            csvData[2] = timeStamp;
         } else {
             Mood mood = new Mood((String) moodComboBox.getSelectedItem());
-            moodDB.postMood(mood);
+            csvData[0] = foodEntryTextField.getText(); 
+            csvData[1] = mood.getMoodName(); 
+            csvData[2] = timeStamp;
         }
-
         dispose();
     }//GEN-LAST:event_submitButtonActionPerformed
 
+    public static String[] getCSVData(){
+        return csvData;
+    }
     private void moodComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moodComboBoxActionPerformed
         final boolean submitEnabled = moodComboBox.getSelectedIndex() == 0;
         submitButton.setEnabled(!submitEnabled);

@@ -363,7 +363,7 @@ public class LoginPanel extends javax.swing.JFrame {
             this.setVisible(false);
             java.awt.EventQueue.invokeLater(new Runnable() {
                 public void run() {
-                    new MainMenu(Mobile.userprofilemodel.UserProfileModel.getUserProfile(user)).setVisible(true);
+                    new Mobile.userprofilectrl.UserProfileCtrl(Mobile.userprofilemodel.UserProfileModel.getUserProfile(user));
                 }
             });
         }
