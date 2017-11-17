@@ -155,7 +155,7 @@ public class UserProfileModel {
                     password = result[1];
                     if ((username == null ? _user == null : username.equals(_user)) && (password == null ? _pass == null : password.equals(_pass))) {
                         br.close();
-                        return new User(username, password, true);
+                        return new User(username, password);
                     }
                 }
             }
@@ -193,5 +193,24 @@ public class UserProfileModel {
             e.printStackTrace();
         }
         return null;
+    }
+    
+    public static void postUserProfile(Profile profile) {
+        try {
+            try (BufferedWriter bw = new BufferedWriter(new FileWriter(USER_PROFILE, true))) {
+                System.out.println("Database Connection Made");
+                System.out.println(profile.user.getUsername());
+                System.out.println(profile.firstName);
+                System.out.println(profile.lastName);
+                System.out.println(profile.email);
+                System.out.println(profile.notifications);
+                bw.write(profile.user.username + "," + profile.firstName + "," + profile.lastName + "," + profile.email + "," + profile.notifications);
+                bw.flush();
+                bw.newLine();
+                bw.close();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
