@@ -9,7 +9,9 @@ import Mobile.crudfoodmodel.Food;
 import Mobile.crudfoodmodel.FoodModel;
 import Mobile.crudmoodmodel.Mood;
 import Mobile.crudmoodmodel.MoodModel;
+import Mobile.userprofilemodel.Profile;
 import java.text.SimpleDateFormat;
+import Mobile.mainmenuview.MainMenu;
 import java.util.Arrays;
 
 /**
@@ -18,7 +20,7 @@ import java.util.Arrays;
  */
 public class NewEntryView extends javax.swing.JFrame {
 
-    private Food food;
+    private Profile prof;
     FoodModel foodDB = new FoodModel();
     MoodModel moodDB = new MoodModel();
 
@@ -27,6 +29,7 @@ public class NewEntryView extends javax.swing.JFrame {
      */
     public NewEntryView() {
         initComponents();
+        prof = MainMenu.prof;
     }
 
     /**
@@ -121,16 +124,21 @@ public class NewEntryView extends javax.swing.JFrame {
 
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
         String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm").format(new java.util.Date());
+<<<<<<< HEAD
         Food food = new Food(foodEntryTextField.getText(), timeStamp, "");
         foodDB.postFood(food);
+=======
+>>>>>>> master
 
         if (moodComboBox.getSelectedIndex() == 1) {
             //notification timer goes here
-            Mood mood = new Mood("");
-            moodDB.postMood(mood);
+            //Mood mood = new Mood("*/&%");
+            Food food = new Food(foodEntryTextField.getText(), timeStamp, "*/&%");
+            foodDB.postFood(prof, food);
         } else {
-            Mood mood = new Mood((String) moodComboBox.getSelectedItem());
-            moodDB.postMood(mood);
+            //Mood mood = new Mood((String) moodComboBox.getSelectedItem());
+            Food food = new Food(foodEntryTextField.getText(), timeStamp, (String) moodComboBox.getSelectedItem());
+            foodDB.postFood(prof, food);
         }
         
         System.out.println("Submitted: "+ timeStamp);

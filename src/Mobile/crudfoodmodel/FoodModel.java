@@ -1,6 +1,7 @@
 package Mobile.crudfoodmodel;
 
 import Mobile.crudmoodmodel.Mood;
+import Mobile.userprofilemodel.Profile;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -32,10 +33,10 @@ public class FoodModel {
      *(C)
      * @param food
      */
-    public void postFood(Food food) {
+    public void postFood(Profile profile, Food food) {
         try {
             try (BufferedWriter bw = new BufferedWriter(new FileWriter(FOOD_FILE, true))) {
-                bw.write(food.getTimeEntered() + "," + food.getFoodName() + "," + food.getFoodMood());
+                bw.write(profile.user.username + "," + food.getFoodName() + "," + food.getTimeEntered() + "," + food.getFoodMood());
                 bw.flush();
                 bw.newLine();
                 bw.close();
@@ -45,7 +46,8 @@ public class FoodModel {
         }
     }
     
-    public ArrayList<Food> getFoodsForUser(Food food) {
+    public ArrayList<Food> getFoodsForUser(String username) {
+        
         ArrayList<Food> result = new ArrayList<>();
         try {
             String record;
@@ -53,8 +55,14 @@ public class FoodModel {
             File db = new File(FOOD_FILE);
             BufferedReader br = new BufferedReader(new FileReader(db));
             while ((record = br.readLine()) != null) {
+                String mood = "";
                 foodData = record.split(",");
-                result.add(new Food(foodData[1], foodData[0], new String(foodData[2])));
+                if(foodData[0].equals(username)){
+                    if(!foodData[3].equals("*/&%")){
+                        mood=foodData[3];
+                    }
+                result.add(new Food(foodData[1], foodData[2], mood));
+                }
             }
             br.close();
         } catch (IOException e) {
@@ -69,7 +77,7 @@ public class FoodModel {
      * @param food
      * @param newFood
      */
-    public void putFood(Food food, Food newFood) {
+    public void putFood(Profile profile, Food food, Food newFood ) {
         try {
             String record;
             File tempDB = new File("Food_temp.csv");
@@ -78,7 +86,7 @@ public class FoodModel {
             BufferedWriter bw = new BufferedWriter(new FileWriter(tempDB));
             while ((record = br.readLine()) != null) {
                 if (record.contains(food.getTimeEntered()) && record.contains(food.getFoodName())) {
-                    bw.write(newFood.getTimeEntered() + "," + newFood.getFoodName() + "," + newFood.getFoodName());
+                    bw.write(profile.user.username + "," + food.getFoodName() + "," + food.getTimeEntered() + "," + food.getFoodMood());
                 } else {
                     bw.write(record);
                 }

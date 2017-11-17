@@ -4,11 +4,14 @@ import Mobile.crudmoodmodel.Mood;
 import Mobile.crudfoodmodel.FoodModel;
 import Mobile.crudmoodmodel.MoodModel;
 import java.text.SimpleDateFormat;
+import Mobile.userprofilemodel.Profile;
+import Mobile.mainmenuview.MainMenu;
 
 public class FoodView extends javax.swing.JFrame{
     
     private Food food;
     private String foodName;
+    private Profile prof;
     
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -28,6 +31,7 @@ public class FoodView extends javax.swing.JFrame{
     public FoodView(){
         System.out.println("--Food View instantiated.");
         initComponents();
+        prof = MainMenu.prof;
     }
     
     private void initComponents() {
@@ -56,8 +60,7 @@ public class FoodView extends javax.swing.JFrame{
                 String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm").format(new java.util.Date());
                 Mood mood = new Mood(jTextField2.getText());
                 Food food = new Food(jTextField1.getText(), timeStamp, mood.getMoodName());
-                foodDB.postFood(food);
-                moodDB.postMood(mood);
+                foodDB.postFood(prof, food);
                 dispose();
             }
         });

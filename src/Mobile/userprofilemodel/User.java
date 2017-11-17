@@ -10,10 +10,9 @@ public class User {
 	/**
 	 * This is the default constructor for the User class
 	 */
-	public User(String _username, String _password, Boolean _authenticated) {
+	public User(String _username, String _password) {
             username = _username;
             password = _password;
-            authenticated = _authenticated;
 	}
 
 	public void setUsername(String username) {
