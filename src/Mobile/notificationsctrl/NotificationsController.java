@@ -25,7 +25,7 @@ public class NotificationsController {
 
     public void startTimer() {
         //120000 for 2 minutes
-        timer.schedule(task, 0);
+        timer.schedule(task, 120000);
     }
 //    public void newNotification(int type, String message){
 //        //types

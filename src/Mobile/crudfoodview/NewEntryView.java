@@ -129,10 +129,10 @@ public class NewEntryView extends javax.swing.JFrame {
 
         if (moodComboBox.getSelectedIndex() == 1) {
             //Mood mood = new Mood("*/&%");
-            Food food = new Food(foodEntryTextField.getText(), timeStamp, "*/&%");
-            nc = new NotificationsController(food);
+            Food foodNoMood = new Food(foodEntryTextField.getText(), timeStamp, "*/&%");
+            nc = new NotificationsController(foodNoMood);
             nc.startTimer();
-            foodDB.postFood(prof, food);
+            foodDB.postFood(prof, foodNoMood);
         } else {
             //Mood mood = new Mood((String) moodComboBox.getSelectedItem());
             Food food = new Food(foodEntryTextField.getText(), timeStamp, (String) moodComboBox.getSelectedItem());

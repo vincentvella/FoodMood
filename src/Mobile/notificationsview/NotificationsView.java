@@ -111,7 +111,7 @@ public class NotificationsView extends javax.swing.JFrame {
     }//GEN-LAST:event_moodComboBoxActionPerformed
 
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
-        desiredFood.setFoodMood( (String) moodComboBox.getSelectedItem() );
+        //desiredFood.setFoodMood( (String) moodComboBox.getSelectedItem() );
         dispose();
     }//GEN-LAST:event_submitButtonActionPerformed
 
