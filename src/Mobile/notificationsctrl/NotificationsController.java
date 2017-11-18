@@ -24,9 +24,8 @@ public class NotificationsController {
     };
 
     public void startTimer() {
-        //120000 for 2 minutes
         System.out.println("`-Timer Started: Reminder in 2 Minutes");
-        timer.schedule(task, 12000);
+        timer.schedule(task, 120000);
     }
 //    public void newNotification(int type, String message){
 //        //types
