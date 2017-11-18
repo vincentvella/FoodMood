@@ -5,7 +5,7 @@ import Mobile.mainmenuview.MainMenu;
 import Mobile.userprofileview.ProfileView;
 
 public class LoginPanel extends javax.swing.JFrame {
-
+    public MainMenu mainmenu = null;
     /**
      * Creates new form LoginPanel
      */
@@ -363,7 +363,8 @@ public class LoginPanel extends javax.swing.JFrame {
             this.setVisible(false);
             java.awt.EventQueue.invokeLater(new Runnable() {
                 public void run() {
-                    new MainMenu(Mobile.userprofilemodel.UserProfileModel.getUserProfile(user)).setVisible(true);
+                    mainmenu = new MainMenu(Mobile.userprofilemodel.UserProfileModel.getUserProfile(user));
+                    mainmenu.setVisible(true);
                 }
             });
         }

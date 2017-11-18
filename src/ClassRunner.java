@@ -3,7 +3,7 @@ import Mobile.loginview.LoginPanel;
 import Mobile.userprofilectrl.UserProfileCtrl;
 
 public class ClassRunner {
-
+    static LoginPanel login = null;
     /**
      * @param args the command line arguments
      */
@@ -11,7 +11,8 @@ public class ClassRunner {
         UserProfileCtrl ctrl = new UserProfileCtrl();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new LoginPanel().setVisible(true);
+                login = new LoginPanel();
+                login.setVisible(true);
             }
         });
     }
