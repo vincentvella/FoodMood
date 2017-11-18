@@ -3,35 +3,34 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Mobile.crudfoodview;
+package Mobile.notificationsview;
 
 import Mobile.crudfoodmodel.Food;
 import Mobile.crudfoodmodel.FoodModel;
-import Mobile.crudmoodmodel.Mood;
 import Mobile.crudmoodmodel.MoodModel;
+import Mobile.mainmenuview.MainMenu;
 import Mobile.userprofilemodel.Profile;
 import java.text.SimpleDateFormat;
-import Mobile.mainmenuview.MainMenu;
-import Mobile.notificationsctrl.NotificationsController;
-import java.util.Arrays;
 
 /**
  *
  * @author Ben
  */
-public class NewEntryView extends javax.swing.JFrame {
+public class NotificationsView extends javax.swing.JFrame {
 
     private Profile prof;
     FoodModel foodDB = new FoodModel();
     MoodModel moodDB = new MoodModel();
-    NotificationsController nc;
+    Food desiredFood;
 
     /**
-     * Creates new form NewEntryView
+     * Creates new form NotificationsView
      */
-    public NewEntryView() {
+    public NotificationsView(Food food) {
         initComponents();
         prof = MainMenu.prof;
+        food = desiredFood;
+        
     }
 
     /**
@@ -43,32 +42,23 @@ public class NewEntryView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        foodEntryLabel = new javax.swing.JLabel();
-        foodEntryTextField = new javax.swing.JTextField();
+        notiFoodLabel = new javax.swing.JLabel();
         moodEntryLabel = new javax.swing.JLabel();
         moodComboBox = new javax.swing.JComboBox<>();
-        cancelButton = new javax.swing.JButton();
         submitButton = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        foodEntryLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        foodEntryLabel.setText("Food:");
+        notiFoodLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        notiFoodLabel.setText("Food:");
 
         moodEntryLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         moodEntryLabel.setText("Mood:");
 
-        moodComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Select one-", "Enter Later", "Happy", "Sad", "Silly", "Angry", "Sick", "Disappointed", "Frustrated", "Proud", "Excited", "Scared", "Suprised", "Nervous" }));
+        moodComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Select one-", "Happy", "Sad", "Silly", "Angry", "Sick", "Disappointed", "Frustrated", "Proud", "Excited", "Scared", "Suprised", "Nervous" }));
         moodComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 moodComboBoxActionPerformed(evt);
-            }
-        });
-
-        cancelButton.setText("Cancel");
-        cancelButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancelButtonActionPerformed(evt);
             }
         });
 
@@ -87,88 +77,49 @@ public class NewEntryView extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(foodEntryLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(foodEntryTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(notiFoodLabel)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(moodEntryLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(moodComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(115, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(cancelButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(submitButton)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(foodEntryTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(foodEntryLabel))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(notiFoodLabel)
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(moodEntryLabel)
                     .addComponent(moodComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cancelButton)
-                    .addComponent(submitButton))
+                .addComponent(submitButton)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
-        String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm").format(new java.util.Date());
-
-        if (moodComboBox.getSelectedIndex() == 1) {
-            //Mood mood = new Mood("*/&%");
-            Food food = new Food(foodEntryTextField.getText(), timeStamp, "*/&%");
-            nc = new NotificationsController(food);
-            nc.startTimer();
-            foodDB.postFood(prof, food);
-        } else {
-            //Mood mood = new Mood((String) moodComboBox.getSelectedItem());
-            Food food = new Food(foodEntryTextField.getText(), timeStamp, (String) moodComboBox.getSelectedItem());
-            foodDB.postFood(prof, food);
-        }
-
-        dispose();
-    }//GEN-LAST:event_submitButtonActionPerformed
-
     private void moodComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moodComboBoxActionPerformed
         final boolean submitEnabled = moodComboBox.getSelectedIndex() == 0;
         submitButton.setEnabled(!submitEnabled);
     }//GEN-LAST:event_moodComboBoxActionPerformed
 
-    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
+    private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
+        desiredFood.setFoodMood( (String) moodComboBox.getSelectedItem() );
         dispose();
-    }//GEN-LAST:event_cancelButtonActionPerformed
+    }//GEN-LAST:event_submitButtonActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new NewEntryView().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton cancelButton;
-    private javax.swing.JLabel foodEntryLabel;
-    private javax.swing.JTextField foodEntryTextField;
     private javax.swing.JComboBox<String> moodComboBox;
     private javax.swing.JLabel moodEntryLabel;
+    private javax.swing.JLabel notiFoodLabel;
     private javax.swing.JButton submitButton;
     // End of variables declaration//GEN-END:variables
 }

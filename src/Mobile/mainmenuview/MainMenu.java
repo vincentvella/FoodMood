@@ -24,7 +24,6 @@ public class MainMenu extends javax.swing.JFrame {
         initComponents();
         RecommendModel.getMoodAssociation(new Mood("Happy"), (new Profile(new User("vvella", "pass"), "", "", "", 1)));
         this.getContentPane().setBackground(new Color(60, 63, 65));
-        new Mobile.notificationsctrl.NotificationsController();
     }
 
     /**
