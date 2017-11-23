@@ -32,18 +32,21 @@ public class TestHarness {
          */
         private static void runTests() {
             System.out.println("Testing Mobile Suite");
-            
+            //<editor-fold defaultstate="collapsed" desc="Creating Test Objects">
             System.out.println("--Creating Test Objects");
             User user = new User("testUser", "testPassword");
             Profile profile = new Profile(user, "test", "user", "testuser@testing.io", 0);
+            Food food = new Food("Test Food", "2017.11.17.00.53", "Happy");
             System.out.println("--Created Test Objects Successfully");
-            
+            //</editor-fold>
+            //<editor-fold defaultstate="collapsed" desc="Testing User CRUD">
             System.out.println("--Testing User CRUD");
             user.setUsername("user");
             user.setPassword("password");
             user.getUsername();
             System.out.println("--User CRUD Tests Passed");
-            
+            //</editor-fold>
+            //<editor-fold defaultstate="collapsed" desc="Testing Profile CRUD">
             System.out.println("--Testing Profile CRUD");
             profile.getEmail();
             profile.getFirstName();
@@ -56,14 +59,17 @@ public class TestHarness {
             profile.setReceiveNotifications(1);
             profile.setUsername("username");
             System.out.println("--Profile CRUD Tests Passed");
-            
+            //</editor-fold>
+            //<editor-fold defaultstate="collapsed" desc="Testing CRUD Food">
             System.out.println("--Testing CRUD Food");
             FoodModel foodModel = new FoodModel();
-            if(foodModel.testFoodModel(profile)){
+            if(foodModel.testFoodModel(profile, food)){
                 System.out.println("--Testing Passed");
             } else {
                 System.out.println("--Testing Failed");
             }
+            //</editor-fold>
+            
             
             //System.out.println("-Instantiating Chart Controller");
             //ChartController chartCtrl = new ChartController();

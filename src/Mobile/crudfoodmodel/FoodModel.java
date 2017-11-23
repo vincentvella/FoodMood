@@ -131,12 +131,20 @@ public class FoodModel {
         }
     }
     
-    public boolean testFoodModel(Profile profile) {
+    public boolean testFoodModel(Profile profile, Food food) {
         try {
+            Food newFood = new Food("New Food", "2017.11.17.00.52", "Curious");
             System.out.println("Testing DB connection");
             connectToDatabase();
+            System.out.println("Testing DB POST");
+            postFood(profile, food);
+            System.out.println("Testing DB READ");
+            getFoodsForUser(profile.user.getUsername());
             System.out.println("Testing DB PUT");
-            //postFood()
+            putFood(profile, food, newFood);
+            System.out.println("Testing DB DELETE");
+            deleteFood(newFood);
+            return true;
         } catch (Exception e) {
             e.printStackTrace();
         }

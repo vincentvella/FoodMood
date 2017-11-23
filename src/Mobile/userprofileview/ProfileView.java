@@ -55,7 +55,7 @@ public class ProfileView extends javax.swing.JFrame {
 
         jLabel4.setText("Email:");
 
-        jLabel5.setText(currentProfile.getUsername().username);
+        jLabel5.setText(currentProfile.getUsername());
         jLabel6.setText(currentProfile.getFirstName());
         jLabel7.setText(currentProfile.getLastName());
         jLabel8.setText(currentProfile.getEmail());

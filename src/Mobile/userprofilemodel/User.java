@@ -16,17 +16,14 @@ public class User {
 	}
 
 	public void setUsername(String username) {
-		System.out.println("  `--Setting Username");
 		this.username = username;
 	}
 
 	public String getUsername() {
-		System.out.println("  `--Getting Username");
 		return username;
 	}
 
 	public void setPassword(String password) {
-		System.out.println("  `--Setting Password");
 		this.password = password;
 	}
 
@@ -38,15 +35,13 @@ public class User {
 	 * @return The boolean result from authenticate, true is authenticated
 	 */
 	public boolean authenticate(String user, String pass) {
-		System.out.println(" `-Authenticate User");
 		boolean auth = false;
 
 		if (user.equals(username) && pass.equals(password)) {
 			auth = true;
-			System.out.println("   `-User Authenticated");
 		}
 		else {
-			System.out.println("   `--Authentication Failed");
+			System.out.println("Authentication Failed");
 		}
 
 		return auth;

@@ -25,6 +25,10 @@ public class Profile {
         email = _email;
         notifications = _notifications;
     }
+    
+    public User getUser(){
+        return this.user;
+    }
 
     /**
      * Sets the username
@@ -36,9 +40,9 @@ public class Profile {
         user.username = username;
     }
 
-    public User getUsername() {
+    public String getUsername() {
         System.out.println("  `--Get Username");
-        return this.user;
+        return this.user.getUsername();
     }
     
     public void setFirstName(String name) {
@@ -69,7 +73,6 @@ public class Profile {
     public String getEmail() {
         System.out.println("  `--Get Email");
         return email;
-
     }
 
     /**
