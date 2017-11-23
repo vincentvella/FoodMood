@@ -73,6 +73,17 @@ public class Food {
     }
     
     public boolean testFoodObject() {
+        try {
+            setFoodName("Corn");
+            setTimeEntered("2017.11.17.21.06");
+            setFoodMood("Sad");
+            getFoodName();
+            getTimeEntered();
+            getFoodMood();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return false;
     }
 

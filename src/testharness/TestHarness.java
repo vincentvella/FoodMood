@@ -13,6 +13,7 @@ import Mobile.recommendctrl.RecommendController;
 import Analytic.relationsctrl.RelationsController;
 import Analytic.viewcorrelationctrl.CorrelationController;
 import Mobile.crudfoodmodel.*;
+import Mobile.crudmoodmodel.Mood;
 import Mobile.crudmoodmodel.MoodModel;
 import Mobile.userprofilemodel.Profile;
 import Mobile.userprofilemodel.User;
@@ -38,6 +39,7 @@ public class TestHarness {
             User user = new User("testUser", "testPassword");
             Profile profile = new Profile(user, "test", "user", "testuser@testing.io", 0);
             Food food = new Food("Test Food", "2017.11.17.00.53", "Happy");
+            Mood mood = new Mood("Test Mood");
             System.out.println("--Created Test Objects Successfully");
             //</editor-fold>
             //<editor-fold defaultstate="collapsed" desc="Testing User CRUD">
@@ -70,7 +72,7 @@ public class TestHarness {
             //<editor-fold defaultstate="collapsed" desc="Testing CRUD Mood">
             System.out.println("--Testing CRUD Food");
             MoodModel moodModel = new MoodModel();
-            if(moodModel.testMoodModel()){
+            if(moodModel.testMoodModel(mood)){
                 System.out.println("--Testing Passed");
             } else {
                 System.out.println("--Testing Failed");

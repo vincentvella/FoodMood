@@ -30,4 +30,15 @@ public class Mood {
     public String getMoodName(){
         return moodName;
     }
+    
+    public boolean testMoodObject(Mood mood) {
+        try {
+            getMoodName();
+            setMoodName("Tester");
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }

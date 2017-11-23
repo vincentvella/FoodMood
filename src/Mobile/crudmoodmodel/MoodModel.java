@@ -1,7 +1,5 @@
 package Mobile.crudmoodmodel;
 
-import Mobile.crudfoodmodel.Food;
-import Mobile.userprofilemodel.Profile;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -53,9 +51,10 @@ public class MoodModel {
      }
      return null;
     }
-
-    public boolean testMoodModel() {
+    
+    public boolean testMoodModel(Mood mood) {
         try {
+            mood.testMoodObject(mood);
             connectToDatabase();
             getMoodList();
             return true;

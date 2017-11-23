@@ -133,6 +133,12 @@ public class FoodModel {
     
     public boolean testFoodModel(Profile profile, Food food) {
         try {
+            if(food.testFoodObject()){
+                System.out.println("Food Object Tested");
+            } else {
+                System.out.println("Food Testing Failed");
+                System.exit(1);
+            }
             Food newFood = new Food("New Food", "2017.11.17.00.52", "Curious");
             System.out.println("Testing DB connection");
             connectToDatabase();
