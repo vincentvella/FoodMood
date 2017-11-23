@@ -13,6 +13,7 @@ import Mobile.recommendctrl.RecommendController;
 import Analytic.relationsctrl.RelationsController;
 import Analytic.viewcorrelationctrl.CorrelationController;
 import Mobile.crudfoodmodel.*;
+import Mobile.crudmoodmodel.MoodModel;
 import Mobile.userprofilemodel.Profile;
 import Mobile.userprofilemodel.User;
 
@@ -48,16 +49,12 @@ public class TestHarness {
             //</editor-fold>
             //<editor-fold defaultstate="collapsed" desc="Testing Profile CRUD">
             System.out.println("--Testing Profile CRUD");
-            profile.getEmail();
-            profile.getFirstName();
-            profile.getLastName();
-            profile.getReceiveNotifications();
-            profile.getUsername();
-            profile.setEmail("user@user.io");
-            profile.setFirstName("Test");
-            profile.setLastName("User");
-            profile.setReceiveNotifications(1);
-            profile.setUsername("username");
+            if(profile.runTests(profile)){
+                System.out.println("--Testing Passed");
+            } else {
+                System.out.println("--Testing Failed");
+                System.exit(1);
+            }
             System.out.println("--Profile CRUD Tests Passed");
             //</editor-fold>
             //<editor-fold defaultstate="collapsed" desc="Testing CRUD Food">
@@ -67,9 +64,19 @@ public class TestHarness {
                 System.out.println("--Testing Passed");
             } else {
                 System.out.println("--Testing Failed");
+                System.exit(1);
             }
             //</editor-fold>
-            
+            //<editor-fold defaultstate="collapsed" desc="Testing CRUD Mood">
+            System.out.println("--Testing CRUD Food");
+            MoodModel moodModel = new MoodModel();
+            if(moodModel.testMoodModel()){
+                System.out.println("--Testing Passed");
+            } else {
+                System.out.println("--Testing Failed");
+                System.exit(1);
+            }
+            //</editor-fold>
             
             //System.out.println("-Instantiating Chart Controller");
             //ChartController chartCtrl = new ChartController();

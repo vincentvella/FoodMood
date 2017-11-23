@@ -143,7 +143,7 @@ public class FoodModel {
             System.out.println("Testing DB PUT");
             putFood(profile, food, newFood);
             System.out.println("Testing DB DELETE");
-            deleteFood(newFood);
+            deleteFood(food);
             return true;
         } catch (Exception e) {
             e.printStackTrace();

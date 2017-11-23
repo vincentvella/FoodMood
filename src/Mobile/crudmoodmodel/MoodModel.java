@@ -1,5 +1,7 @@
 package Mobile.crudmoodmodel;
 
+import Mobile.crudfoodmodel.Food;
+import Mobile.userprofilemodel.Profile;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -52,85 +54,14 @@ public class MoodModel {
      return null;
     }
 
-//    /**
-//     * Create Mood in Records
-//     *(C)
-//     * @param mood
-//     */
-//    public void postMood(Mood mood) {
-//        try {
-//            try (BufferedWriter bw = new BufferedWriter(new FileWriter(MOOD_FILE, true))) {
-//                bw.write(mood.getMoodName()+",");
-//                bw.flush();
-//                bw.newLine();
-//                bw.close();
-//            }
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
-    
-    //public void getMood(Mood mood) {
-    // TODO Create read methods if necessary   
-    //}
-
-//    /**
-//     * Updates Mood for a specific record
-//     *(U)
-//     * @param mood
-//     * @param newMood
-//     */
-//    public void putMood(Mood mood, Mood newMood) {
-//        try {
-//            String record;
-//            File tempDB = new File("Mood_temp.csv");
-//            File db = new File(MOOD_FILE);
-//            BufferedReader br = new BufferedReader(new FileReader(db));
-//            BufferedWriter bw = new BufferedWriter(new FileWriter(tempDB));
-//            while ((record = br.readLine()) != null) {
-//                if (record.contains(mood.getMoodName())) {
-//                    bw.write(newMood.getMoodName());
-//                } else {
-//                    bw.write(record);
-//                }
-//                bw.flush();
-//                bw.newLine();
-//            }
-//            br.close();
-//            bw.close();
-//            db.delete();
-//            tempDB.renameTo(db);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
-
-//    /**
-//     * Delete Mood from records
-//     *(D)
-//     * @param mood
-//     */
-//    public void deleteMood(Mood mood) {
-//        try {
-//            String record;
-//            File tempDB = new File("Mood_temp.csv");
-//            File db = new File(MOOD_FILE);
-//            BufferedReader br = new BufferedReader(new FileReader(db));
-//            BufferedWriter bw = new BufferedWriter(new FileWriter(tempDB));
-//            while ((record = br.readLine()) != null) {
-//                if (record.contains(mood.getMoodName())) {
-//                    continue;
-//                }
-//                bw.write(record);
-//                bw.flush();
-//                bw.newLine();
-//            }
-//            br.close();
-//            bw.close();
-//            db.delete();
-//            tempDB.renameTo(db);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
+    public boolean testMoodModel() {
+        try {
+            connectToDatabase();
+            getMoodList();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }

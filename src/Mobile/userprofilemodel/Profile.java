@@ -95,4 +95,23 @@ public class Profile {
         System.out.println("  `--Get Receive Notificaions");
         return notifications;
     }
+    
+    public boolean runTests(Profile profile) {
+        try {
+            profile.getEmail();
+            profile.getFirstName();
+            profile.getLastName();
+            profile.getReceiveNotifications();
+            profile.getUsername();
+            profile.setEmail("user@user.io");
+            profile.setFirstName("Test");
+            profile.setLastName("User");
+            profile.setReceiveNotifications(1);
+            profile.setUsername("username");
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }
