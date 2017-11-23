@@ -88,7 +88,7 @@ public class Profile {
         notifications = x;
     }
 
-    public int getReceiveNotifications(int x) {
+    public int getReceiveNotifications() {
         System.out.println("  `--Get Receive Notificaions");
         return notifications;
     }

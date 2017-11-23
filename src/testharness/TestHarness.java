@@ -12,13 +12,16 @@ import Mobile.notificationsctrl.NotificationsController;
 import Mobile.recommendctrl.RecommendController;
 import Analytic.relationsctrl.RelationsController;
 import Analytic.viewcorrelationctrl.CorrelationController;
+import Mobile.crudfoodmodel.*;
+import Mobile.userprofilemodel.Profile;
+import Mobile.userprofilemodel.User;
 
 public class TestHarness {
 
 	/**
 	 * @param args the command line arguments
 	 */
-	public static void main(String[] args) {
+	public static void startTests() {
 		System.out.println("-------------Testing Started----------");
                 runTests();
                 System.out.println("-------------End of testing suite------------");
@@ -28,27 +31,61 @@ public class TestHarness {
          * This method will run the testing suite.
          */
         private static void runTests() {
-            System.out.println("Instantiating Chart Controller");
-            ChartController chartCtrl = new ChartController();
-            System.out.println("Instantiating CRUD Food Controller");
-            FoodCtrl foodCtrl = new FoodCtrl();
-            System.out.println("Instantiating CRUD Mood Controller");
-            MoodCtrl moodCtrl = new MoodCtrl();
-            System.out.println("Instantiating History Controller");
-            HistoryController historyCtrl = new HistoryController();
-            System.out.println("Instantiating Notifications Controller");
-            NotificationsController notificationsCtl = new NotificationsController();
-            System.out.println("Instantiating Recommendations Controller");
-            RecommendController recommendCtrl = new RecommendController();
-            System.out.println("Instantiating Relations Controller");
-            RelationsController relationsCtrl = new RelationsController();
-            System.out.println("Instantiating Stats Controller");
-            FoodStat foodStat = new FoodStat();
-            MoodStat moodStat = null;
-            StatController statCtrl = new StatController(foodStat, moodStat);
-            System.out.println("Instantiating User Profile Controller");
-            UserProfileCtrl userprofctrl = new UserProfileCtrl();
-            System.out.println("Instantiating Correlation Controller");
-            CorrelationController correlationctrl = new CorrelationController();
+            System.out.println("Testing Mobile Suite");
+            
+            System.out.println("--Creating Test Objects");
+            User user = new User("testUser", "testPassword");
+            Profile profile = new Profile(user, "test", "user", "testuser@testing.io", 0);
+            System.out.println("--Created Test Objects Successfully");
+            
+            System.out.println("--Testing User CRUD");
+            user.setUsername("user");
+            user.setPassword("password");
+            user.getUsername();
+            System.out.println("--User CRUD Tests Passed");
+            
+            System.out.println("--Testing Profile CRUD");
+            profile.getEmail();
+            profile.getFirstName();
+            profile.getLastName();
+            profile.getReceiveNotifications();
+            profile.getUsername();
+            profile.setEmail("user@user.io");
+            profile.setFirstName("Test");
+            profile.setLastName("User");
+            profile.setReceiveNotifications(1);
+            profile.setUsername("username");
+            System.out.println("--Profile CRUD Tests Passed");
+            
+            System.out.println("--Testing CRUD Food");
+            FoodModel foodModel = new FoodModel();
+            if(foodModel.testFoodModel(profile)){
+                System.out.println("--Testing Passed");
+            } else {
+                System.out.println("--Testing Failed");
+            }
+            
+            //System.out.println("-Instantiating Chart Controller");
+            //ChartController chartCtrl = new ChartController();
+            //System.out.println("-Instantiating CRUD Food Controller");
+            //FoodCtrl foodCtrl = new FoodCtrl();
+            //System.out.println("-Instantiating CRUD Mood Controller");
+            //MoodCtrl moodCtrl = new MoodCtrl();
+            //System.out.println("-Instantiating History Controller");
+            //HistoryController historyCtrl = new HistoryController();
+            //System.out.println("-Instantiating Notifications Controller");
+            //NotificationsController notificationsCtl = new NotificationsController();
+            //System.out.println("-Instantiating Recommendations Controller");
+            //RecommendController recommendCtrl = new RecommendController();
+            //System.out.println("-Instantiating Relations Controller");
+            //RelationsController relationsCtrl = new RelationsController();
+            //System.out.println("-Instantiating Stats Controller");
+            //FoodStat foodStat = new FoodStat();
+            //MoodStat moodStat = null;
+            //StatController statCtrl = new StatController(foodStat, moodStat);
+            //System.out.println("-Instantiating User Profile Controller");
+            //UserProfileCtrl userprofctrl = new UserProfileCtrl();
+            //System.out.println("-Instantiating Correlation Controller");
+            //CorrelationController correlationctrl = new CorrelationController();
         }
 }

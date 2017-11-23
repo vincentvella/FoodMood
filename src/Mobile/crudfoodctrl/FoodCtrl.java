@@ -11,7 +11,6 @@ public class FoodCtrl {
      * Constructor for creating FoodCtrl objects
      */
     public FoodCtrl(){
-        displayView();
     }
     
     /**
@@ -41,13 +40,5 @@ public class FoodCtrl {
      */
     public void updateFoodMood (Mood mood) {
         
-    }
-    
-    public void displayView () {
-        System.out.println("`-Instantiating Food object");
-        //Food food = new Food();
-        System.out.printf("`-F Instantiated\n`-Building FoodView\n");
-        //FoodView FoodUI = new FoodView(food);
-    }
-    
+    }    
 }

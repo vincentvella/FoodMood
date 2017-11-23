@@ -71,5 +71,9 @@ public class Food {
     public String getFoodMood() {
         return foodMood;
     }
+    
+    public boolean testFoodObject() {
+        return false;
+    }
 
 }

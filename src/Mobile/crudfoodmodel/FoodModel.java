@@ -130,5 +130,17 @@ public class FoodModel {
             e.printStackTrace();
         }
     }
+    
+    public boolean testFoodModel(Profile profile) {
+        try {
+            System.out.println("Testing DB connection");
+            connectToDatabase();
+            System.out.println("Testing DB PUT");
+            //postFood()
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }
 
