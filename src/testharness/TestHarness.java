@@ -40,21 +40,21 @@ public class TestHarness {
             Profile profile = new Profile(user, "test", "user", "testuser@testing.io", 0);
             Food food = new Food("Test Food", "2017.11.17.00.53", "Happy");
             Mood mood = new Mood("Test Mood");
-            System.out.println("--Created Test Objects Successfully");
+            System.out.println("`--Created Test Objects Successfully");
             //</editor-fold>
             //<editor-fold defaultstate="collapsed" desc="Testing User CRUD">
             System.out.println("--Testing User CRUD");
             user.setUsername("user");
             user.setPassword("password");
             user.getUsername();
-            System.out.println("--User CRUD Tests Passed");
+            System.out.println("`--User CRUD Tests Passed");
             //</editor-fold>
             //<editor-fold defaultstate="collapsed" desc="Testing Profile CRUD">
-            System.out.println("--Testing Profile CRUD");
+            System.out.println("`--Testing Profile CRUD");
             if(profile.runTests(profile)){
-                System.out.println("--Testing Passed");
+                System.out.println("`--Testing Passed");
             } else {
-                System.out.println("--Testing Failed");
+                System.out.println("`--Testing Failed");
                 System.exit(1);
             }
             System.out.println("--Profile CRUD Tests Passed");
@@ -63,19 +63,19 @@ public class TestHarness {
             System.out.println("--Testing CRUD Food");
             FoodModel foodModel = new FoodModel();
             if(foodModel.testFoodModel(profile, food)){
-                System.out.println("--Testing Passed");
+                System.out.println("`--Testing Passed");
             } else {
-                System.out.println("--Testing Failed");
+                System.out.println("`--Testing Failed");
                 System.exit(1);
             }
             //</editor-fold>
             //<editor-fold defaultstate="collapsed" desc="Testing CRUD Mood">
-            System.out.println("--Testing CRUD Food");
+            System.out.println("--Testing CRUD Mood");
             MoodModel moodModel = new MoodModel();
             if(moodModel.testMoodModel(mood)){
-                System.out.println("--Testing Passed");
+                System.out.println("`--Testing Passed");
             } else {
-                System.out.println("--Testing Failed");
+                System.out.println("`--Testing Failed");
                 System.exit(1);
             }
             //</editor-fold>

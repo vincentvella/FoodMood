@@ -14,8 +14,14 @@ public class MoodModel {
         connectToDatabase();
     }
 
+    /**
+     * Contains static filename for reading/writing Mood Files
+     */
     private final static String MOOD_FILE = "src/Mobile/crudmoodmodel/MoodModel.csv";
 
+    /**
+     * Checks the DB Connection
+     */
     private void connectToDatabase() {
         try {
             BufferedReader br = new BufferedReader(new FileReader(MOOD_FILE));
@@ -25,33 +31,39 @@ public class MoodModel {
             e.printStackTrace();
         }
     }
-    
-        /**
-     * Gets mood list
-     * @param mood
-     * @return 
+
+    /**
+     * Returns the usable mood list from the DB
+     *
+     * @return
      */
     public ArrayList<String> getMoodList() {
-     ArrayList<String> moodList = new ArrayList<>();
-     try {
-         String record;
-         String moodName;
-         String[] result;
-         File db = new File(MOOD_FILE);
-         BufferedReader br = new BufferedReader(new FileReader(db));
-         while ((record = br.readLine()) != null) {
-             result = record.split(",");
-             moodName = result[0];
-             moodList.add(moodName);
-         }
-         br.close();
-         return moodList;
-     } catch (IOException e) {
-         e.printStackTrace();
-     }
-     return null;
+        ArrayList<String> moodList = new ArrayList<>();
+        try {
+            String record;
+            String moodName;
+            String[] result;
+            File db = new File(MOOD_FILE);
+            BufferedReader br = new BufferedReader(new FileReader(db));
+            while ((record = br.readLine()) != null) {
+                result = record.split(",");
+                moodName = result[0];
+                moodList.add(moodName);
+            }
+            br.close();
+            return moodList;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
-    
+
+    /**
+     * Tests the Mood classes
+     *
+     * @param mood
+     * @return
+     */
     public boolean testMoodModel(Mood mood) {
         try {
             mood.testMoodObject(mood);

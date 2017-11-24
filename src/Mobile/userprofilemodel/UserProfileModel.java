@@ -19,7 +19,10 @@ public class UserProfileModel {
         //getUser("userTest");
         //getUserForAuthentication("testUser","password123");
     }
-
+    
+    /**
+     * Static Filenames for reading/writing to CSV files
+     */
     private final static String USER_FILE = "src/Mobile/userprofilemodel/UserSignIn.csv";
     private final static String USER_PROFILE = "src/Mobile/userprofilemodel/UserProfile.csv";
 
@@ -38,8 +41,9 @@ public class UserProfileModel {
 
     /**
      * Adds a user record to file
+     *
      * @param user
-     * @param password 
+     * @param password
      */
     public static void postUser(String user, String password) {
         try {
@@ -57,7 +61,8 @@ public class UserProfileModel {
 
     /**
      * Delete User from records
-     * @param user 
+     *
+     * @param user
      */
     public void deleteUser(String user) {
         try {
@@ -85,9 +90,10 @@ public class UserProfileModel {
 
     /**
      * Edits a user in the database
+     *
      * @param user
      * @param newUser
-     * @param newPassword 
+     * @param newPassword
      */
     public static void putUser(String user, String newUser, String newPassword) {
         try {
@@ -116,7 +122,8 @@ public class UserProfileModel {
 
     /**
      * Returns the user list
-     * @param user 
+     *
+     * @param user
      */
     public static ArrayList<String> getUserList() {
         ArrayList<String> userList = new ArrayList<>();
@@ -138,8 +145,13 @@ public class UserProfileModel {
         }
         return userList;
     }
-    //returns authenticated user
 
+    /**
+     * Returns user for authentication purposes
+     * @param _user
+     * @param _pass
+     * @return 
+     */
     public static User getUserForAuthentication(String _user, String _pass) {
         try {
             String record;
@@ -166,6 +178,11 @@ public class UserProfileModel {
         return null;
     }
 
+    /**
+     * Returns a user's profile
+     * @param user
+     * @return 
+     */
     public static Profile getUserProfile(User user) {
         try {
             String record;
@@ -194,7 +211,11 @@ public class UserProfileModel {
         }
         return null;
     }
-    
+
+    /**
+     * POST User Profile to CSV
+     * @param profile 
+     */
     public static void postUserProfile(Profile profile) {
         try {
             try (BufferedWriter bw = new BufferedWriter(new FileWriter(USER_PROFILE, true))) {

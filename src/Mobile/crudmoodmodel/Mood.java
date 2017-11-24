@@ -31,6 +31,11 @@ public class Mood {
         return moodName;
     }
     
+    /**
+     * Runs Tests for Mood Object
+     * @param mood
+     * @return 
+     */
     public boolean testMoodObject(Mood mood) {
         try {
             getMoodName();
