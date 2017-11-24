@@ -7,7 +7,7 @@ public class Profile {
     public String lastName;
     public String email;
     public int notifications;
-    
+
     /**
      * This is the default constructor for a profile
      *
@@ -27,6 +27,15 @@ public class Profile {
     }
 
     /**
+     * Returns a profile user object
+     *
+     * @return
+     */
+    public User getUser() {
+        return this.user;
+    }
+
+    /**
      * Sets the username
      *
      * @param username
@@ -36,26 +45,51 @@ public class Profile {
         user.username = username;
     }
 
-    public User getUsername() {
+    /**
+     * Gets a user's username
+     *
+     * @return
+     */
+    public String getUsername() {
         System.out.println("  `--Get Username");
-        return this.user;
+        return this.user.getUsername();
     }
-    
+
+    /**
+     * Set Profile First Name
+     *
+     * @param name
+     */
     public void setFirstName(String name) {
         System.out.println("  `--Set first name");
         firstName = name;
     }
-    
+
+    /**
+     * get Profile First Name
+     *
+     * @return
+     */
     public String getFirstName() {
         System.out.println("  `--Get first name");
         return this.firstName;
     }
-    
+
+    /**
+     * Set Profile Last Name
+     *
+     * @param name
+     */
     public void setLastName(String name) {
         System.out.println("  `--Set last name");
         lastName = name;
     }
-    
+
+    /**
+     * Get Profile's Last Name
+     *
+     * @return
+     */
     public String getLastName() {
         System.out.println("  `--Get last name");
         return lastName;
@@ -69,7 +103,6 @@ public class Profile {
     public String getEmail() {
         System.out.println("  `--Get Email");
         return email;
-
     }
 
     /**
@@ -83,13 +116,48 @@ public class Profile {
 
     }
 
+    /**
+     * Sets notification preferences for profile
+     *
+     * @param x
+     */
     public void setReceiveNotifications(int x) {
         System.out.println("  `--Set Receive Notificaions");
         notifications = x;
     }
 
-    public int getReceiveNotifications(int x) {
+    /**
+     * Gets profile notification preferences
+     *
+     * @return
+     */
+    public int getReceiveNotifications() {
         System.out.println("  `--Get Receive Notificaions");
         return notifications;
+    }
+
+    /**
+     * Runs all profile/user tests
+     *
+     * @param profile
+     * @return
+     */
+    public boolean runTests(Profile profile) {
+        try {
+            profile.getEmail();
+            profile.getFirstName();
+            profile.getLastName();
+            profile.getReceiveNotifications();
+            profile.getUsername();
+            profile.setEmail("user@user.io");
+            profile.setFirstName("Test");
+            profile.setLastName("User");
+            profile.setReceiveNotifications(1);
+            profile.setUsername("username");
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 }

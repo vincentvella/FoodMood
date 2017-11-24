@@ -131,7 +131,7 @@ public class HistoryView extends javax.swing.JFrame {
         
         FoodModel foodModel = new FoodModel();
         
-        ArrayList<Food> foods = foodModel.getFoodsForUser(prof.getUsername().getUsername());
+        ArrayList<Food> foods = foodModel.getFoodsForUser(prof.getUsername());
         Object[][] data;
         data = new Object[foods.size()][3];
         

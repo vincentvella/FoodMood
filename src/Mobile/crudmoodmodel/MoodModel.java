@@ -14,8 +14,14 @@ public class MoodModel {
         connectToDatabase();
     }
 
+    /**
+     * Contains static filename for reading/writing Mood Files
+     */
     private final static String MOOD_FILE = "src/Mobile/crudmoodmodel/MoodModel.csv";
 
+    /**
+     * Checks the DB Connection
+     */
     private void connectToDatabase() {
         try {
             BufferedReader br = new BufferedReader(new FileReader(MOOD_FILE));
@@ -25,112 +31,48 @@ public class MoodModel {
             e.printStackTrace();
         }
     }
-    
-        /**
-     * Gets mood list
-     * @param mood
-     * @return 
+
+    /**
+     * Returns the usable mood list from the DB
+     *
+     * @return
      */
     public ArrayList<String> getMoodList() {
-     ArrayList<String> moodList = new ArrayList<>();
-     try {
-         String record;
-         String moodName;
-         String[] result;
-         File db = new File(MOOD_FILE);
-         BufferedReader br = new BufferedReader(new FileReader(db));
-         while ((record = br.readLine()) != null) {
-             result = record.split(",");
-             moodName = result[0];
-             moodList.add(moodName);
-         }
-         br.close();
-         return moodList;
-     } catch (IOException e) {
-         e.printStackTrace();
-     }
-     return null;
+        ArrayList<String> moodList = new ArrayList<>();
+        try {
+            String record;
+            String moodName;
+            String[] result;
+            File db = new File(MOOD_FILE);
+            BufferedReader br = new BufferedReader(new FileReader(db));
+            while ((record = br.readLine()) != null) {
+                result = record.split(",");
+                moodName = result[0];
+                moodList.add(moodName);
+            }
+            br.close();
+            return moodList;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
-//    /**
-//     * Create Mood in Records
-//     *(C)
-//     * @param mood
-//     */
-//    public void postMood(Mood mood) {
-//        try {
-//            try (BufferedWriter bw = new BufferedWriter(new FileWriter(MOOD_FILE, true))) {
-//                bw.write(mood.getMoodName()+",");
-//                bw.flush();
-//                bw.newLine();
-//                bw.close();
-//            }
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
-    
-    //public void getMood(Mood mood) {
-    // TODO Create read methods if necessary   
-    //}
-
-//    /**
-//     * Updates Mood for a specific record
-//     *(U)
-//     * @param mood
-//     * @param newMood
-//     */
-//    public void putMood(Mood mood, Mood newMood) {
-//        try {
-//            String record;
-//            File tempDB = new File("Mood_temp.csv");
-//            File db = new File(MOOD_FILE);
-//            BufferedReader br = new BufferedReader(new FileReader(db));
-//            BufferedWriter bw = new BufferedWriter(new FileWriter(tempDB));
-//            while ((record = br.readLine()) != null) {
-//                if (record.contains(mood.getMoodName())) {
-//                    bw.write(newMood.getMoodName());
-//                } else {
-//                    bw.write(record);
-//                }
-//                bw.flush();
-//                bw.newLine();
-//            }
-//            br.close();
-//            bw.close();
-//            db.delete();
-//            tempDB.renameTo(db);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
-
-//    /**
-//     * Delete Mood from records
-//     *(D)
-//     * @param mood
-//     */
-//    public void deleteMood(Mood mood) {
-//        try {
-//            String record;
-//            File tempDB = new File("Mood_temp.csv");
-//            File db = new File(MOOD_FILE);
-//            BufferedReader br = new BufferedReader(new FileReader(db));
-//            BufferedWriter bw = new BufferedWriter(new FileWriter(tempDB));
-//            while ((record = br.readLine()) != null) {
-//                if (record.contains(mood.getMoodName())) {
-//                    continue;
-//                }
-//                bw.write(record);
-//                bw.flush();
-//                bw.newLine();
-//            }
-//            br.close();
-//            bw.close();
-//            db.delete();
-//            tempDB.renameTo(db);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
+    /**
+     * Tests the Mood classes
+     *
+     * @param mood
+     * @return
+     */
+    public boolean testMoodModel(Mood mood) {
+        try {
+            mood.testMoodObject(mood);
+            connectToDatabase();
+            getMoodList();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }

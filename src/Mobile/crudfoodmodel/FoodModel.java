@@ -12,12 +12,21 @@ import java.util.ArrayList;
 
 public class FoodModel {
 
+    /**
+     * Food Model Object Creator
+     */
     public FoodModel() {
         connectToDatabase();
     }
 
+    /**
+     * Static filename for Food CSV File
+     */
     private final static String FOOD_FILE = "src/Mobile/crudfoodmodel/FoodModel.csv";
 
+    /**
+     * Checks DB Connection
+     */
     private void connectToDatabase() {
         try {
             BufferedReader br = new BufferedReader(new FileReader(FOOD_FILE));
@@ -29,8 +38,9 @@ public class FoodModel {
     }
 
     /**
-     * Create Food in Records
-     *(C)
+     * Create Food in Records (C)
+     *
+     * @param profile
      * @param food
      */
     public void postFood(Profile profile, Food food) {
@@ -45,9 +55,15 @@ public class FoodModel {
             e.printStackTrace();
         }
     }
-    
+
+    /**
+     * Gets all Food Entries for User
+     *
+     * @param username
+     *
+     */
     public ArrayList<Food> getFoodsForUser(String username) {
-        
+
         ArrayList<Food> result = new ArrayList<>();
         try {
             String record;
@@ -57,11 +73,11 @@ public class FoodModel {
             while ((record = br.readLine()) != null) {
                 String mood = "";
                 foodData = record.split(",");
-                if(foodData[0].equals(username)){
-                    if(!foodData[3].equals("*/&%")){
-                        mood=foodData[3];
+                if (foodData[0].equals(username)) {
+                    if (!foodData[3].equals("*/&%")) {
+                        mood = foodData[3];
                     }
-                result.add(new Food(foodData[1], foodData[2], mood));
+                    result.add(new Food(foodData[1], foodData[2], mood));
                 }
             }
             br.close();
@@ -72,12 +88,12 @@ public class FoodModel {
     }
 
     /**
-     * Updates Food for a specific record
-     *(U)
+     * Updates Food for a specific record (U)
+     *
      * @param food
      * @param newFood
      */
-    public void putFood(Profile profile, Food food, Food newFood ) {
+    public void putFood(Profile profile, Food food, Food newFood) {
         try {
             String record;
             File tempDB = new File("Food_temp.csv");
@@ -103,8 +119,8 @@ public class FoodModel {
     }
 
     /**
-     * Delete Food from records
-     *(D)
+     * Delete Food from records (D)
+     *
      * @param food
      */
     public void deleteFood(Food food) {
@@ -130,5 +146,37 @@ public class FoodModel {
             e.printStackTrace();
         }
     }
-}
 
+    /**
+     * Tests the Food Model and Food Object
+     *
+     * @param profile
+     * @param food
+     * @return
+     */
+    public boolean testFoodModel(Profile profile, Food food) {
+        try {
+            if (food.testFoodObject()) {
+                System.out.println("Food Object Tested");
+            } else {
+                System.out.println("Food Testing Failed");
+                System.exit(1);
+            }
+            Food newFood = new Food("New Food", "2017.11.17.00.52", "Curious");
+            System.out.println("Testing DB connection");
+            connectToDatabase();
+            System.out.println("Testing DB POST");
+            postFood(profile, food);
+            System.out.println("Testing DB READ");
+            getFoodsForUser(profile.user.getUsername());
+            System.out.println("Testing DB PUT");
+            putFood(profile, food, newFood);
+            System.out.println("Testing DB DELETE");
+            deleteFood(food);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+}

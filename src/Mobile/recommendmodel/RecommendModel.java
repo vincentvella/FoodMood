@@ -1,4 +1,5 @@
 package Mobile.recommendmodel;
+
 import Mobile.recommendctrl.RecommendController;
 import Mobile.recommendview.RecommendView;
 import Mobile.crudfoodmodel.Food;
@@ -17,13 +18,22 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class RecommendModel {
-    
+
+    /**
+     * Static Filename for Reading/Writing to CSV
+     */
     private final static String FOOD_FILE = "src/Mobile/crudfoodmodel/FoodModel.csv";
 
+    /**
+     * Object instantiation
+     */
     public RecommendModel() {
         connectToDatabase();
     }
 
+    /**
+     * Checks DB Connection
+     */
     private void connectToDatabase() {
         try {
             BufferedReader br = new BufferedReader(new FileReader(FOOD_FILE));
@@ -33,7 +43,14 @@ public class RecommendModel {
             e.printStackTrace();
         }
     }
-    
+
+    /**
+     * Returns a Map of occurances for most popular moods for a specific user
+     *
+     * @param mood
+     * @param prof
+     * @return
+     */
     private static Map<String, Integer> getOccurances(Mood mood, Profile prof) {
         Map<String, Integer> occurances = new HashMap<>();
         try {
@@ -59,6 +76,13 @@ public class RecommendModel {
         return occurances;
     }
 
+    /**
+     * Gets a full list of Mood Associations
+     *
+     * @param mood
+     * @param prof
+     * @return
+     */
     public static ArrayList<String> getMoodAssociation(Mood mood, Profile prof) {
         Map<String, Integer> associations = getOccurances(mood, prof);
         ArrayList<String> result = new ArrayList<>();
@@ -71,10 +95,9 @@ public class RecommendModel {
                 }
             });
         }
-        if(result.isEmpty()){
+        if (result.isEmpty()) {
             result.add("There were no results for this mood.");
         }
         return result;
     }
 }
-
