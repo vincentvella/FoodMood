@@ -56,13 +56,13 @@ public class ProfileEdit extends javax.swing.JFrame {
 
         jLabel5.setText("Email:");
 
-//        jTextField1.setText(currentProfile.user.getUsername());
-//
-//        jTextField2.setText(currentProfile.getFirstName());
-//
-//        jTextField3.setText(currentProfile.getLastName());
-//
-//        jTextField4.setText(currentProfile.getEmail());
+        jTextField1.setText(currentProfile.user.getUsername());
+
+        jTextField2.setText(currentProfile.getFirstName());
+
+        jTextField3.setText(currentProfile.getLastName());
+
+        jTextField4.setText(currentProfile.getEmail());
 
         jButton1.setText("Save Changes");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -86,6 +86,8 @@ public class ProfileEdit extends javax.swing.JFrame {
         jButton2.setText("Cancel");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
+                
+                ProfileView profile = new ProfileView(currentProfile);
                 dispose();
             }
         });
