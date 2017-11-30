@@ -20,12 +20,15 @@ public class PasswordChange extends javax.swing.JFrame{
     
     public PasswordChange(Profile prof){
         System.out.println("Password change window instantiated.");
+       
+        //build window
         currentProfile = prof;
         initComponents(currentProfile);      
     }
     
     private void initComponents(Profile prof) {
 
+        //declare variables
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPasswordField1 = new javax.swing.JPasswordField();
@@ -45,6 +48,7 @@ public class PasswordChange extends javax.swing.JFrame{
 
         jLabel3.setText("Confirm Password:");
 
+        //decalre and set logic for submit error handling
         jButton1.setText("Change Password");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,6 +80,8 @@ public class PasswordChange extends javax.swing.JFrame{
             }
         });
         
+        //Generated code
+        // <editor-fold defaultstate="collapsed">
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("Change Password");
 
@@ -145,4 +151,5 @@ public class PasswordChange extends javax.swing.JFrame{
         pack();
         setVisible(true);
     }
+    // </editor-fold>
 }
