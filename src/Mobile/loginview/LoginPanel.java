@@ -3,6 +3,8 @@ package Mobile.loginview;
 import java.awt.Color;
 import Mobile.mainmenuview.MainMenu;
 import Mobile.userprofileview.ProfileView;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 
 public class LoginPanel extends javax.swing.JFrame {
     public MainMenu mainmenu = null;
@@ -12,6 +14,10 @@ public class LoginPanel extends javax.swing.JFrame {
     public LoginPanel() {
         initComponents();
         this.getContentPane().setBackground(Color.DARK_GRAY);
+        
+        //Spawns frame in center of monitor
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
     }
 
     /**
@@ -31,6 +37,8 @@ public class LoginPanel extends javax.swing.JFrame {
         passwordTextField = new javax.swing.JPasswordField();
         submitButton = new java.awt.Button();
         registerButton = new java.awt.Button();
+        exitButton = new java.awt.Button();
+        notificationButton = new javax.swing.JButton();
         registerPanel = new javax.swing.JPanel();
         registerEmailLabel = new javax.swing.JLabel();
         registerEmailField = new javax.swing.JTextField();
@@ -51,7 +59,8 @@ public class LoginPanel extends javax.swing.JFrame {
         setTitle("FoodMood");
         setAutoRequestFocus(false);
         setForeground(new java.awt.Color(51, 51, 51));
-        setPreferredSize(new java.awt.Dimension(1024, 768));
+        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(512, 768));
         setResizable(false);
 
         loginMainRight.setLayout(new java.awt.CardLayout());
@@ -94,13 +103,35 @@ public class LoginPanel extends javax.swing.JFrame {
             }
         });
 
-        registerButton.setBackground(new java.awt.Color(95, 98, 100));
+        registerButton.setBackground(new java.awt.Color(127, 86, 194));
         registerButton.setFont(new java.awt.Font("Arial Narrow", 0, 20)); // NOI18N
         registerButton.setForeground(new java.awt.Color(255, 255, 255));
         registerButton.setLabel("Register");
         registerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 registerButtonActionPerformed(evt);
+            }
+        });
+
+        exitButton.setActionCommand("Exit");
+        exitButton.setBackground(new java.awt.Color(95, 98, 100));
+        exitButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        exitButton.setFont(new java.awt.Font("Arial Narrow", 0, 20)); // NOI18N
+        exitButton.setForeground(new java.awt.Color(255, 255, 255));
+        exitButton.setLabel("Exit");
+        exitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitButtonActionPerformed(evt);
+            }
+        });
+
+        notificationButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Mobile/mainmenuview/images/logo.png"))); // NOI18N
+        notificationButton.setBorder(null);
+        notificationButton.setMaximumSize(new java.awt.Dimension(2133, 2133));
+        notificationButton.setMinimumSize(new java.awt.Dimension(2133, 2133));
+        notificationButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                notificationButtonActionPerformed(evt);
             }
         });
 
@@ -113,16 +144,25 @@ public class LoginPanel extends javax.swing.JFrame {
                 .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(usernameLabel)
                     .addComponent(passwordLabel)
-                    .addComponent(registerButton, javax.swing.GroupLayout.DEFAULT_SIZE, 458, Short.MAX_VALUE)
-                    .addComponent(submitButton, javax.swing.GroupLayout.DEFAULT_SIZE, 458, Short.MAX_VALUE)
                     .addComponent(passwordTextField)
-                    .addComponent(usernameTextField))
+                    .addComponent(usernameTextField)
+                    .addComponent(exitButton, javax.swing.GroupLayout.DEFAULT_SIZE, 458, Short.MAX_VALUE)
+                    .addGroup(loginPanelLayout.createSequentialGroup()
+                        .addComponent(submitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(registerButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(27, 27, 27))
+            .addGroup(loginPanelLayout.createSequentialGroup()
+                .addGap(128, 128, 128)
+                .addComponent(notificationButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         loginPanelLayout.setVerticalGroup(
             loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(loginPanelLayout.createSequentialGroup()
-                .addGap(340, 340, 340)
+                .addGap(45, 45, 45)
+                .addComponent(notificationButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(63, 63, 63)
                 .addComponent(usernameLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(usernameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -131,10 +171,12 @@ public class LoginPanel extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(passwordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(49, 49, 49)
-                .addComponent(submitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(submitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(registerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(registerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(118, Short.MAX_VALUE))
+                .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(94, Short.MAX_VALUE))
         );
 
         usernameLabel.getAccessibleContext().setAccessibleName("");
@@ -145,6 +187,10 @@ public class LoginPanel extends javax.swing.JFrame {
         passwordLabel.setForeground(new java.awt.Color(204, 204, 204));
         passwordTextField.getAccessibleContext().setAccessibleName("");
         passwordTextField.setBackground(new java.awt.Color(69, 73, 74));
+        notificationButton.setBorderPainted(false);
+        notificationButton.setContentAreaFilled(false);
+        notificationButton.setFocusPainted(false);
+        notificationButton.setOpaque(false);
 
         loginMainRight.add(loginPanel, "loginPanel");
         loginPanel.getAccessibleContext().setAccessibleName("loginRightPanel");
@@ -328,7 +374,7 @@ public class LoginPanel extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(0, 512, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(loginMainRight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
@@ -398,6 +444,14 @@ public class LoginPanel extends javax.swing.JFrame {
             System.out.println("Invalid input/username exists");
         }
     }//GEN-LAST:event_confirmButtonActionPerformed
+
+    private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_exitButtonActionPerformed
+
+    private void notificationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_notificationButtonActionPerformed
+
+    }//GEN-LAST:event_notificationButtonActionPerformed
     
     Boolean passwordMatch(){
         if(registerPasswordField.getText().equals(confirmPasswordField.getText())){
@@ -418,8 +472,10 @@ public class LoginPanel extends javax.swing.JFrame {
     private java.awt.Button confirmButton;
     private javax.swing.JPasswordField confirmPasswordField;
     private javax.swing.JLabel confirmPasswordLabel;
+    private java.awt.Button exitButton;
     private javax.swing.JPanel loginMainRight;
     private javax.swing.JPanel loginPanel;
+    private javax.swing.JButton notificationButton;
     private javax.swing.JLabel passwordLabel;
     private javax.swing.JPasswordField passwordTextField;
     private java.awt.Button registerButton;
