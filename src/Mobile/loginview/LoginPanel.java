@@ -6,7 +6,7 @@ import Mobile.userprofileview.ProfileView;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 
-public class LoginPanel extends javax.swing.JFrame {
+public class LoginPanel extends javax.swing.JFrame{
     public MainMenu mainmenu = null;
     /**
      * Creates new form LoginPanel
@@ -18,6 +18,7 @@ public class LoginPanel extends javax.swing.JFrame {
         //Spawns frame in center of monitor
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
         this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
+        
     }
 
     /**
@@ -466,7 +467,6 @@ public class LoginPanel extends javax.swing.JFrame {
         return creds;
     }
 
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Button cancelButton;
     private java.awt.Button confirmButton;
@@ -494,4 +494,5 @@ public class LoginPanel extends javax.swing.JFrame {
     private javax.swing.JLabel usernameLabel;
     private javax.swing.JTextField usernameTextField;
     // End of variables declaration//GEN-END:variables
+
 }
