@@ -9,7 +9,7 @@ import Mobile.userprofilemodel.Profile;
 import java.awt.Color;
 import Mobile.recommendmodel.RecommendModel;
 import Mobile.recommendview.RecommendView;
-import Mobile.recommendview.TestPanel;
+import Mobile.recommendview.RecommendView;
 import Mobile.userprofilemodel.User;
 
 public class MainMenu extends javax.swing.JFrame {
