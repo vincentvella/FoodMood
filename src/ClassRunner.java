@@ -14,9 +14,7 @@ public class ClassRunner {
     public static void main(String args[]) {
         TestHarness.startTests();
         UserProfileCtrl ctrl = new UserProfileCtrl();
-        String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm").format(new java.util.Date());
-        Food testFood = new Food("Beef", timeStamp, "Happy");
-        System.out.println(CorrelationModel.getOccurrences(testFood));
+        CorrelationModel.getAllFoods();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 login = new LoginPanel();
