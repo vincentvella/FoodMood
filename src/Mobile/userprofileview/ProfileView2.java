@@ -5,6 +5,9 @@
  */
 package Mobile.userprofileview;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
+
 /**
  *
  * @author Zach
@@ -16,6 +19,10 @@ public class ProfileView2 extends javax.swing.JFrame {
      */
     public ProfileView2() {
         initComponents();
+        
+        //Spawns frame in center of monitor
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
     }
 
     /**
@@ -33,11 +40,11 @@ public class ProfileView2 extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 512, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 768, Short.MAX_VALUE)
         );
 
         pack();
