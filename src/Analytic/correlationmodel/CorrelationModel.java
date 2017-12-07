@@ -43,6 +43,7 @@ public class CorrelationModel {
 
     /**
      * Gets Occurrences Integer Array for a given food
+     * Pass in a food and it will respond with an array of occurrences
      * @param food
      * @return 
      */
@@ -59,14 +60,37 @@ public class CorrelationModel {
                     foodData = record.split(",");
                     if (foodData[1].equals(food.getFoodName())) {
                         occurrences[moodList.indexOf(food.getFoodMood())]++;
-                        System.out.println(Arrays.toString(occurrences));
                     }
                 }
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println(Arrays.toString(occurrences));
         return occurrences;
+    }
+    
+    public static ArrayList<Food> getAllFoods() {
+        ArrayList<Food> result = new ArrayList<>();
+        try {
+            String record;
+            String[] foodData;
+            File db = new File(FOOD_FILE);
+            BufferedReader br = new BufferedReader(new FileReader(db));
+            while ((record = br.readLine()) != null) {
+                String mood = "";
+                foodData = record.split(",");
+                if (!foodData[3].equals("*/&%")) {
+                    mood = foodData[3];
+                }
+                result.add(new Food(foodData[1], foodData[2], mood));
+            }
+            br.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        for(int i = 0; i<result.size(); i++){
+            System.out.println(result);
+        }
+        return result;
     }
 }
