@@ -45,14 +45,14 @@ public class RecommendModel {
     }
 
     /**
-     * Returns a Map of occurances for most popular moods for a specific user
+     * Returns a Map of occurrences for most popular moods for a specific user
      *
      * @param mood
      * @param prof
      * @return
      */
-    private static Map<String, Integer> getOccurances(Mood mood, Profile prof) {
-        Map<String, Integer> occurances = new HashMap<>();
+    private static Map<String, Integer> getOccurrences(Mood mood, Profile prof) {
+        Map<String, Integer> occurrences = new HashMap<>();
         try {
             String record;
             String[] foodData;
@@ -61,11 +61,11 @@ public class RecommendModel {
                 while ((record = br.readLine()) != null) {
                     foodData = record.split(",");
                     if (foodData[3].equals(mood.getMoodName()) && foodData[0].equals(prof.user.username)) {
-                        if (!occurances.containsKey(foodData[1])) {
-                            occurances.put(foodData[1], 1);
-                        } else if (occurances.containsKey(foodData[1])) {
-                            int f = occurances.get(foodData[1]);
-                            occurances.put(foodData[1], f + 1);
+                        if (!occurrences.containsKey(foodData[1])) {
+                            occurrences.put(foodData[1], 1);
+                        } else if (occurrences.containsKey(foodData[1])) {
+                            int f = occurrences.get(foodData[1]);
+                            occurrences.put(foodData[1], f + 1);
                         }
                     }
                 }
@@ -73,7 +73,7 @@ public class RecommendModel {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return occurances;
+        return occurrences;
     }
 
     /**
@@ -84,7 +84,7 @@ public class RecommendModel {
      * @return
      */
     public static ArrayList<String> getMoodAssociation(Mood mood, Profile prof) {
-        Map<String, Integer> associations = getOccurances(mood, prof);
+        Map<String, Integer> associations = getOccurrences(mood, prof);
         ArrayList<String> result = new ArrayList<>();
         if (!associations.isEmpty()) {
             int maxValue = Collections.max(associations.values());
