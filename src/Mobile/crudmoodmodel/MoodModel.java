@@ -37,7 +37,7 @@ public class MoodModel {
      *
      * @return
      */
-    public ArrayList<String> getMoodList() {
+    public static ArrayList<String> getMoodList() {
         ArrayList<String> moodList = new ArrayList<>();
         try {
             String record;
@@ -56,6 +56,12 @@ public class MoodModel {
             e.printStackTrace();
         }
         return null;
+    }
+    
+    public static String[] getMoodArray() {
+        ArrayList<String> moodList = getMoodList();
+        String[] moodArr = new String[moodList.size()];
+        return moodList.toArray(moodArr);
     }
 
     /**
