@@ -32,7 +32,7 @@ public class ProfileView extends javax.swing.JFrame {
         
         //Spawns frame in center of monitor
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
+        this.setLocation( (dim.width/2-this.getSize().width/2) + 165, dim.height/2-this.getSize().height/2);
     }
 
     /**
@@ -58,6 +58,7 @@ public class ProfileView extends javax.swing.JFrame {
         backButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel1.setText("Profile Information");

@@ -13,6 +13,8 @@ import Mobile.userprofilemodel.Profile;
 import java.text.SimpleDateFormat;
 import Mobile.mainmenuview.MainMenu;
 import Mobile.notificationsctrl.NotificationsController;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.util.Arrays;
 
 /**
@@ -24,14 +26,21 @@ public class NewEntryView extends javax.swing.JFrame {
     private Profile prof;
     FoodModel foodDB = new FoodModel();
     MoodModel moodDB = new MoodModel();
+    private MainMenu mm;
     NotificationsController nc;
 
     /**
      * Creates new form NewEntryView
      */
-    public NewEntryView() {
+    public NewEntryView(MainMenu mm) {
+        this.mm = mm;
         initComponents();
         prof = MainMenu.prof;
+        this.getContentPane().setBackground(new java.awt.Color(66, 69, 71));
+        
+        //Spawns frame in center of monitor
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation( (dim.width/2-this.getSize().width/2) + 65, dim.height/2-this.getSize().height/2);
     }
 
     /**
@@ -51,6 +60,7 @@ public class NewEntryView extends javax.swing.JFrame {
         submitButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setUndecorated(true);
 
         foodEntryLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         foodEntryLabel.setText("Food:");
@@ -148,6 +158,7 @@ public class NewEntryView extends javax.swing.JFrame {
     }//GEN-LAST:event_moodComboBoxActionPerformed
 
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
+        mm.buttonEnable(mm.foodMoodEntryButton);
         dispose();
     }//GEN-LAST:event_cancelButtonActionPerformed
 
@@ -155,12 +166,7 @@ public class NewEntryView extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new NewEntryView().setVisible(true);
-            }
-        });
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

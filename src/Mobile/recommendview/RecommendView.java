@@ -9,6 +9,8 @@ import Mobile.crudfoodmodel.Food;
 import Mobile.crudmoodmodel.Mood;
 import static Mobile.mainmenuview.MainMenu.prof;
 import Mobile.recommendmodel.RecommendModel;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.JLabel;
@@ -45,6 +47,10 @@ public class RecommendView extends javax.swing.JFrame {
         });
 
         setVisible(true);
+        
+        //Spawns frame in center of monitor
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation( (dim.width/2-this.getSize().width/2) + 165, dim.height/2-this.getSize().height/2);
     }
 
     /**
@@ -65,6 +71,7 @@ public class RecommendView extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         titleText.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         titleText.setText("Select Mood:");

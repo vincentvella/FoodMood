@@ -13,6 +13,8 @@ import javax.swing.JScrollPane;
 import Mobile.userprofilemodel.Profile;
 import Mobile.userprofilemodel.User;
 import Mobile.userprofileview.ProfileView;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 /**
  *
  * @author Zach
@@ -39,14 +41,15 @@ public class HistoryView extends javax.swing.JFrame {
     */
     
     public HistoryView(Profile prof) {
-        
         //set basic needed info
         currentProfile = prof;
-        //setTitle("User History: " + prof.user.getUsername());
         
         //build window
         initComponents();
-        setVisible(true);
+        
+        //Spawns frame in center of monitor
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation( (dim.width/2-this.getSize().width/2) + 266, dim.height/2-this.getSize().height/2);
     }
 
     /**
@@ -59,7 +62,7 @@ public class HistoryView extends javax.swing.JFrame {
     private void initComponents() {
 
         panel = new javax.swing.JPanel();
-        
+        setUndecorated(true);
         //set table and pane properties
         String[] columns = {"Food Name", "Associated Mood", "Time Entered"};
         Object[][] data = getTableData(currentProfile);
