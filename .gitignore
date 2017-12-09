@@ -12,3 +12,4 @@ nbactions.xml
 nbproject/private/private.properties
 .idea/
 *.properties
+*.class
