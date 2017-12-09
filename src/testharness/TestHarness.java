@@ -1,7 +1,5 @@
 package testharness;
 
-import Analytic.historymodel.FoodStat;
-import Analytic.historymodel.MoodStat;
 import Mobile.userprofilectrl.UserProfileCtrl;
 import Analytic.historyctrl.StatController;
 import Analytic.correlationctrl.ChartController;
