@@ -7,6 +7,7 @@ package Analytic.mainview;
 
 import Analytic.chartview.SpiderChartView;
 import Analytic.correlationview.CorrelationView;
+import Analytic.historyview.AnalyticsLogsView;
 import Analytic.historyview.HistoryView;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -24,6 +25,7 @@ public class MainMenuAnalytic extends javax.swing.JFrame {
     public MainMenuAnalytic() {
         initComponents();
         this.getContentPane().setBackground(new Color(60, 63, 65));
+        this.setFocusableWindowState(false);
         
         //Spawns frame in center of monitor
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
@@ -136,7 +138,7 @@ public class MainMenuAnalytic extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
-        dispose();
+        System.exit(0);
     }//GEN-LAST:event_exitButtonActionPerformed
 
     private void viewChartsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewChartsActionPerformed
@@ -148,7 +150,8 @@ public class MainMenuAnalytic extends javax.swing.JFrame {
     }//GEN-LAST:event_viewCorrelationsActionPerformed
 
     private void viewLogsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewLogsActionPerformed
-        new HistoryView().setVisible(true);
+        //new HistoryView().setVisible(true);
+        new AnalyticsLogsView().setVisible(true);
     }//GEN-LAST:event_viewLogsActionPerformed
 
     /**
