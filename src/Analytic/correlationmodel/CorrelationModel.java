@@ -47,7 +47,7 @@ public class CorrelationModel {
      * @param food
      * @return an integer array in the same order of mood list
      */
-    public static int[] getChartStats(Food food) {
+    public static int[] getChartStats(String food) {
         int[] occurrences = {0,0,0,0,0,0,0,0,0,0,0,0};
         ArrayList<String> moodList = MoodModel.getMoodList();
         try {
@@ -57,7 +57,7 @@ public class CorrelationModel {
             try (BufferedReader br = new BufferedReader(new FileReader(db))) {
                 while ((record = br.readLine()) != null) {
                     foodData = record.split(",");
-                    if (foodData[1].equals(food.getFoodName())) {
+                    if (foodData[1].equals(food)) {
                         occurrences[moodList.indexOf(foodData[3])]++;
                     }
                 }

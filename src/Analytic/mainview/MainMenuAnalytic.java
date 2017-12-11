@@ -5,11 +5,13 @@
  */
 package Analytic.mainview;
 
+import Analytic.chartview.ChartFrame;
 import Analytic.correlationview.CorrelationView;
 import Analytic.historyview.AnalyticsLogsView;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -139,8 +141,17 @@ public class MainMenuAnalytic extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_exitButtonActionPerformed
 
+    /*
+    TODO: Adjust food value to construct a food object from the row clicked
+    */
     private void viewChartsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewChartsActionPerformed
-        //new SpiderChartView().setVisible(true);
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+              ChartFrame mainFrame = new ChartFrame();
+              mainFrame.setVisible(true);
+              }
+        });
     }//GEN-LAST:event_viewChartsActionPerformed
 
     private void viewCorrelationsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewCorrelationsActionPerformed
