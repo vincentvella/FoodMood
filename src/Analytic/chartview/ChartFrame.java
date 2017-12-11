@@ -7,6 +7,10 @@ package Analytic.chartview;
 
 import Analytic.correlationmodel.CorrelationModel;
 import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -17,21 +21,19 @@ import javafx.scene.layout.GridPane;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
-/**
- *
- * @author Joe
- */
 public class ChartFrame extends JFrame {
-
+  Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
   JFXPanel fxPanel;
   private static String food;
   private int[] moodOccurrences;
   private String[] moods = new String[]{"Happy", "Sad", "Silly", "Angry", "Sick", "Disappointed", "Frustrated", "Proud", "Excited", "Scared", "Surprised", "Nervous"};
-  private static PieChart pieChart;
-    
-  public ChartFrame(String food){
-    this.food = food;
+  private PieChart pieChart;
+  private JTextField textField = new JTextField(20);
+  
+  public ChartFrame(){
+    this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
     initSwingComponents();
     initFxComponents();
   }
@@ -39,14 +41,22 @@ public class ChartFrame extends JFrame {
   private void initSwingComponents(){
     JPanel mainPanel = new JPanel(new BorderLayout());
     fxPanel = new JFXPanel();
+    
     mainPanel.add(fxPanel, BorderLayout.CENTER);
-
-    JLabel titleLabel = new JLabel("Charts in Swing applications");
-    mainPanel.add(titleLabel, BorderLayout.NORTH);
-
+    
+    mainPanel.add(textField, BorderLayout.NORTH);
+    textField.addActionListener(new ActionListener()
+    {
+       @Override
+       public void actionPerformed(ActionEvent e){
+           food = textField.getText();
+           initFxComponents();
+       } 
+    });
+    
     this.add(mainPanel);
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    this.setSize(800,600);
+    this.setSize(500,500);
   }
 
   private void initFxComponents(){
@@ -55,11 +65,11 @@ public class ChartFrame extends JFrame {
         @Override
         public void run() {
             GridPane grid = new GridPane();
-            Scene scene = new Scene(grid, 800, 600);
+            Scene scene = new Scene(grid, 500, 500);
 
             ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList();
             moodOccurrences = CorrelationModel.getChartStats(food);
-            
+            System.out.println(food);
             for(int x = 0; x < moodOccurrences.length; x++){
                 pieChartData.add(new PieChart.Data(moods[x], moodOccurrences[x]));
             }

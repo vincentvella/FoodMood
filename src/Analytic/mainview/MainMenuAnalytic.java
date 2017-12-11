@@ -8,19 +8,9 @@ package Analytic.mainview;
 import Analytic.chartview.ChartFrame;
 import Analytic.correlationview.CorrelationView;
 import Analytic.historyview.AnalyticsLogsView;
-import Analytic.historyview.HistoryView;
-import Mobile.crudfoodmodel.Food;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
-import javafx.application.Platform;
-import javafx.embed.swing.JFXPanel;
-import javafx.scene.Scene;
-import javafx.scene.chart.PieChart;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.StackPane;
-import javafx.stage.Stage;
-import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
 /**
@@ -158,9 +148,7 @@ public class MainMenuAnalytic extends javax.swing.JFrame {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-              
-              String food = "Beef";
-              ChartFrame mainFrame = new ChartFrame(food);
+              ChartFrame mainFrame = new ChartFrame();
               mainFrame.setVisible(true);
               }
         });
