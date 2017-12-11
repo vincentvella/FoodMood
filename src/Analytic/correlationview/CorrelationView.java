@@ -5,6 +5,17 @@
  */
 package Analytic.correlationview;
 
+import Mobile.crudmoodmodel.Mood;
+import Analytic.correlationmodel.CorrelationModel;
+import java.awt.Dimension;
+import java.awt.Toolkit;
+import java.util.ArrayList;
+import java.util.Hashtable;
+import java.util.Map;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.ListModel;
+
 /**
  *
  * @author Ben
@@ -16,6 +27,10 @@ public class CorrelationView extends javax.swing.JFrame {
      */
     public CorrelationView() {
         initComponents();
+        
+        //Spawns frame in center of monitor
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation( (dim.width/2-this.getSize().width/2) + 100, dim.height/2-this.getSize().height/2);
     }
 
     /**
@@ -27,57 +42,134 @@ public class CorrelationView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        titleLabel = new javax.swing.JLabel();
+        selectLabel = new javax.swing.JLabel();
+        moodComboBoxRec = new javax.swing.JComboBox<>();
+        submitButtonCorrelation = new javax.swing.JButton();
+        scroll = new javax.swing.JScrollPane();
+        closeButton = new java.awt.Button();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+
+        titleLabel.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        titleLabel.setText("FoodMood Correlations");
+
+        selectLabel.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        selectLabel.setText("Select Mood:");
+
+        moodComboBoxRec.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        moodComboBoxRec.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Select one-", "Happy", "Sad", "Silly", "Angry", "Sick", "Disappointed", "Frustrated", "Proud", "Excited", "Scared", "Suprised", "Nervous" }));
+        moodComboBoxRec.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                moodComboBoxRecActionPerformed(evt);
+            }
+        });
+
+        submitButtonCorrelation.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        submitButtonCorrelation.setText("Search");
+        submitButtonCorrelation.setEnabled(false);
+        submitButtonCorrelation.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitButtonCorrelationActionPerformed(evt);
+            }
+        });
+
+        scroll.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+
+        closeButton.setActionCommand("Close");
+        closeButton.setBackground(new java.awt.Color(127, 86, 194));
+        closeButton.setFont(new java.awt.Font("Arial Narrow", 0, 18)); // NOI18N
+        closeButton.setForeground(new java.awt.Color(255, 255, 255));
+        closeButton.setLabel("Close");
+        closeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                closeButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 825, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(scroll)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(selectLabel)
+                        .addGap(18, 18, 18)
+                        .addComponent(moodComboBoxRec, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 355, Short.MAX_VALUE)
+                        .addComponent(submitButtonCorrelation))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(titleLabel)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 750, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(titleLabel)
+                .addGap(15, 15, 15)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(moodComboBoxRec, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(selectLabel)
+                    .addComponent(submitButtonCorrelation))
+                .addGap(18, 18, 18)
+                .addComponent(scroll, javax.swing.GroupLayout.DEFAULT_SIZE, 590, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void moodComboBoxRecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moodComboBoxRecActionPerformed
+        final boolean submitEnabled = moodComboBoxRec.getSelectedIndex() == 0;
+        submitButtonCorrelation.setEnabled(!submitEnabled);
+    }//GEN-LAST:event_moodComboBoxRecActionPerformed
+
+    private void submitButtonCorrelationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonCorrelationActionPerformed
+        String currentMood;
+        currentMood = (String) moodComboBoxRec.getSelectedItem();
+        Map<String, Integer> correlations = CorrelationModel.getMoodOccurrences(new Mood(currentMood));
+        ArrayList <String> list = new ArrayList<>();
+        for (String name: correlations.keySet()) {
+            String key = name.toString();
+            String value = correlations.get(name).toString();
+            list.add("Food Name: " + key + ". Number of Occurences: " + value + ".");
+        }
+
+        //set needed properties
+        JList displayList = new JList(list.toArray());
+        scroll.setViewportView(displayList);
+        selectLabel.setText("Correlations");
+        selectLabel.setHorizontalAlignment(JLabel.CENTER);
+    }//GEN-LAST:event_submitButtonCorrelationActionPerformed
+
+    private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
+        dispose();
+    }//GEN-LAST:event_closeButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CorrelationView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CorrelationView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CorrelationView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CorrelationView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new CorrelationView().setVisible(true);
-            }
-        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private java.awt.Button closeButton;
+    private javax.swing.JComboBox<String> moodComboBoxRec;
+    private javax.swing.JScrollPane scroll;
+    private javax.swing.JLabel selectLabel;
+    private javax.swing.JButton submitButtonCorrelation;
+    private javax.swing.JLabel titleLabel;
     // End of variables declaration//GEN-END:variables
 }
