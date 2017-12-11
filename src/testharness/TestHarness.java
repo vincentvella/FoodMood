@@ -2,7 +2,6 @@ package testharness;
 
 import Mobile.userprofilectrl.UserProfileCtrl;
 import Analytic.historyctrl.StatController;
-import Analytic.correlationctrl.ChartController;
 import Mobile.crudfoodctrl.FoodCtrl;
 import Mobile.crudmoodctrl.MoodCtrl;
 import Mobile.historyctrl.HistoryController;
