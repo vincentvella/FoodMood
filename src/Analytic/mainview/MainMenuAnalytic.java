@@ -5,10 +5,8 @@
  */
 package Analytic.mainview;
 
-import Analytic.chartview.SpiderChartView;
 import Analytic.correlationview.CorrelationView;
 import Analytic.historyview.AnalyticsLogsView;
-import Analytic.historyview.HistoryView;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -142,7 +140,7 @@ public class MainMenuAnalytic extends javax.swing.JFrame {
     }//GEN-LAST:event_exitButtonActionPerformed
 
     private void viewChartsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewChartsActionPerformed
-        new SpiderChartView().setVisible(true);
+        //new SpiderChartView().setVisible(true);
     }//GEN-LAST:event_viewChartsActionPerformed
 
     private void viewCorrelationsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewCorrelationsActionPerformed
